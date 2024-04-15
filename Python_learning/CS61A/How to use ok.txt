@@ -1,0 +1,19 @@
+Test specific questions
+python3 ok -q <question>
+
+Test all questions
+python3 ok
+
+Display all tests
+python3 ok -v
+
+Test locally
+python3 ok --local
+
+The best way to open an interactive terminal to investigate a failing test for question sum_digits in assignment lab01?
+python ok -q <question name> -i
+
+What is the best way to look at an environment diagram to investigate a failing test 
+for question sum_digits in assignment lab01?
+python ok -q <question name> --trace
+
