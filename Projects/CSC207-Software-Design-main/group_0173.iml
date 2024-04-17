@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/phase1/Test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/phase1/DBTest" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/phase2/Entities" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/phase2/src" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/phase2/Group_0173 Dependency" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/phase2/Group_0173 Dependency" recursive="false" />
+      </library>
+    </orderEntry>
+  </component>
+</module>
