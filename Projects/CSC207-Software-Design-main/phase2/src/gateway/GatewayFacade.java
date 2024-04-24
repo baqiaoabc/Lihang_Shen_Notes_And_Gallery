@@ -13,7 +13,9 @@ import java.util.*;
  **/
 public class GatewayFacade {
 
-    /** Gateways */
+    /** Gateways
+     *  used to connect to DB, related info should be set in Config file
+     * */
     private final HashGateway<User> userGateway = new HashGateway<>(Config.NEXT_USER_ID, Config.USER_HASH, User.class, true);
     private final HashGateway<Event> eventGateway = new HashGateway<>(Config.NEXT_EVENT_ID, Config.EVENT_HASH, Event.class, true);
     private final HashGateway<Room> roomGateway = new HashGateway<>(Config.NEXT_ROOM_ID, Config.ROOM_HASH, Room.class, false);

@@ -1,20 +1,20 @@
 package gateway;
 
+import entity.Organizer;
+import entity.User;
+
 /**
  * @program: group_0173
  * @description: Configuration of DATABASE.
  * @create: 2020-11-30 14:33
  **/
 public class Config {
-<<<<<<< HEAD
-    static final String DATABASE_URL = "url";
-    static final int DATABASE_PORT = 00;
-    static final String DATABASE_PASSWORD = "password";
-=======
-    static final String DATABASE_URL = "207.246.94.177";
+    // server ip Address
+    static final String DATABASE_URL = "192.168.186.128";
+    // DB port number
     static final int DATABASE_PORT = 6379;
-    static final String DATABASE_PASSWORD = "207207";
->>>>>>> master
+    // DB password; should be set in redis.conf file
+    static final String DATABASE_PASSWORD = "csc207";
 
     static final String NEXT_USER_ID = "next_user_id";
     static final String NEXT_EVENT_ID = "next_event_id";

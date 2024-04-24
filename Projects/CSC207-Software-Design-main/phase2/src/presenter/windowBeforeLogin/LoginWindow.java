@@ -1,9 +1,14 @@
 package presenter.windowBeforeLogin;
 
+import controller.ConferenceSystem;
+import entity.Organizer;
+import entity.User;
+import gateway.GatewayFacade;
 import presenter.*;
 import presenter.factory.JOptionPaneFactory;
 import presenter.language.English;
 import presenter.language.Language;
+import usecase.UserManager;
 
 import javax.swing.*;
 import java.awt.*;
@@ -28,6 +33,7 @@ public class LoginWindow extends JFrame implements IUpdate {
     Presenter presenter = new Presenter();
     JOptionPaneFactory wf;
     IUpdate window = this;
+    private GatewayFacade gw = new GatewayFacade();
 
     /**
      * construct the login window in English
@@ -53,6 +59,9 @@ public class LoginWindow extends JFrame implements IUpdate {
         setContentPane(loginPanel);
         loginPanel.setLayout(new GridLayout(4,2,0,50));
 
+        //set an organizer
+        User initialed_organizer = new Organizer(999, "123456", "organizer");
+        gw.addUser(initialed_organizer);
 
         usernameLabel = new JLabel(language.username());
         usernameLabel.setFont(defaultFont);
@@ -88,6 +97,7 @@ public class LoginWindow extends JFrame implements IUpdate {
 
         loginPanel.setVisible(true);
 
+        // do sign up action after clicked ok button
         okButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

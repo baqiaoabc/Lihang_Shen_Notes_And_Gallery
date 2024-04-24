@@ -23,6 +23,8 @@ public class GatewayCli extends Gateway{
 
     public static void main(String[] args) {
         GatewayFacade gatewayFacade = new GatewayFacade();
+
+
         Scanner scan = new Scanner(System.in);
         String input = "";
         GatewayCli gcli = new GatewayCli();

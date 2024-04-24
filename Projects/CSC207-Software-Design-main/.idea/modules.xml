@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/CSC207-Software-Design-main.iml" filepath="$PROJECT_DIR$/.idea/CSC207-Software-Design-main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/phase1/phase1.iml" filepath="$PROJECT_DIR$/phase1/phase1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/phase2/phase2.iml" filepath="$PROJECT_DIR$/phase2/phase2.iml" />
+    </modules>
+  </component>
+</project>
