@@ -16,7 +16,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * The first window users see
+ * The first window users see; user interface
  */
 public class LoginWindow extends JFrame implements IUpdate {
     JLabel usernameLabel;
