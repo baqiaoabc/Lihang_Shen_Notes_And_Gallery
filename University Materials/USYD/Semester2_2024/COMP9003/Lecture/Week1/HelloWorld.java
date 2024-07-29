@@ -1,10 +1,12 @@
+package Semester2_2024.COMP9003.Lecture.Week1;
+
 import java.util.Scanner;
 
 public class HelloWorld{
     // 1. only one main method
     // 2. 需要javac先编译，再运行；但是idea帮我们把这两步绑定了
-        // javac HelloWorld.java
-        // java HelloWorld
+        // javac 2024 S2.COMP9003.Lecture.Week 1.HelloWorld.java
+        // java 2024 S2.COMP9003.Lecture.Week 1.HelloWorld
     //  3. main method signature 是固定的吗？是的，别的都不行比如变成int args;int[]不行
     //     如果换了signature，会报什么错？ cannot find main method
     //  7. 括号中的Stringp[] args是指输入的argument

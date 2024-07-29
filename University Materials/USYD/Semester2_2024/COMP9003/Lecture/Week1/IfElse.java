@@ -1,3 +1,5 @@
+package Semester2_2024.COMP9003.Lecture.Week1;
+
 public class IfElse {
     public static void main(String[] args){
         // indentation has no impact on java

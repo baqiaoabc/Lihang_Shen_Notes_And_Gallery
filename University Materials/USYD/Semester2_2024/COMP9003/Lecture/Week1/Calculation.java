@@ -1,3 +1,5 @@
+package Semester2_2024.COMP9003.Lecture.Week1;
+
 public class Calculation {
     // 主方法简写是什么
     public static void main(String[] args){

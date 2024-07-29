@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Java_notes/Library_learning/Library_learning.iml" filepath="$PROJECT_DIR$/Java_notes/Library_learning/Library_learning.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/USYD.iml" filepath="$PROJECT_DIR$/.idea/USYD.iml" />
+      <module fileurl="file://$PROJECT_DIR$/University Materials/University Materials.iml" filepath="$PROJECT_DIR$/University Materials/University Materials.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java_notes/notes/notes.iml" filepath="$PROJECT_DIR$/Java_notes/notes/notes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Projects/CSC207-Software-Design-main/phase1/phase1.iml" filepath="$PROJECT_DIR$/Projects/CSC207-Software-Design-main/phase1/phase1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Projects/CSC207-Software-Design-main/phase2/phase2.iml" filepath="$PROJECT_DIR$/Projects/CSC207-Software-Design-main/phase2/phase2.iml" />
+    </modules>
+  </component>
+</project>

@@ -7,16 +7,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Group_0173 Dependency1" level="project" />
     <orderEntry type="library" name="Group_0173 Dependency" level="project" />
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/Group_0173 Dependency" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-        <jarDirectory url="file://$MODULE_DIR$/Group_0173 Dependency" recursive="false" />
-      </library>
-    </orderEntry>
   </component>
 </module>
