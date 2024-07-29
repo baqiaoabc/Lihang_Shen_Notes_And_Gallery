@@ -9,6 +9,7 @@ public class Calculation {
         System.out.println(x/y);
 
         // refer to google "integer javadoc"
+        //
         // 重点，这里是static method， we can use it without create object
         int n1 = Integer.parseInt(args[0]);
         int n2 = Integer.parseInt(args[1]);
