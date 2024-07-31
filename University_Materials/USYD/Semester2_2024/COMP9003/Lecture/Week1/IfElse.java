@@ -1,9 +1,9 @@
-package Semester2_2024.COMP9003.Lecture.Week1;
-
 public class IfElse {
     public static void main(String[] args){
+
+        // double x= Double.parseDouble(args[0]);
+        double x = 12;
         // indentation has no impact on java
-        double x= Double.parseDouble(args[0]);
         // 只把下一行算入body内
     if (x<50)
             System.out.println("F");
@@ -13,5 +13,9 @@ public class IfElse {
             System.out.println("P");
         System.out.println("Finished");
 
+        int a1 = 1;
+        int a2 = 0;
+        if (false==true)
+            System.out.println();
     }
 }

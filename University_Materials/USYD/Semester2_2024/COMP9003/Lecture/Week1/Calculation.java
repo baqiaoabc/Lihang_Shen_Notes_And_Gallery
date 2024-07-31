@@ -1,10 +1,9 @@
-package Semester2_2024.COMP9003.Lecture.Week1;
 
 public class Calculation {
     // 主方法简写是什么
     public static void main(String[] args){
         // 1. 、
-        int x = 3;
+        int x = -9;
         double y = 1.0;
         System.out.println(x/2);
         System.out.println(y/2);
