@@ -1,0 +1,12 @@
+Code
+	Decision trees
+	
+	pruning trees
+	
+	Bagging
+	
+	Random Forests
+	
+	Ada Boosting
+	
+	Gradient Boosting

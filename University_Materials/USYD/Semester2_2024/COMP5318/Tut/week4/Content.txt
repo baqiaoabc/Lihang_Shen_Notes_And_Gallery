@@ -1,0 +1,9 @@
+Code
+	Naive Bayes
+	
+	Cross-validation
+	
+	performance measures: precision, recall and F1 score. Confusion matrix
+	Leave-one-out cross-validation
+	
+	Grid search with cross-validation for parameter selection
