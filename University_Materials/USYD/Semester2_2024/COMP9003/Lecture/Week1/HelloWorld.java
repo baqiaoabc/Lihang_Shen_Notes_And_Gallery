@@ -17,13 +17,13 @@ public class HelloWorld{
         float floatValue = scanner.nextFloat();
         System.out.println("You entered: " + floatValue);
 
-        // 清空缓冲区
+        // 清空缓冲区1
         scanner.nextLine(); // 清除输入缓冲区中的换行符
 
         // 读取字符串
         System.out.print("Enter a string: ");
         String stringValue = scanner.nextLine();
-        System.out.println("You entered: " + stringValue);
+        System.out.println(1+20/100.0);
 
         // 关闭 Scanner
         scanner.close();
