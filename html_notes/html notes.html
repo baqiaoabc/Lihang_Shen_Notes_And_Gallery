@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content ="IE=edge">
+    <meta name ="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--jPlayer-->
+    <link href="https://vjs.zencdn.net/8.3.0/video-js.css" rel="stylesheet"/>
+
+    <!--fullfill anotation later-->
+    <style>
+        #div1,#div2{
+            height: 400px
+        }
+    </style>
+
+    <title>html note</title>
+    <h1>HTML NOTES</h1>
+    <!--divider line-->
+    <hr></hr>
+
+    <!--base tag-->
+    <base target="_blank">
+<body>
+    <div>
+        <h1>Font</h1>
+        <s>delete line</s>
+        <i>italic</i>
+        <b>bold</b>
+        <u>underline</u>
+    </div>
+
+
+    <div>
+        <h1>special characters</h1>
+        <table border="2">
+            <tr>
+                <th>description</th>
+                <th>special characters</th>
+            </tr>
+            <tr>
+                <td>space:</td>
+                <td>"&nbsp;"</td>
+            </tr>
+            <tr>
+                <td>less thant sign:</td>
+                <td>"&lt;"</td>
+            </tr>
+            <tr>
+                <td>greater than sign:</td>
+                <td>"&gt;"</td>
+            </tr>
+            <tr>
+                <td>and:</td>
+                <td>"&amp;"</td>
+            </tr>
+            <tr>
+                <td>dollor:</td>
+                <td>"&yen;"</td>
+            </tr>
+            <tr>
+                <td>copyrights:</td>
+                <td>"&copy;"</td>
+            </tr>
+            <tr>
+                <td>registered icon:</td>
+                <td>"&reg;"</td>
+            </tr>
+            <tr>
+                <td>Celsis degree:</td>
+                <td>"&deg;"</td>
+            </tr>
+            <tr>
+                <td>plus or minus sign:</td>
+                <td>"&plusmn;"</td>
+            </tr>
+            <tr>
+                <td>times:</td>
+                <td>"&times;"</td>
+            </tr>
+            <tr>
+                <td>divide:</td>
+                <td>"&divide;"</td>
+            </tr>
+            <tr>
+                <td>squared:</td>
+                <td>"X&sup2;"</td>
+            </tr>
+            <tr>
+                <td>cube:</td>
+                <td>"X&sup3;"</td>
+            </tr>
+        </table>
+    </div>
+
+
+    <div>
+            <h1>"base" tag's properties</h1>
+            This tag can be used to stipulate how to open each hyperlink.
+            It will be overwrite by each link's own "target" property.
+            </br>
+            <a href="http://www.baidu.com">It is not overwriten</a>
+            </br>
+            <a href="http://www.baidu.com" target="_self">overwrite as _self</a>
+            </br>
+            Before illustrate this test, pls add hred property to base tage.
+            Now, we have a relative path for every hyperlink(which not begin with http://).
+            because we have a relative path,
+            browser will try to find picture in below hyperlink:
+            "http://www.w3school.com.cn/imaage3/Jerusalem_Home_Page.jpg"
+            </br>
+            <img src="image3/Jerusalem_Home_Page.jpg" alt="without property href http://www.w3school.com">
+            </br>
+            relative path will not be used for those URL which begin with http:// or //
+            </br>
+            <a href="//will not add relative path">Here do not use relative path for URL</a>
+    </div>
+
+
+    <div>
+        <h1>"img" tag's properties</h1>
+        <img src="https://www.runoob.com/images/compatible_ie.gif"
+        alt="this text will replace picture when it cannot show"
+        title="when cursor hold on this picture, this text will show">
+        other properties: width, height, border
+    </div>
+
+
+    <h1>"span" vs "div"</h1>
+    <div>
+        Below investigates what will happen when put span after div,
+        in fact, span block will wrap a new line.
+    </div>
+    <span><img src="https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" border="0" width="100" height="100"></span>
+    <span><img src="https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" border="0" width="300" height="100"></span>
+    
+    
+    <div>
+        <h1>External link</h1>
+        open browser on a new window
+        </br>
+        <a href="http://www.baidu.com">Baidu</a>
+        </br>
+        using picture as hyperlink
+        <a href="http://www.baidu.com" target="_self">
+            <img src="https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"
+            border="0" width="100" height="100">
+        </a>
+    </div>
+
+
+    <div>
+        <h1>locate Anchor</h1>
+        <a href="https://blog.csdn.net/qq_40179479/article/details/128425013#content_views"
+        target="_self">locate external web's anchor1</a>
+        </br>
+        <a href="#div1" target="_self">locate internal web's anchor1</a>
+        </br>
+        <a href="#div2" target="_self">locate internal web's anchor2</a>
+        </br>
+
+        <div style="margin-top: 40px">
+            <div id="div1" style="background: yellow;">
+                anchor1
+            </div>
+            <div id="div2" style="background: red;">
+                anchor2
+            </div>
+        </div>
+    </div>
+
+
+    <div>
+        <h1>relative path vs absolute path</h1>
+        <b>Local Relative Path:</b>
+        </br>
+        when file and this html stay in the same folder, then we can justs used
+        file name as path. For example ,img src="logo.gif"
+        </br>
+        when file and this html stay in the different folder, then we may use
+        img/img01/logo.gif or ../logo.gif as path.
+        </br>
+        <b>Absolute Path:</b>
+        "D:\WEB\LOGO\LOGO.GIF" or "http://www.baidu.com/img/logo.git"
+    </div>
+
+
+    <div>
+        <h1>List</h1>
+        <h4>Unorderd list:</h4>
+        <ul>
+                <li>1st row</li>
+                <li>2nd row</li>
+        </ul>
+
+        <h4>ordered list</h4>
+        <ol>
+            <li>1st row</li>
+            <li>2nd row</li>
+        </ol>
+
+        <h4>hybrid list</h4>
+        <ol>
+            <li>Coffee</li>
+            <li>Tea
+                <ul>
+                    <li>Green tea</li>
+                    <li>Black tea</li>
+                </ul>
+            </li>
+            <li>Milk</li>
+        </ol>
+
+        <h4>customized list</h4>
+        <dl>
+            <dt>noun 1</dt>
+            <dd>noun 1 explanation1</dd>
+            <dd>noun 1 explanation2</dd>
+            <dt>noun 2</dt>
+            <dd>noun 2 explanation1</dd>
+            <dd>noun 2 explanation2</dd>
+        </dl>
+    </div>
+
+
+    <div>
+        <h1>Using HTML5 video player on web</h1>
+        refer to
+        <a href="https://www.w3schools.com/html/html5_video.asp">w3schools for plug-in installation/HTML video</a>
+        <a href="https://blog.logrocket.com/creating-customizing-html5-video-player-css/">creating-customizing-html5-video-player-css</a>
+        <a href="https://www.brid.tv/online-video-players/#0-what-is-an-online-video-player">online-video-player</a>
+        <a href="https://videojs.com/getting-started/">Tvideojs</a>
+        <a href="https://jplayer.org/latest/quick-start-guide/">jplayer</a>
+        <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/video">HTML5 player</a>
+
+       </br>
+       <video width="320" height="240" controls muted>
+            <source src="..." type="video/mp4">
+            your browser does not support the video tag.
+       </video>
+    </div>
+</body>
