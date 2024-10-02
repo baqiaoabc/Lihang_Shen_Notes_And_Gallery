@@ -2,7 +2,7 @@
 <module type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet type="Python" name="Python">
-      <configuration sdkName="Python 3.8" />
+      <configuration sdkName="Python 3.12" />
     </facet>
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
@@ -11,10 +11,11 @@
       <sourceFolder url="file://$MODULE_DIR$/USYD/Semester2_2024/COMP9003/Lecture/Week1" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/USYD/Semester2_2024/COMP9003/Lecture/Week2" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/USYD/Semester2_2024/COMP9123/Assignment/2" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/USYD/Semester2_2024/COMP9003/Assignment/Warm-up/Assignment1" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/USYD/Semester2_2024/COMP9003/Lecture/Week9" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/USYD/Semester2_2024/COMP9123/Assignment/4" isTestSource="false" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="Python 3.12" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Python 3.8 interpreter library" level="application" />
+    <orderEntry type="library" name="Python 3.12 interpreter library" level="application" />
   </component>
 </module>
