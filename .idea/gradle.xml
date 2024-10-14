@@ -4,11 +4,41 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/University_Materials/USYD/Semester2_2024/COMP9003/Assignment/Final" />
+        <option name="gradleHome" value="C:/Gradle/gradle-8.10" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/University_Materials/USYD/Semester2_2024/COMP9003/Assignment/final" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/University_Materials/USYD/Semester2_2024/COMP9003/Assignment/Final-Assignment/COMP9003" />
+        <option name="gradleHome" value="C:/Gradle/gradle-8.10" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/University_Materials/USYD/Semester2_2024/COMP9003/Assignment/Warm-up/Assignment1" />
         <option name="gradleHome" value="C:/Gradle/gradle-8.10" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/University_Materials/USYD/Semester2_2024/COMP9003/Assignment/Warm-up/Assignment1" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/University_Materials/USYD/Semester2_2024/COMP9003/Assignment/final" />
+        <option name="gradleHome" value="C:/Gradle/gradle-8.10" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/University_Materials/USYD/Semester2_2024/COMP9003/Assignment/final" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/University_Materials/USYD/Semester2_2024/COMP9003/Assignment/inkballGame" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/University_Materials/USYD/Semester2_2024/COMP9003/Assignment/inkballGame" />
           </set>
         </option>
       </GradleProjectSettings>
