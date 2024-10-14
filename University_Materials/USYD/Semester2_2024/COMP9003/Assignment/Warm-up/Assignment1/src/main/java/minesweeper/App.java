@@ -139,7 +139,7 @@ public class App extends PApplet {
         // TODO: reset timer
         startTime = millis();
 
-        // TODO: Load Image
+        // TODO: Load Image from resources file
         flag = loadImage("minesweeper/flag.png");
         base_tile = loadImage("minesweeper/tile.png");
         hidden_tile = loadImage("minesweeper/tile1.png");
