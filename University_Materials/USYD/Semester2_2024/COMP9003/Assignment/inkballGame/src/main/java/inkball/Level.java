@@ -7,65 +7,135 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
+/**
+ * Level includes everything we need for each level of game, such as map information, current score, etc.
+ */
 public class Level {
-    /*
-    store map info for each level
-     */
 
-    // number of current level
+
+    /**
+     * number of current level
+     */
     public int currentLevel;
 
-    // collection of all levels
+    /**
+     * collection of all levels, read from config.json file.
+     */
     public JSONArray levels;
 
-    // setting of current levels
-    // used for read txt file
+    /**
+     * text file should only include below characters, all other characters will be regard as empty space
+     */
+    public final static String[] characters = {"X","S","H","B"," ","0","1","2","3","4"};
+
+    /**
+     * the name of current level's txt file
+     */
     public String layoutFile;
+
+    /**
+     * store the content of txt file in the form of string of string, it is a 18*18 2-D array.
+     */
     public ArrayList<ArrayList<String>> layoutContent;
-    // remaining time for each level
+
+
+    /**
+     * time for each level, read from config.json, different for each level
+     */
     public int time;
-    // remaining time for current level
+
+    /**
+     * remaining time for current level, will update when replay or enter next level,
+     * in addition, it reaches 0 will lead to === TIME’S UP ===
+     */
     public float remainTime;
-    // ball spawn interval for each level
+
+    /**
+     * ball spawn interval for each level
+     */
     public int spawn_interval;
-    // Indicate the number of spawner in current level
+
+    /**
+     * Indicate the number of spawner in current level
+     */
     public int spawner_number;
-    // score modifier for each level
+
+
+    /**
+     * score increasing modifier for each level
+     */
     public float increaseModifier;
+
+    /**
+     * score decreasing modifier for each level
+     */
     public float decreaseModifier;
-    // balls queue for each level, spawner will use it to generate ball
+
+    /**
+     * balls queue for each level, spawner will use it to generate ball on map
+     */
     public ArrayList<Ball> ballsQueue;
-    // balls currently on the Map
+
+    /**
+     * balls currently on the Map
+     */
     public ArrayList<Ball> ballsOnTheMap;
 
-
-    // denote the first frame of each level, will change to false after the first frame
-    // currently, only generate ball at spawner uses it
+    /**
+     * denote the first frame of each level, will change to false after the first frame happened
+     */
     public boolean firstFrame;
-    // total score for all level before current level
+
+    /**
+     * Indicate the score when enter each level, used to reset score when replay current level
+     */
     public float resetScore;
-    // All scores received up to the current time
+
+    /**
+     * accumulated score, inherit from before levels
+     */
     public float currentScore;
 
-    // Line will use below attributes
+    /**
+     * lines currently on the Map
+     */
     public ArrayList<Line> linesCollection; // need to reset to empty at each level
+
+    /**
+     * Indicates the line currently being drawn
+     */
     public Line currentline;
 
-    // level status:
-    // "play" means player can do anything;
-    // "pause" means player press "space"
-    // "time's up" means player cannot do anything except press 'r' happen when time runs out
-    // "wining" means player successfully capture all balls within time limit.
+    /**
+     * level status: "play" means player can do anything;
+     * "pause" means player press "space";
+     * "time's up" means player cannot do anything except press 'r' happen when time runs out;
+     * "wining" means player successfully capture all balls within time limit.
+     */
     public String levelStatus;
-    // Indicate how many frame are used, will reset to 0 when balls run out, begin from 0 in each level
+
+    /**
+     * Indicate how many frame are used,
+     * will reset to 0 when balls run out, begin from 0 in each level
+     */
     public int frameElapsedForBallTimer;
-    // Indicate how many frame are used for current level, begin from 0 in each level
+
+
+    /**
+     *  current level, begin from 0 in each level
+     */
     public int frameElapsedForTimer;
-    // Frame used when perform wining animation
+
+    /**
+     * Indicate how many frame are used when perform wining animation,
+     * will not change in other level status
+     */
     public int frameForWiningAnimation;
 
 
-    // Constructor
+    /**
+     * Constructor
+     */
     public Level(JSONArray levels){
 
         this.currentLevel = 0;
@@ -80,6 +150,7 @@ public class Level {
             ArrayList<String> temp = new ArrayList<>();
             this.layoutContent.add(temp);
         }
+        // make sure each sub array have 18 elements
         for(int i = 0; i < 18;i++){
             for(int j = 0; j < 18;j++){
                 this.layoutContent.get(i).add(" ");
@@ -89,26 +160,31 @@ public class Level {
         this.updateMapSetting(0);
     }
 
-    // advance to the next level if next level exist, automatically call when satisfy wining phase
+    /**
+     * advance to the next level if next level exist,
+     * automatically call when satisfy wining phase.
+     */
     public void enterNextlevel(){
-        //TODO only use when player successfully pass current level && current level is not last level
+        // only use when player successfully pass current level && current level is not last level
         if (this.currentLevel < levels.size()-1){
             this.currentLevel++;
-            System.out.println("next!!!!!!!!!!!!!!!!!!!!!");
             this.updateMapSetting(this.currentScore);
             System.out.println(this.ballsOnTheMap.size());
         }
     }
 
+    /**
+     * return true if next level exist, false otherwise.
+     */
     public boolean hasNextlevel(){
         //return whether have next level
         return this.currentLevel < levels.size()-1;
     }
 
-    // update Map when
-    // (1) level changes or
-    // (2) use "r" to replay current level
-    // (3) when game end and want to use "r" to replay the game
+    /** update Map when game end or player uses "r" to replay the game
+     *
+     * @param Score the score we need to update this.resetScore and this.currentScore
+     */
     public void updateMapSetting(float Score){
         // We need to reset App.startTime whenever we use this function, but we can only do it inside App class
 
@@ -148,8 +224,10 @@ public class Level {
         System.out.println("level "+currentLevel+": "+ballsOnTheMap.size());
     }
 
-    // Read txt file to get layout of current level in the form of array list of array list of string
-    // the size is 18*18
+    /**
+     * Read txt file to get layout of current level in the form of
+     * array list of array list of string (i.e. 2-D array), the size is 18*18
+     */
     public void readLayoutFile(){
         // can only draw the map for current level in App.java
         // return the "layout" txt file content in the format of [[],[]]
@@ -164,20 +242,29 @@ public class Level {
                 // if line does not have 18 characters, below code will fill them with space " "
                 int lineLength = line.length();
                 for(int i = 0; i < 18;i++){
-                    if (i<lineLength){
-                        this.layoutContent.get(numRows).set(i,Character.toString(line.charAt(i)));
-                    }else {
-                        this.layoutContent.get(numRows).set(i," ");
+                    if(numRows<18){
+                        if (i<lineLength){
+                            String cha = Character.toString(line.charAt(i));
+                            if (Arrays.asList(this.characters).contains(cha)){
+                                this.layoutContent.get(numRows).set(i,cha);
+                            }else {
+                                this.layoutContent.get(numRows).set(i," ");
+                            }
+                        }else {
+                            this.layoutContent.get(numRows).set(i," ");
+                        }
                     }
                 }
                 numRows++;
             }
-            // if there are less than 18 rows, below code will set rest rows with empty space
+
+;            // if there are less than 18 rows, below code will set rest rows with empty space
             for (int i = numRows; i < 18; i++){
                 for(int j = 0; j < 18;j++){
                     this.layoutContent.get(i).set(j," ");
                 }
             }
+
             /*
                 Since hole blocks need 64*64 pixel, therefore, I decided to use
                                 H1
@@ -198,7 +285,9 @@ public class Level {
         }
     }
 
-    // setup the App.board according to this.layoutContent
+    /**
+     * setup the App.board according to this.layoutContent
+      */
     public void setupBoard(){
         for (int rowN = 0; rowN < App.NUM_ROWS; rowN++) {
             for (int colN = 0; colN < App.NUM_COLUMNS; colN++) {
@@ -273,7 +362,7 @@ public class Level {
                     Ball newball = new Ball(App.colors[Integer.parseInt(App.board[rowN][colN].colorIndex)],
                             App.board[rowN][colN].x+App.CELLSIZE/2,App.board[rowN][colN].y+App.CELLSIZE/2);
                     this.addBallToTheMap(newball);
-                }else if(currentLetter.equals(" ")){
+                }else{
                     // Create tile block "T"
                     App.board[rowN][colN] = new Block(
                             colN * App.CELLSIZE,
@@ -286,22 +375,35 @@ public class Level {
         }
     }
 
+    /**
+     * add a ball to the map
+     *
+     * @param newBall the ball we want to add
+     */
     public void addBallToTheMap(Ball newBall){
         this.ballsOnTheMap.add(newBall);
     }
 
-    // add currentline to linesCollection
+    /**
+     * add currentline to linesCollection
+     */
     public void addLine(){
         this.linesCollection.add(currentline);
     }
 
-    // delete currentline from linesCollection
+    /**
+     * delete currentline from linesCollection
+     */
     public void deleteLine(){
         this.linesCollection.remove(currentline);
     }
 
-    // Generate a ball at random spawner
+    /**
+     * Generate a ball at random spawner
+     */
     public void serveBall(){
+        if(spawner_number<=0)
+            return;
         int spawneridx= App.random.nextInt(spawner_number);
         int idx = 0;
         for (Block[] row : App.board) {
@@ -311,7 +413,7 @@ public class Level {
                         Ball shotBall = this.ballsQueue.remove(0);
                         shotBall.x = b.x + App.CELLSIZE/2;
                         shotBall.y = b.y + App.CELLSIZE/2;
-                        this.ballsOnTheMap.add(shotBall);
+                        this.addBallToTheMap(shotBall);
                     }
                     idx++;
                 }

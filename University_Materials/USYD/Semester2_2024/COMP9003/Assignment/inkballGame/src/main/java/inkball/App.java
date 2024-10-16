@@ -10,50 +10,122 @@ import java.util.*;
 
 public class App extends PApplet {
 
-    public static final int CELLSIZE = 32; //8;
-    public static final int CELLHEIGHT = 32;
+    /**
+     * cell size of each block
+     */
+    public static final int CELLSIZE = 32;
 
-    public static final int CELLAVG = 32;
+    /**
+     * Top bar height
+     */
     public static final int TOPBAR = 64;
-    public static int WIDTH = 576; //CELLSIZE*BOARD_WIDTH;
-    public static int HEIGHT = 640; //BOARD_HEIGHT*CELLSIZE+TOPBAR;
-    public static final int BOARD_WIDTH = WIDTH/CELLSIZE;
-    public static final int BOARD_HEIGHT = 20;
-    public static final int INITIAL_PARACHUTES = 1;
 
+    /**
+     * width of the window
+     */
+    public static int WIDTH = 576; //CELLSIZE*BOARD_WIDTH;
+
+    /**
+     * height of the window
+     */
+    public static int HEIGHT = 640; //BOARD_HEIGHT*CELLSIZE+TOPBAR;
+
+    /**
+     * refresh rate of current game
+     */
     public static final int FPS = 30;
+
+    /**
+     * the path of config.json file.
+     */
     public String configPath;
+
+    /**
+     * random generator
+     */
     public static Random random = new Random();
 
-
-	//TODO: Feel free to add any additional methods or attributes you want. Please put classes in different files.
-    // Indicates how many rows of tiles do we have
+    /**
+     * Indicates how many rows of tiles do we have
+      */
     public static final int NUM_ROWS = (HEIGHT - TOPBAR) / CELLSIZE; //18
-    // Indicates how many cols of tiles do we have
-    public static final int NUM_COLUMNS = BOARD_WIDTH; // 18
 
-    // represent current level info
+    /**
+     * Indicate the number of blocks in each row
+      */
+    public static final int NUM_COLUMNS = WIDTH/CELLSIZE;; // 18
+
+    /**
+     * represent current level info.
+     */
     public static Level level;
-    // each color has a correspond number in the image files title
-    // 0-4 represent "grey", "orange", "blue", "green", "yellow" respectively
+
+    /**
+     * the collection of colors for ball, hole, wall
+     */
     public static final String[] colors = {"grey", "orange", "blue", "green", "yellow"};
+
+    /**
+     * each color has a correspond number in the image files title, namely,
+     * 0-4 represent "grey", "orange", "blue", "green", "yellow" respectively; this is the arraylist of string format.
+     */
     public static final String[] colorsSIndices = {"0", "1", "2", "3", "4"};
+
+    /**
+     * each color has a correspond number in the image files title, namely,
+     * 0-4 represent "grey", "orange", "blue", "green", "yellow" respectively; this is the arraylist of int format
+     */
     public static final int[] colorsIndices = {0, 1, 2, 3, 4};
 
-    // Basic Score rule collections
+    /**
+     * the increasing score corresponding to each type of ball
+     */
     public Map<String, Integer> score_increase;
+
+    /**
+     * the decreasing score corresponding to each type of ball
+     */
     public Map<String, Integer> score_decrease;
 
-    // create the board exclude top bar
+    /**
+     * a 18*18 matrix which store the information of all block.
+     */
     public static Block[][] board = new Block[NUM_ROWS][NUM_COLUMNS]; // 18*18 matrix
 
-    // Image collections
+    /**
+     * balls' image collection, include 5 types of ball images.
+     */
     public Map<String, PImage> balls_image;
+
+    /**
+     * tile's image.
+     */
     public PImage tile_image;
+
+    /**
+     * spawner image.
+     */
     public PImage entrypoint;
+
+    /**
+     * walls' image collection, include 5 types of wall images.
+     */
     public Map<String, PImage> walls_image;
+
+    /**
+     * breaking walls' image collection, used when ball collide with wall.
+     */
+    public Map<String, PImage> break_walls_image;
+
+    /**
+     * holes' image collection, include 5 types of hole images.
+     */
     public Map<String, PImage> holes_image;
 
+    /**
+     * Initialization of "configPath", "score_increase", "score_decrease", "balls_image", "walls_image"
+     * , "break_walls_image", "holes_image"
+     */
     public App() {
         this.configPath = "config.json";
         // initialize score rule hash map
@@ -62,8 +134,8 @@ public class App extends PApplet {
         // initialize image collection hash map
         this.balls_image = new HashMap<>();
         this.walls_image = new HashMap<>();
+        this.break_walls_image = new HashMap<>();
         this.holes_image = new HashMap<>();
-//        this.frameCounter = 0;
     }
 
     /**
@@ -75,7 +147,11 @@ public class App extends PApplet {
     }
 
     /**
-     * Load all resources such as images. Initialise the elements such as the player and map elements.
+     * Load all resources such as images;
+     * initialise the elements such as the player score and map elements;
+     * set FPS of game;
+     * read configuration from config.json;
+     * load the first level of the game.
      */
 	@Override
     public void setup() {
@@ -88,12 +164,12 @@ public class App extends PApplet {
         for (int i : colorsIndices){
             balls_image.put(colorsSIndices[i], loadImage("inkball/ball"+i+".png"));
             walls_image.put(colorsSIndices[i], loadImage("inkball/wall"+i+".png"));
+            break_walls_image.put(colorsSIndices[i], loadImage("inkball/wall"+i+"break.png"));
             holes_image.put(colorsSIndices[i], loadImage("inkball/hole"+i+".png"));
         }
 
         // load config.json file
         JSONObject json = loadJSONObject(this.configPath);
-
 
         // basic score info
         JSONObject score_increase_from_hole_capture = json.getJSONObject("score_increase_from_hole_capture");
@@ -104,23 +180,21 @@ public class App extends PApplet {
             score_increase.put(color,score_increase_from_hole_capture.getInt(color));
             score_decrease.put(color,score_decrease_from_wrong_hole.getInt(color));
         }
-        // Check that the scores for each color are set correctly
-        System.out.println(score_increase);
-        System.out.println(score_decrease);
 
         // create a Level instance, should initiate after the initialization of board
         level = new Level(json.getJSONArray("levels"));
-        System.out.println("outside " + level.layoutContent.get(0));
-        System.out.println(level.layoutContent.get(16));
-        System.out.println(board[0][0].y);
     }
 
     /**
-     * Receive key pressed signal from the keyboard.
+     * Receive key pressed signal from the keyboard;
+     * replay game when game end and press 'r';
+     * replay current level whenever press 'r' except above case;
+     * pause the game whenever press " ".
      */
 	@Override
     public void keyPressed(KeyEvent event){
         if(!level.levelStatus.equals("wining") && !level.levelStatus.equals("time's up")){
+            System.out.println(key);
             if(key == 'r'){
                 // reset timer when replay current level or replay the game
                 level.updateMapSetting(level.resetScore);
@@ -144,14 +218,11 @@ public class App extends PApplet {
         }
     }
 
-    /**
-     * Receive key released signal from the keyboard.
-     */
-	@Override
-    public void keyReleased(){
-        
-    }
 
+    /**
+     * whenever we click the left mouse, a line object is created.
+     * @param e a mouse event
+     */
     @Override
     public void mousePressed(MouseEvent e) {
         // create a new player-drawn line object; need a global indicator point to
@@ -161,7 +232,14 @@ public class App extends PApplet {
         level.currentline = new Line();
         level.addLine();
     }
-	
+
+    /**
+     * If the level.levelStatus is not "wining", when the left mouse button is clicked, the current mouse position
+     * is added to the current line object, allowing the player to draw a new line;
+     * If the right mouse button is clicked while hovering over an existing line,
+     * that line will be removed, enabling the player to erase lines.
+     * @param e a mouse event
+     */
 	@Override
     public void mouseDragged(MouseEvent e) {
         if(!level.levelStatus.equals("wining")) {
@@ -180,12 +258,16 @@ public class App extends PApplet {
 
     }
 
+    /**
+     * If the right mouse button is clicked while hovering over an existing line, that line will be removed,
+     * enabling the player to erase lines.
+     */
     public void rightDraggedHelper(){
         if(mouseButton==RIGHT){
             Line delete = null;
             for (Line l : level.linesCollection){
                 // Can be optimized, but I am lazy guy
-                for(int i = 0; i <l.pointsArray.size()-2;i++){
+                for(int i = 0; i <=l.pointsArray.size()-2;i++){
                     float x1 = l.pointsArray.get(i)[0];
                     float y1 = l.pointsArray.get(i)[1];
                     float x2 = l.pointsArray.get(i + 1)[0];
@@ -200,6 +282,10 @@ public class App extends PApplet {
         }
     }
 
+    /**
+     * if current line is not valid, such as only have 1 point, then remove it from the lines collection.
+     * @param e a mouse event
+     */
     @Override
     public void mouseReleased(MouseEvent e) {
         // left-click
@@ -210,7 +296,7 @@ public class App extends PApplet {
     }
 
     /**
-     * Draw all elements in the game by current frame.
+     * Draw all elements in the game of current frame according to level status.
      */
 	@Override
     public void draw() {
@@ -253,7 +339,7 @@ public class App extends PApplet {
                     textAlign(CENTER, CENTER);
                     text("=== ENDED ===", 330, 40);
                 }
-                if(level.remainTime<0){
+                if(level.remainTime<=0){
                     // enter next level if exist
                     level.enterNextlevel();
                 }
@@ -281,6 +367,9 @@ public class App extends PApplet {
         }
     }
 
+    /**
+     * used to draw settlement animation
+     */
     public void drawWinningAnimation(){
         // Should display over edge tile
         ArrayList<Block> two = new ArrayList<>();
@@ -317,8 +406,12 @@ public class App extends PApplet {
                 }
             }
         }
+        System.out.println(two);
     }
 
+    /**
+     * used to draw top bar
+     */
     public void drawTopBar(){
         fill(200);
         rect(0, 0, WIDTH, TOPBAR);
@@ -328,9 +421,10 @@ public class App extends PApplet {
         this.drawNextFiveBalls();
     }
 
+    /**
+     * used to draw map
+     */
     public void drawMap(){
-        // TODO extension part
-
         // Notice that board is a 18*18 matrix
         for (Block[] row : board) {
             for (Block block : row) {
@@ -345,12 +439,21 @@ public class App extends PApplet {
                     }else{
                         switch (block.blockType) {
                             case "W":
-                                // draw corresponding wall
-                                image(walls_image.get(block.colorIndex),
-                                        block.x,
-                                        block.y,
-                                        block.imageBlockSize,
-                                        block.imageBlockSize);
+                                if(block.bouncyNum==0){
+                                    // draw corresponding wall
+                                    image(walls_image.get(block.colorIndex),
+                                            block.x,
+                                            block.y,
+                                            block.imageBlockSize,
+                                            block.imageBlockSize);
+                                }else{
+                                    // TODO extension part
+                                    image(break_walls_image.get(block.colorIndex),
+                                            block.x,
+                                            block.y,
+                                            block.imageBlockSize,
+                                            block.imageBlockSize);
+                                }
                                 break;
                             case "S":
                                 image(entrypoint, block.x, block.y, block.imageBlockSize, block.imageBlockSize);
@@ -387,6 +490,9 @@ public class App extends PApplet {
         }
     }
 
+    /**
+     * used to draw balls currently on the map
+     */
     public void drawBallsOnTheMap(){
         // Draw all balls currently on the map
         imageMode(CENTER);
@@ -395,7 +501,7 @@ public class App extends PApplet {
             image(balls_image.get(b.colorIndex), b.x, b.y, 2*b.radius, 2*b.radius);
 
             // After move check whether collide with bouncy object, if yes, then change velocity
-            b.checkCollision();
+            b.checkCollision(this);
 
             // After move check whether any hole capture the ball
             Ball remove = b.checkEnterHole(level,this);
@@ -412,10 +518,12 @@ public class App extends PApplet {
         }
 
 
-
         imageMode(CORNER);
     }
 
+    /**
+     * used to draw timer on top bar
+     */
     public void drawTimer(){
         if(level.levelStatus.equals("play")){
             level.remainTime = level.time-(level.frameElapsedForTimer/FPS);
@@ -425,7 +533,7 @@ public class App extends PApplet {
         else if (level.levelStatus.equals("wining")){
             if(level.frameForWiningAnimation%(int) (FPS*0.067) == 0 && level.remainTime>0){
                 level.currentScore ++;
-                level.remainTime-=0.067;
+                level.remainTime--;
                 this.drawWinningAnimation();
             }
         }
@@ -441,6 +549,9 @@ public class App extends PApplet {
         }
     }
 
+    /**
+     * used to draw score on top bar
+     */
     public void drawScore(){
         fill(0);
         textSize(20);
@@ -448,7 +559,9 @@ public class App extends PApplet {
         text("Score: " + (int) level.currentScore, 500, 15);
     }
 
-    // Timer for ball serve, also will serve ball every interval time
+    /**
+     * used to draw Timer for ball serve, also will serve ball every spawn interval time
+     */
     public void drawBallTimer(){
         fill(0);
         textSize(20);
@@ -473,6 +586,9 @@ public class App extends PApplet {
         text(String.format("%.1f",remainTime), 200, 30);
     }
 
+    /**
+     * used to draw next five balls waiting to serve on top bar if they exist.
+     */
     public void drawNextFiveBalls(){
         // the animation of move ball in top bar
         // through update level.ballsQueue to update the image
@@ -504,6 +620,9 @@ public class App extends PApplet {
         noClip();
     }
 
+    /**
+     * draw lines added or removed by player
+     */
     public void drawLines(){
         stroke(0);
         // line width
@@ -519,6 +638,10 @@ public class App extends PApplet {
         noStroke();
     }
 
+    /**
+     * run the game
+     * @param args You know that!!!
+     */
     public static void main(String[] args) {
         PApplet.main("inkball.App");
     }

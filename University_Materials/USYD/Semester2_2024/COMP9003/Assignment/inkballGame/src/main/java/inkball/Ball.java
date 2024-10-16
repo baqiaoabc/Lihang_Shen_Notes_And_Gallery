@@ -10,20 +10,49 @@ import static java.lang.Math.sqrt;
 
 public class Ball {
 
+    /**
+     * color of ball
+     */
     public String color;
+
+    /**
+     * corresponding color idx of ball, for example, grey's color idx is 0.
+     */
     public String colorIndex;
 
-    // coordinate of ball center
-    public float x,y;
-    // radius of ball
-    // may use later when ball was captured
+    /**
+     * x coordinate of ball center
+     */
+    public float x;
+
+    /**
+     * y coordinate of ball center
+     */
+    public float y;
+
+    /**
+     * radius of ball
+     */
     public float radius;
-    // speed of ball
+
+    /**
+     * speed of ball
+     */
     public float x_velocity, y_velocity;
 
-    // Indicate a ball need to move from right of loading zone to the left
+    /**
+     * Indicate a ball need to move from right of loading zone to the left, each ball can be load from
+     * right to left once.
+     */
     public boolean ready;
 
+    /**
+     * constructor of ball
+     *
+     * @param color the color of the ball
+     * @param x the x coordinate of ball center
+     * @param y the y coordinate of ball center
+     */
     public Ball(String color, float x, float y){
         // set color and correspond index of color for the ball
         this.updateColor(color);
@@ -41,11 +70,22 @@ public class Ball {
 //        this.y_velocity = 2;
     }
 
+    /**
+     * update velocity of ball
+     *
+     * @param xv new x velocity of ball
+     * @param yv new y velocity of ball
+     */
     public void updateVelocity(float xv, float yv){
         this.x_velocity = xv;
         this.y_velocity = yv;
     }
 
+    /**
+     * update color and color index of ball
+     *
+     * @param color the new color of ball
+     */
     public void updateColor(String color){
         this.color = color;
         this.colorIndex = "notExist";
@@ -56,15 +96,20 @@ public class Ball {
         }
     }
 
-    // check whether ball inside hole attraction cycle
-    // if yes, then apply attraction force to the ball
-    // if ball enter the hole, should get correspond score
+    /**
+     * check whether ball inside hole attraction cycle;
+     * if yes, then apply attraction force to the ball;
+     * if ball enter the hole, the scorer should get correspond score
+     * @param level current level class
+     * @param a App class
+     * @return return ball if ball enter the hole, null otherwise.
+     */
     public Ball checkEnterHole(Level level,App a){
         // Check hole
         boolean cond = false;
         for (Block[] row : App.board) {
             for (Block b : row) {
-                // 75% of ball within the hole will be captured
+                // 75% of ball within the hole will be captured by hole
                 float epsilon = (float) 4;
                 // Get THE BOTTOM RIGHT corner of image Hole block is the center of circle
                 if(b.ImageBlock && b.blockType.equals("H")){
@@ -89,8 +134,10 @@ public class Ball {
                         float mag = (float) Math.sqrt(x_attraction * x_attraction + y_attraction * y_attraction);
                         float normalizedX = x_attraction / mag;
                         float normalizedY = y_attraction / mag;
-                        x_velocity += 0.4 * normalizedX;
-                        y_velocity += 0.4 * normalizedY;
+//                        x_velocity += 0.4 * normalizedX;
+//                        y_velocity += 0.4 * normalizedY;
+                        x_velocity = (float) (x_velocity * 0.95 + 0.4 * normalizedX);
+                        y_velocity = (float) (y_velocity * 0.95 + 0.4 * normalizedY);
 
                         // Also need to update ball size
                         double portion = Math.sqrt(distance)/32;
@@ -105,16 +152,22 @@ public class Ball {
         return null;
     }
 
-    // check whether ball collide with bouncy object and do related operations
-    public void checkCollision(){
+    /**
+     * check whether ball collide with bouncy object, namely, use boundaryCollisionCheck(),
+     * wallCollisionCheck(), and lineCollisionCheck() to implement.
+      */
+    public void checkCollision(App app){
 
         this.boundaryCollisionCheck();
 
         this.wallCollisionCheck();
 
-        this.lineCollisionCheck();
+        this.lineCollisionCheck(app);
     }
 
+    /**
+     * check whether ball collide with boundary, it it does, change its speed and direction correctly
+     */
     public void boundaryCollisionCheck(){
         // p1
         float p1x =0;
@@ -124,7 +177,8 @@ public class Ball {
         float p2y =64;
         // if collision happens, update the ball velocity
         if (this.x+this.x_velocity< 12 || this.x+this.x_velocity > App.WIDTH-radius){
-            // upper edge and lower edge have same normal vector
+
+            // left edge and right edge have same normal vector
             // p1
             p1x =0;
             p1y =64;
@@ -136,7 +190,7 @@ public class Ball {
             this.x_velocity=this.x_velocity - 2*dotProduct*normalVector[0];
             this.y_velocity=this.y_velocity - 2*dotProduct*normalVector[1];
         }else if (this.y+this.y_velocity < 64+radius || this.y+this.y_velocity > App.HEIGHT - radius){
-            // left edge and right edge have same normal vector
+            // upper edge and lower edge have same normal vector
             float [] normalVector = this.normalVectorHelper(p1x, p1y, p2x, p2y);
             float dotProduct = this.x_velocity*normalVector[0] + this.y_velocity*normalVector[1];
             this.x_velocity=this.x_velocity - 2*dotProduct*normalVector[0];
@@ -144,6 +198,9 @@ public class Ball {
         }
     }
 
+    /**
+     * if collide with a wall, the wall will break when ball's color equals wall's color or ball color is grey or ball color is grey
+     */
     public void wallCollisionCheck(){
         for (Block[] row : App.board) {
             boolean bounceHappened = false;
@@ -152,7 +209,7 @@ public class Ball {
                     boolean cond1 = false;
                     boolean cond2 = false;
                     float [] normalVector = new float[2];
-                    // touch two line at the same time consider as contact a corner
+                    // touch two adjacent line at the same time consider as contact a corner
                     if (this.checkCollisionHelper(b.upperLeft[0], b.upperLeft[1],
                             b.upperRight[0], b.upperRight[1])){
                          // upper edge need to check left and right edge
@@ -213,9 +270,21 @@ public class Ball {
                             this.x_velocity = -this.x_velocity;
                             this.y_velocity = -this.y_velocity;
                         }
+
+                        // extension part
+                        if(b.color.equals(this.color) || b.color.equals("grey")){
+                            if(b.bouncyNum==2){
+                                b.blockType="T";
+                                b.bouncy=false;
+                            }
+                            b.bouncyNum++;
+                        }
+
                         // update ball's color
-                        if (! b.color.equals("grey"))
+                        if (! b.color.equals("grey")){
                             this.updateColor(b.color);
+                        }
+
                         break;
                     }
                 }
@@ -226,7 +295,10 @@ public class Ball {
         }
     }
 
-    public void lineCollisionCheck(){
+    /**
+     * if collide with a line, the line will be removed, and ball will bounce
+     */
+    public void lineCollisionCheck(App app){
         // Line collision, also remove line from linesCollection after collision
         Line delete = null;
         for(Line l : App.level.linesCollection){
@@ -243,9 +315,18 @@ public class Ball {
                 }
             }
         }
-        App.level.linesCollection.remove(delete);
+        app.level.linesCollection.remove(delete);
     }
 
+    /**
+     * check if ball collide with a line, the difference between this one and checkLineCollisionHelper() is that we need
+     * not to consider about the thickness of line
+     * @param p1x x of one endpoint
+     * @param p1y y of one endpoint
+     * @param p2x x of another endpoint
+     * @param p2y y of another endpoint
+     * @return return true if collide, false otherwise
+     */
     public boolean checkCollisionHelper(float p1x, float p1y, float p2x, float p2y){
         double distanceP1ToBall = sqrt(Math.pow(p1x - (double)(this.x+this.x_velocity), 2) + Math.pow(p1y - (double)(this.y+this.y_velocity), 2));
         double distanceP2ToBall = sqrt(Math.pow(p2x - (double)(this.x+this.x_velocity), 2) + Math.pow(p2y - (double)(this.y+this.y_velocity), 2));
@@ -253,6 +334,15 @@ public class Ball {
         return (distanceP1ToBall + distanceP2ToBall < edgeDistance + radius);
     }
 
+    /**
+     * check if ball collide with a line, the difference between this one and checkCollisionHelper() is that we need to
+     * consider about the thickness of line
+     * @param p1x x of one endpoint
+     * @param p1y y of one endpoint
+     * @param p2x x of another endpoint
+     * @param p2y y of another endpoint
+     * @return return true if collide, false otherwise
+     */
     public boolean checkLineCollisionHelper(float p1x, float p1y, float p2x, float p2y){
         double distanceP1ToBall = sqrt(Math.pow(p1x - this.x-this.x_velocity, 2) + Math.pow(p1y - this.y-this.y_velocity, 2));
         double distanceP2ToBall = sqrt(Math.pow(p2x - this.x-this.x_velocity, 2) + Math.pow(p2y - this.y-this.y_velocity, 2));
@@ -260,6 +350,14 @@ public class Ball {
         return (distanceP1ToBall + distanceP2ToBall < edgeDistance + radius+20);
     }
 
+    /**
+     * calculate the normal vector of given line which composed of point 1 and 2
+     * @param p1x point 1 x
+     * @param p1y point 1 y
+     * @param p2x point 2 x
+     * @param p2y point 2 y
+     * @return The normal vector of the line closer to the ball
+     */
     public float[] normalVectorHelper(float p1x, float p1y, float p2x, float p2y){
         float dx = p2x - p1x;
         float dy = p2y - p1y;
@@ -293,6 +391,9 @@ public class Ball {
         }
     }
 
+    /**
+     * update the ball's coordinate with its velocity
+     */
     public void ballMove(){
         this.x = this.x + this.x_velocity;
         this.y = this.y + this.y_velocity;

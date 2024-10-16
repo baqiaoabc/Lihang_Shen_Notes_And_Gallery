@@ -1,45 +1,103 @@
 package inkball;
 
+/**
+ * represent a block, it includes wall, spawner, etc. For more detail, please see the below instruction
+ */
 public class Block {
     /**
-     * Since we have many tile instances, so we cannot store tile.png in this class
+     * x coordinate of block
      */
     public int x;
+
+    /**
+     * y coordinate of block
+     */
     public int y;
 
-    // indicate edge tile is used for ending enimation
+    /**
+     * indicate whether edge tile is used for ending enimation,
+     * true means are currently used for settlement animation,
+     * false otherwise
+     */
     public boolean animation;
 
-    // block could be:
-    // (1) W: wall from 0 - 4
-    // (2) S: spawner
-    // (3) H: hole
-    // (4) B: initial ball spawner
-    // (5) T: tile
+
+    /**
+     * The block could be:
+     * (1) W: wall from 0 - 4;
+     * (2) S: spawner;
+     * (3) H: hole;
+     * (4) B: initial ball spawner;
+     * (5) T: tile;
+     */
     public String blockType;
-    // H: hole only needs top left block to draw the image
+
+    /**
+     * H: hole only needs top left block to draw the image, so this variable will only be used for "H" block
+     */
     public boolean ImageBlock;
-    // size of current block
+
+    /**
+     *  image size of current block, "H" block should be twice larger than other block.
+     */
     public int imageBlockSize;
 
-    // except for "T", "S" and "B", all blocks have color
-    // therefore, "T", "S" and "B" will have "colorless" color and "-1" colorIndex
+    /**
+     * except for "T", "S" and "B", all blocks have color, namely,
+     * "T", "S" and "B" will have "colorless" color and "-1" colorIndex
+     */
     public String color;
+    /**
+     * the color index of corresponding color, for detail, refer to App.colorIndex
+     */
     public String colorIndex;
 
-    // indicate whether block is Bouncy
+    /**
+     * indicate whether block is Bouncy, namely, only "W" block is bouncy
+     */
     public boolean bouncy;
-    // 4 corner point of current block, used for collision detection
+
+    /**
+     * indicate how many times bouncy block is hit by the corresponding ball,
+     * notice that Different colour bricks can only be damaged by the ball of
+     * corresponding colour, unless it’s a grey brick.
+     */
+    public int bouncyNum;
+
+    /**
+     * upperLeft corner point of current block, used for collision detection
+     */
     public float[] upperLeft= new float[2];
+    /**
+     * upperRight corner point of current block, used for collision detection
+     */
     public float[] upperRight = new float[2];
+    /**
+     * bottomLeft corner point of current block, used for collision detection
+     */
     public float[] bottomLeft = new float[2];
+    /**
+     * bottomRight corner point of current block, used for collision detection
+     */
     public float[] bottomRight = new float[2];
 
+    /**
+     * Block constructor
+     *
+     * @param x The x coordinate of block
+     * @param y The y coordinate of block
+     * @param blockType The block type of block, refer to class variable explain
+     * @param color The color of block
+     * @param ImageBlock Indicate whether we need to draw image for current block,
+     *                   since some block is part of the large block, such as a hole need 4 blocks
+     *                   but only top left block need to draw image
+     */
     public Block(int x, int y, String blockType, String color, boolean ImageBlock){
         // this is the base pint for image drawing
         this.x=x;
         this.y=y;
         this.blockType = blockType;
+        this.bouncyNum=0;
         this.animation = false;
 
         // match color with the colorIndex

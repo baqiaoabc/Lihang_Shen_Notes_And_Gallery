@@ -34,9 +34,9 @@ public class Cat{
      * @param t, A cat's enemy target
      * @return success
      */
-    public boolean attack(Target t){
-        if(target.isRodent()){return true; } else { return false; }
-    }
+//    public boolean attack(Target t){
+//        if(target.isRodent()){return true; } else { return false; }
+//    }
 
     /**
      * if the newNameCounter greater than 0, old name is return

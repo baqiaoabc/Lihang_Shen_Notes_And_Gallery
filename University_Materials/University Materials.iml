@@ -2,7 +2,7 @@
 <module type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet type="Python" name="Python">
-      <configuration sdkName="Python 3.12" />
+      <configuration sdkName="Python 3.10" />
     </facet>
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
@@ -16,9 +16,10 @@
       <sourceFolder url="file://$MODULE_DIR$/USYD/Semester2_2024/COMP9003/Assignment/Final-Assignment/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/USYD/Semester2_2024/COMP9003/Assignment/Final-Assignment/src/test/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/USYD/Semester2_2024/COMP9003/Assignment/Final/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/USYD/Semester2_2024/COMP9003/Lecture/Week10" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.10" jdkType="Python SDK" />
+    <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="Python 3.10 interpreter library" level="application" />
+    <orderEntry type="library" name="Python 3.10 interpreter library" level="application" />
   </component>
 </module>
