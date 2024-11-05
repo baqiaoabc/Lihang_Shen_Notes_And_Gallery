@@ -135,7 +135,9 @@ public class Level {
 
     /**
      * Constructor
-     */
+     *
+     * @param levels file names for the map of each level.
+     * */
     public Level(JSONArray levels){
 
         this.currentLevel = 0;
@@ -169,12 +171,13 @@ public class Level {
         if (this.currentLevel < levels.size()-1){
             this.currentLevel++;
             this.updateMapSetting(this.currentScore);
-            System.out.println(this.ballsOnTheMap.size());
         }
     }
 
     /**
      * return true if next level exist, false otherwise.
+     *
+     * @return return true if current level has next level, false otherwise.
      */
     public boolean hasNextlevel(){
         //return whether have next level

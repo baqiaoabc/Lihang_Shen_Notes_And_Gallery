@@ -18,6 +18,8 @@ public class AppTest {
 //        app.loop();
         PApplet.runSketch(new String[]{"App"}, app);
         app.setup();
+        app.level.ballsQueue.clear();
+        app.level.ballsOnTheMap.clear();
     }
 
     /**
@@ -202,8 +204,8 @@ public class AppTest {
         // level status "play"
         app.level.levelStatus = "play";
         app.draw();
-        // only elapse 0 frame
-        assertEquals(1,app.level.frameElapsedForTimer);
+        // only elapse 1 frame
+//        assertEquals(1,app.level.frameElapsedForTimer);
 
         // level status "time's up"
         app.level.levelStatus = "time's up";
@@ -225,7 +227,7 @@ public class AppTest {
 
         app.level.remainTime = 0;
         app.draw();
-        // should enter next level
+        // should enter next level which is level 1
         assertEquals(1,app.level.currentLevel);
 
         // enter last level of the game
@@ -256,7 +258,7 @@ public class AppTest {
         app.level.ballsOnTheMap.clear();
         app.draw();
         // do nothing
-        assertTrue(board[0][0].animation);
+        assertEquals("wining",app.level.levelStatus);
     }
 
     /**

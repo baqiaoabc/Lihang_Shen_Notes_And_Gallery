@@ -1,13 +1,10 @@
 package inkball;
 
-import processing.core.PImage;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
 import static java.lang.Math.sqrt;
 
+/**
+ * a ball object, have every function a ball should have.
+ */
 public class Ball {
 
     /**
@@ -136,6 +133,8 @@ public class Ball {
                         float normalizedY = y_attraction / mag;
 //                        x_velocity += 0.4 * normalizedX;
 //                        y_velocity += 0.4 * normalizedY;
+                        // I also slow down the original speed of ball by 0.95
+                        // otherwise it is very difficult to enter a whole
                         x_velocity = (float) (x_velocity * 0.95 + 0.4 * normalizedX);
                         y_velocity = (float) (y_velocity * 0.95 + 0.4 * normalizedY);
 
@@ -155,6 +154,8 @@ public class Ball {
     /**
      * check whether ball collide with bouncy object, namely, use boundaryCollisionCheck(),
      * wallCollisionCheck(), and lineCollisionCheck() to implement.
+     *
+     * @param app class instance we used for the game
       */
     public void checkCollision(App app){
 
@@ -211,12 +212,12 @@ public class Ball {
                     float [] normalVector = new float[2];
                     // touch two adjacent line at the same time consider as contact a corner
                     if (this.checkCollisionHelper(b.upperLeft[0], b.upperLeft[1],
-                            b.upperRight[0], b.upperRight[1])){
+                            b.upperRight[0], b.upperRight[1],0)){
                          // upper edge need to check left and right edge
                          if(this.checkCollisionHelper(b.upperRight[0], b.upperRight[1],
-                                 b.bottomRight[0], b.bottomRight[1]) ||
+                                 b.bottomRight[0], b.bottomRight[1],0) ||
                                  this.checkCollisionHelper(b.bottomLeft[0], b.bottomLeft[1],
-                                 b.upperLeft[0], b.upperLeft[1])){
+                                 b.upperLeft[0], b.upperLeft[1],0)){
                             cond2 = true;
                         }
 
@@ -224,36 +225,36 @@ public class Ball {
                                 b.upperRight[0], b.upperRight[1]);
                         cond1 = true;
                     } else if(this.checkCollisionHelper(b.upperRight[0], b.upperRight[1],
-                            b.bottomRight[0], b.bottomRight[1])){
+                            b.bottomRight[0], b.bottomRight[1],0)){
                         // right edge need to check upper and bottom edge
                         if(this.checkCollisionHelper(b.upperLeft[0], b.upperLeft[1],
-                                b.upperRight[0], b.upperRight[1]) ||
+                                b.upperRight[0], b.upperRight[1],0) ||
                                 this.checkCollisionHelper(b.bottomRight[0], b.bottomRight[1],
-                                b.bottomLeft[0], b.bottomLeft[1])){
+                                b.bottomLeft[0], b.bottomLeft[1],0)){
                             cond2 = true;
                         }
                         normalVector = this.normalVectorHelper(b.upperRight[0], b.upperRight[1],
                                 b.bottomRight[0], b.bottomRight[1]);
                         cond1 = true;
                     }else if(this.checkCollisionHelper(b.bottomRight[0], b.bottomRight[1],
-                            b.bottomLeft[0], b.bottomLeft[1])){
+                            b.bottomLeft[0], b.bottomLeft[1],0)){
                         // bottom edge need to check left and right edge
                         if(this.checkCollisionHelper(b.upperRight[0], b.upperRight[1],
-                                b.bottomRight[0], b.bottomRight[1]) ||
+                                b.bottomRight[0], b.bottomRight[1],0) ||
                                 this.checkCollisionHelper(b.bottomLeft[0], b.bottomLeft[1],
-                                        b.upperLeft[0], b.upperLeft[1])){
+                                        b.upperLeft[0], b.upperLeft[1],0)){
                             cond2 = true;
                         }
                         normalVector = this.normalVectorHelper(b.bottomRight[0], b.bottomRight[1],
                                 b.bottomLeft[0], b.bottomLeft[1]);
                         cond1 = true;
                     }else if(this.checkCollisionHelper(b.bottomLeft[0], b.bottomLeft[1],
-                            b.upperLeft[0], b.upperLeft[1])){
+                            b.upperLeft[0], b.upperLeft[1],0)){
                         // left edge need to check upper and bottom edge
                         if(this.checkCollisionHelper(b.upperLeft[0], b.upperLeft[1],
-                                b.upperRight[0], b.upperRight[1]) ||
+                                b.upperRight[0], b.upperRight[1],0) ||
                                 this.checkCollisionHelper(b.bottomRight[0], b.bottomRight[1],
-                                b.bottomLeft[0], b.bottomLeft[1])){
+                                b.bottomLeft[0], b.bottomLeft[1],0)){
                             cond2 = true;
                         }
                         normalVector = this.normalVectorHelper(b.upperLeft[0], b.upperLeft[1],
@@ -296,7 +297,9 @@ public class Ball {
     }
 
     /**
-     * if collide with a line, the line will be removed, and ball will bounce
+     * if collide with a line, the line will be removed, and ball will bounce.
+     *
+     * @param app instance we used for the game
      */
     public void lineCollisionCheck(App app){
         // Line collision, also remove line from linesCollection after collision
@@ -325,13 +328,14 @@ public class Ball {
      * @param p1y y of one endpoint
      * @param p2x x of another endpoint
      * @param p2y y of another endpoint
+     * @param episilon the scaler we add to judge the touch condition.
      * @return return true if collide, false otherwise
      */
-    public boolean checkCollisionHelper(float p1x, float p1y, float p2x, float p2y){
+    public boolean checkCollisionHelper(float p1x, float p1y, float p2x, float p2y, int episilon){
         double distanceP1ToBall = sqrt(Math.pow(p1x - (double)(this.x+this.x_velocity), 2) + Math.pow(p1y - (double)(this.y+this.y_velocity), 2));
         double distanceP2ToBall = sqrt(Math.pow(p2x - (double)(this.x+this.x_velocity), 2) + Math.pow(p2y - (double)(this.y+this.y_velocity), 2));
         double edgeDistance = sqrt(Math.pow(p1x - p2x, 2) + Math.pow(p1y - p2y, 2));
-        return (distanceP1ToBall + distanceP2ToBall < edgeDistance + radius);
+        return (distanceP1ToBall + distanceP2ToBall < edgeDistance + radius+episilon);
     }
 
     /**
@@ -344,10 +348,7 @@ public class Ball {
      * @return return true if collide, false otherwise
      */
     public boolean checkLineCollisionHelper(float p1x, float p1y, float p2x, float p2y){
-        double distanceP1ToBall = sqrt(Math.pow(p1x - this.x-this.x_velocity, 2) + Math.pow(p1y - this.y-this.y_velocity, 2));
-        double distanceP2ToBall = sqrt(Math.pow(p2x - this.x-this.x_velocity, 2) + Math.pow(p2y - this.y-this.y_velocity, 2));
-        double edgeDistance = sqrt(Math.pow(p1x - p2x, 2) + Math.pow(p1y - p2y, 2));
-        return (distanceP1ToBall + distanceP2ToBall < edgeDistance + radius+20);
+        return this.checkCollisionHelper(p1x, p1y, p2x, p2y,20);
     }
 
     /**

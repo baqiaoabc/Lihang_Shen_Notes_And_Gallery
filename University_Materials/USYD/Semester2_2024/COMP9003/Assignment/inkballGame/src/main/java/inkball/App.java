@@ -8,6 +8,9 @@ import processing.event.MouseEvent;
 
 import java.util.*;
 
+/**
+ * Game main body.
+ */
 public class App extends PApplet {
 
     /**
@@ -53,7 +56,7 @@ public class App extends PApplet {
     /**
      * Indicate the number of blocks in each row
       */
-    public static final int NUM_COLUMNS = WIDTH/CELLSIZE;; // 18
+    public static final int NUM_COLUMNS = WIDTH/CELLSIZE;// 18
 
     /**
      * represent current level info.
@@ -194,7 +197,6 @@ public class App extends PApplet {
 	@Override
     public void keyPressed(KeyEvent event){
         if(!level.levelStatus.equals("wining") && !level.levelStatus.equals("time's up")){
-            System.out.println(key);
             if(key == 'r'){
                 // reset timer when replay current level or replay the game
                 level.updateMapSetting(level.resetScore);
@@ -206,7 +208,7 @@ public class App extends PApplet {
                 }
             }
         }else {
-            // restart game when game ended and press 'r' && level status is not wining
+            // restart game when game ended and press 'r' && level status is wining. otherwise restart current level
             if(key == 'r') {
                 if (!level.hasNextlevel()&&level.levelStatus.equals("wining")) {
                     level.currentLevel = 0;
@@ -406,7 +408,6 @@ public class App extends PApplet {
                 }
             }
         }
-        System.out.println(two);
     }
 
     /**

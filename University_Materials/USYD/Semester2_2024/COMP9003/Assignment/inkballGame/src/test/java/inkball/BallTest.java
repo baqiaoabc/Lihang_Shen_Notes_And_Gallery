@@ -19,6 +19,8 @@ public class BallTest {
 //        app.loop();
         PApplet.runSketch(new String[]{"App"}, app);
         app.setup();
+        app.level.ballsQueue.clear();
+        app.level.ballsOnTheMap.clear();
     }
 
     /**
@@ -186,7 +188,6 @@ public class BallTest {
            |                |
         (256,224) ------ (288,224)
          */
-        // touch top edge
         Ball b = new Ball("grey", 236, 500);
         b.x_velocity = 0;
         b.y_velocity = 0;
@@ -199,7 +200,7 @@ public class BallTest {
 
 
     /**
-     * test line collision
+     * test line collision correct
      */
     @Test
     public void testLineCollisionCheck(){
@@ -227,28 +228,35 @@ public class BallTest {
         // check when we have line in line collection
         b.lineCollisionCheck(app);
         // I do not know why it only works sometimes.
-//        assertEquals(2,app.level.linesCollection.size());
+//        assertEquals(1,app.level.linesCollection.size());
     }
 
     /**
-     * test line collision helper
+     * test line collision helper, that is when a ball touch a line checkLineCollisionHelper
+     * will return ture, false otherwise.
      */
     @Test
     public void testLineCollisionHelper(){
         Ball b = new Ball("grey",300,200);
+        b.x_velocity=0;
+        b.y_velocity=0;
+
         assertTrue(b.checkLineCollisionHelper(200,200,400,200));
 
         assertFalse(b.checkLineCollisionHelper(400,700,400,700));
     }
 
     /**
-     * test collision helper
+     * test collision helper, when a ball touch a wall, checkCollisionHelper will return true, false otherwise.
      */
     @Test
     public void testCollisionHelper(){
         Ball b = new Ball("grey",300,200);
-        assertTrue(b.checkCollisionHelper(200,200,400,200));
+        b.x_velocity=0;
+        b.y_velocity=0;
 
-        assertFalse(b.checkCollisionHelper(400,700,400,700));
+        assertTrue(b.checkCollisionHelper(200,200,400,200,0));
+
+        assertFalse(b.checkCollisionHelper(400,700,400,700,0));
     }
 }
