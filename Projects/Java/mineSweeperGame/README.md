@@ -1,0 +1,1 @@
+Just a normal mine sweeper game, nothing special.

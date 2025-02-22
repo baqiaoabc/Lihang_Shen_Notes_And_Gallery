@@ -1,0 +1,1 @@
+This is a centipede shooting game where the player controls a soldier tasked with stopping a centipede that moves toward them. For more detail, please read "CSC258 Project Handout 1.pdf". 
