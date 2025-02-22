@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="inkball.LevelTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2024-10-18T23:58:04" hostname="DESKTOP-MST6JVD" time="0.025">
+  <properties/>
+  <testcase name="testAddLine()" classname="inkball.LevelTest" time="0.001"/>
+  <testcase name="testUpdateMapSetting()" classname="inkball.LevelTest" time="0.002"/>
+  <testcase name="testReadLayoutFile()" classname="inkball.LevelTest" time="0.012"/>
+  <testcase name="testEnterNextLevel()" classname="inkball.LevelTest" time="0.002"/>
+  <testcase name="testServeBall()" classname="inkball.LevelTest" time="0.001"/>
+  <testcase name="testCharacters()" classname="inkball.LevelTest" time="0.0"/>
+  <testcase name="testDeleteLine()" classname="inkball.LevelTest" time="0.001"/>
+  <testcase name="testHasNextLevel()" classname="inkball.LevelTest" time="0.002"/>
+  <system-out><![CDATA[level 0: 1
+level 0: 1
+level 0: 1
+level 0: 1
+Can not find layout file 0 correctly!!!
+level 0: 1
+level 1: 2
+level 2: 5
+level 0: 1
+level 0: 1
+level 0: 1
+level 1: 2
+level 2: 5
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,11 @@
+# gradle build
+
+Compiles our program into the build directory.
+
+# gradle run
+
+Compiles and runs our program.
+
+# gradle clean
+
+Deletes the build directory.

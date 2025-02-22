@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Level.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">inkballGame</a> &gt; <a href="index.source.html" class="el_package">inkball</a> &gt; <span class="el_source">Level.java</span></div><h1>Level.java</h1><pre class="source lang-java linenums">package inkball;
+
+import processing.data.JSONArray;
+import processing.data.JSONObject;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.*;
+
+/**
+ * Level includes everything we need for each level of game, such as map information, current score, etc.
+ */
+public class Level {
+
+
+    /**
+     * number of current level
+     */
+    public int currentLevel;
+
+    /**
+     * collection of all levels, read from config.json file.
+     */
+    public JSONArray levels;
+
+    /**
+     * text file should only include below characters, all other characters will be regard as empty space
+     */
+<span class="fc" id="L29">    public final static String[] characters = {&quot;X&quot;,&quot;S&quot;,&quot;H&quot;,&quot;B&quot;,&quot; &quot;,&quot;0&quot;,&quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;};</span>
+
+    /**
+     * the name of current level's txt file
+     */
+    public String layoutFile;
+
+    /**
+     * store the content of txt file in the form of string of string, it is a 18*18 2-D array.
+     */
+    public ArrayList&lt;ArrayList&lt;String&gt;&gt; layoutContent;
+
+
+    /**
+     * time for each level, read from config.json, different for each level
+     */
+    public int time;
+
+    /**
+     * remaining time for current level, will update when replay or enter next level,
+     * in addition, it reaches 0 will lead to === TIME鈥橲 UP ===
+     */
+    public float remainTime;
+
+    /**
+     * ball spawn interval for each level
+     */
+    public int spawn_interval;
+
+    /**
+     * Indicate the number of spawner in current level
+     */
+    public int spawner_number;
+
+
+    /**
+     * score increasing modifier for each level
+     */
+    public float increaseModifier;
+
+    /**
+     * score decreasing modifier for each level
+     */
+    public float decreaseModifier;
+
+    /**
+     * balls queue for each level, spawner will use it to generate ball on map
+     */
+    public ArrayList&lt;Ball&gt; ballsQueue;
+
+    /**
+     * balls currently on the Map
+     */
+    public ArrayList&lt;Ball&gt; ballsOnTheMap;
+
+    /**
+     * denote the first frame of each level, will change to false after the first frame happened
+     */
+    public boolean firstFrame;
+
+    /**
+     * Indicate the score when enter each level, used to reset score when replay current level
+     */
+    public float resetScore;
+
+    /**
+     * accumulated score, inherit from before levels
+     */
+    public float currentScore;
+
+    /**
+     * lines currently on the Map
+     */
+    public ArrayList&lt;Line&gt; linesCollection; // need to reset to empty at each level
+
+    /**
+     * Indicates the line currently being drawn
+     */
+    public Line currentline;
+
+    /**
+     * level status: &quot;play&quot; means player can do anything;
+     * &quot;pause&quot; means player press &quot;space&quot;;
+     * &quot;time's up&quot; means player cannot do anything except press 'r' happen when time runs out;
+     * &quot;wining&quot; means player successfully capture all balls within time limit.
+     */
+    public String levelStatus;
+
+    /**
+     * Indicate how many frame are used,
+     * will reset to 0 when balls run out, begin from 0 in each level
+     */
+    public int frameElapsedForBallTimer;
+
+
+    /**
+     *  current level, begin from 0 in each level
+     */
+    public int frameElapsedForTimer;
+
+    /**
+     * Indicate how many frame are used when perform wining animation,
+     * will not change in other level status
+     */
+    public int frameForWiningAnimation;
+
+
+    /**
+     * Constructor
+     *
+     * @param levels file names for the map of each level.
+     * */
+<span class="fc" id="L141">    public Level(JSONArray levels){</span>
+
+<span class="fc" id="L143">        this.currentLevel = 0;</span>
+<span class="fc" id="L144">        this.levels = levels;</span>
+<span class="fc" id="L145">        this.ballsQueue = new ArrayList&lt;Ball&gt;();</span>
+<span class="fc" id="L146">        this.ballsOnTheMap = new ArrayList&lt;Ball&gt;();</span>
+<span class="fc" id="L147">        this.layoutContent = new ArrayList&lt;ArrayList&lt;String&gt;&gt;();</span>
+
+<span class="fc" id="L149">        this.linesCollection = new ArrayList&lt;Line&gt;();</span>
+
+<span class="fc bfc" id="L151" title="All 2 branches covered.">        for(int i = 0; i &lt; 18;i++){</span>
+<span class="fc" id="L152">            ArrayList&lt;String&gt; temp = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L153">            this.layoutContent.add(temp);</span>
+        }
+        // make sure each sub array have 18 elements
+<span class="fc bfc" id="L156" title="All 2 branches covered.">        for(int i = 0; i &lt; 18;i++){</span>
+<span class="fc bfc" id="L157" title="All 2 branches covered.">            for(int j = 0; j &lt; 18;j++){</span>
+<span class="fc" id="L158">                this.layoutContent.get(i).add(&quot; &quot;);</span>
+            }
+        }
+        // initial the first level setting
+<span class="fc" id="L162">        this.updateMapSetting(0);</span>
+<span class="fc" id="L163">    }</span>
+
+    /**
+     * advance to the next level if next level exist,
+     * automatically call when satisfy wining phase.
+     */
+    public void enterNextlevel(){
+        // only use when player successfully pass current level &amp;&amp; current level is not last level
+<span class="fc bfc" id="L171" title="All 2 branches covered.">        if (this.currentLevel &lt; levels.size()-1){</span>
+<span class="fc" id="L172">            this.currentLevel++;</span>
+<span class="fc" id="L173">            this.updateMapSetting(this.currentScore);</span>
+        }
+<span class="fc" id="L175">    }</span>
+
+    /**
+     * return true if next level exist, false otherwise.
+     *
+     * @return return true if current level has next level, false otherwise.
+     */
+    public boolean hasNextlevel(){
+        //return whether have next level
+<span class="fc bfc" id="L184" title="All 2 branches covered.">        return this.currentLevel &lt; levels.size()-1;</span>
+    }
+
+    /** update Map when game end or player uses &quot;r&quot; to replay the game
+     *
+     * @param Score the score we need to update this.resetScore and this.currentScore
+     */
+    public void updateMapSetting(float Score){
+        // We need to reset App.startTime whenever we use this function, but we can only do it inside App class
+
+<span class="fc" id="L194">        this.frameForWiningAnimation=0;</span>
+<span class="fc" id="L195">        this.frameElapsedForBallTimer = 0;</span>
+<span class="fc" id="L196">        this.frameElapsedForTimer=0;</span>
+<span class="fc" id="L197">        this.levelStatus =&quot;play&quot;;</span>
+
+<span class="fc" id="L199">        JSONObject level = levels.getJSONObject(this.currentLevel);</span>
+<span class="fc" id="L200">        this.firstFrame = true;</span>
+<span class="fc" id="L201">        this.resetScore = Score;</span>
+<span class="fc" id="L202">        this.currentScore = Score;</span>
+<span class="fc" id="L203">        this.currentline = null;</span>
+<span class="fc" id="L204">        this.linesCollection.clear();</span>
+<span class="fc" id="L205">        this.spawner_number = 0;</span>
+
+<span class="fc" id="L207">        this.time = level.getInt(&quot;time&quot;);</span>
+<span class="fc" id="L208">        this.remainTime = this.time;</span>
+<span class="fc" id="L209">        this.spawn_interval = level.getInt(&quot;spawn_interval&quot;);</span>
+
+<span class="fc" id="L211">        this.increaseModifier = level.getFloat(&quot;score_increase_from_hole_capture_modifier&quot;);</span>
+<span class="fc" id="L212">        this.decreaseModifier = level.getFloat(&quot;score_decrease_from_wrong_hole_modifier&quot;);</span>
+
+<span class="fc" id="L214">        this.ballsOnTheMap.clear();</span>
+<span class="fc" id="L215">        this.ballsQueue.clear();</span>
+<span class="fc" id="L216">        JSONArray balls = level.getJSONArray(&quot;balls&quot;);</span>
+<span class="fc bfc" id="L217" title="All 2 branches covered.">        for (int i = 0; i &lt; balls.size(); i++){</span>
+<span class="fc" id="L218">            Ball ball = new Ball(balls.getString(i),0,0);</span>
+<span class="fc" id="L219">            ballsQueue.add(ball);</span>
+        }
+
+        // read current level layout from txt file
+<span class="fc" id="L223">        this.layoutFile = level.getString(&quot;layout&quot;);</span>
+<span class="fc" id="L224">        this.readLayoutFile();</span>
+        // setup board for current level according to this.layoutContent
+<span class="fc" id="L226">        this.setupBoard();</span>
+<span class="fc" id="L227">        System.out.println(&quot;level &quot;+currentLevel+&quot;: &quot;+ballsOnTheMap.size());</span>
+<span class="fc" id="L228">    }</span>
+
+    /**
+     * Read txt file to get layout of current level in the form of
+     * array list of array list of string (i.e. 2-D array), the size is 18*18
+     */
+    public void readLayoutFile(){
+        // can only draw the map for current level in App.java
+        // return the &quot;layout&quot; txt file content in the format of [[],[]]
+        // Map number of rows: len of outside list can be less than 18, for example, bottom edge set to tile
+        // Map row: len of inside list can be less than 18
+        try {
+<span class="fc" id="L240">            File file = new File(this.layoutFile);</span>
+<span class="fc" id="L241">            Scanner scanner = new Scanner(file);</span>
+<span class="fc" id="L242">            int numRows = 0;</span>
+<span class="fc bfc" id="L243" title="All 2 branches covered.">            while (scanner.hasNextLine()) {</span>
+<span class="fc" id="L244">                String line = scanner.nextLine();</span>
+                // if line does not have 18 characters, below code will fill them with space &quot; &quot;
+<span class="fc" id="L246">                int lineLength = line.length();</span>
+<span class="fc bfc" id="L247" title="All 2 branches covered.">                for(int i = 0; i &lt; 18;i++){</span>
+<span class="fc bfc" id="L248" title="All 2 branches covered.">                    if(numRows&lt;18){</span>
+<span class="fc bfc" id="L249" title="All 2 branches covered.">                        if (i&lt;lineLength){</span>
+<span class="fc" id="L250">                            String cha = Character.toString(line.charAt(i));</span>
+<span class="fc bfc" id="L251" title="All 2 branches covered.">                            if (Arrays.asList(this.characters).contains(cha)){</span>
+<span class="fc" id="L252">                                this.layoutContent.get(numRows).set(i,cha);</span>
+                            }else {
+<span class="fc" id="L254">                                this.layoutContent.get(numRows).set(i,&quot; &quot;);</span>
+                            }
+<span class="fc" id="L256">                        }else {</span>
+<span class="fc" id="L257">                            this.layoutContent.get(numRows).set(i,&quot; &quot;);</span>
+                        }
+                    }
+                }
+<span class="fc" id="L261">                numRows++;</span>
+<span class="fc" id="L262">            }</span>
+
+;            // if there are less than 18 rows, below code will set rest rows with empty space
+<span class="fc bfc" id="L265" title="All 2 branches covered.">            for (int i = numRows; i &lt; 18; i++){</span>
+<span class="fc bfc" id="L266" title="All 2 branches covered.">                for(int j = 0; j &lt; 18;j++){</span>
+<span class="fc" id="L267">                    this.layoutContent.get(i).set(j,&quot; &quot;);</span>
+                }
+            }
+
+            /*
+                Since hole blocks need 64*64 pixel, therefore, I decided to use
+                                H1
+                                FF
+                to represent a hole. Notice that, a hole never gonna appear in the edge
+                so we begin from idx 1 to idx 16
+             */
+<span class="fc bfc" id="L278" title="All 2 branches covered.">            for (int i = 1; i &lt; 17; i++){</span>
+<span class="fc bfc" id="L279" title="All 2 branches covered.">                for(int j = 1; j &lt; 17;j++){</span>
+<span class="fc bfc" id="L280" title="All 2 branches covered.">                    if(&quot;H&quot;.equals(this.layoutContent.get(i).get(j))){</span>
+<span class="fc" id="L281">                        this.layoutContent.get(i+1).set(j,&quot;F&quot;);</span>
+<span class="fc" id="L282">                        this.layoutContent.get(i+1).set(j+1,&quot;F&quot;);</span>
+                    }
+                }
+            }
+<span class="fc" id="L286">        } catch (FileNotFoundException e) {</span>
+<span class="fc" id="L287">            System.out.println(&quot;Can not find layout file &quot; + this.currentLevel + &quot; correctly!!!&quot;);</span>
+<span class="fc" id="L288">        }</span>
+<span class="fc" id="L289">    }</span>
+
+    /**
+     * setup the App.board according to this.layoutContent
+      */
+    public void setupBoard(){
+<span class="fc bfc" id="L295" title="All 2 branches covered.">        for (int rowN = 0; rowN &lt; App.NUM_ROWS; rowN++) {</span>
+<span class="fc bfc" id="L296" title="All 2 branches covered.">            for (int colN = 0; colN &lt; App.NUM_COLUMNS; colN++) {</span>
+<span class="fc" id="L297">                String currentLetter = this.layoutContent.get(rowN).get(colN);</span>
+                // After below if statement, I guarantee that all block assign appropriate size
+<span class="fc bfc" id="L299" title="All 2 branches covered.">                if(&quot;H&quot;.equals(currentLetter)){</span>
+                    // represent the image block for a hole (hole has 4 blocks, only the top left one should draw the image)
+<span class="fc" id="L301">                    App.board[rowN][colN] = new Block(</span>
+                            colN * App.CELLSIZE,
+                            rowN * App.CELLSIZE + App.TOPBAR,
+                            &quot;H&quot;,
+<span class="fc" id="L305">                            App.colors[Integer.parseInt(this.layoutContent.get(rowN).get(colN+1))],</span>
+                            true);
+<span class="fc bfc" id="L307" title="All 4 branches covered.">                }else if(colN&gt;0 &amp;&amp;(&quot;F&quot;.equals(currentLetter) ||</span>
+<span class="fc bfc" id="L308" title="All 2 branches covered.">                        &quot;H&quot;.equals(this.layoutContent.get(rowN).get(colN-1))</span>
+                )){
+                    // Generate rest block of Hole &quot;H&quot;, color should &quot;colorless&quot;
+                    // hole attraction only need to consider about the bottom right pixel of image block for the hole
+<span class="fc" id="L312">                    App.board[rowN][colN] = new Block(</span>
+                            colN * App.CELLSIZE,
+                            rowN * App.CELLSIZE + App.TOPBAR,
+                            &quot;H&quot;,
+                            &quot;colorless&quot;,
+                            false);
+<span class="fc bfc" id="L318" title="All 2 branches covered.">                }else if(currentLetter.equals(&quot;X&quot;)){</span>
+                    // Should create wall 0 block &quot;W which is a grey wall
+<span class="fc" id="L320">                    App.board[rowN][colN] = new Block(</span>
+                            colN * App.CELLSIZE,
+                            rowN * App.CELLSIZE + App.TOPBAR,
+                            &quot;W&quot;,
+                            &quot;grey&quot;,
+                            true);
+<span class="fc bfc" id="L326" title="All 6 branches covered.">                }else if(&quot;0&quot;.equals(currentLetter) || &quot;1&quot;.equals(currentLetter) || &quot;2&quot;.equals(currentLetter)||</span>
+<span class="fc bfc" id="L327" title="All 4 branches covered.">                        &quot;3&quot;.equals(currentLetter)|| &quot;4&quot;.equals(currentLetter)){</span>
+                    // Does need to worry about H1 cases, because that case already consider in above if statement
+<span class="fc bfc" id="L329" title="All 4 branches covered.">                    if(colN&gt;0 &amp;&amp; &quot;B&quot;.equals(this.layoutContent.get(rowN).get(colN-1))) {</span>
+                        // create tile block &quot;T&quot; because last block is &quot;B&quot;
+<span class="fc" id="L331">                        App.board[rowN][colN] = new Block(</span>
+                                colN * App.CELLSIZE,
+                                rowN * App.CELLSIZE + App.TOPBAR,
+                                &quot;T&quot;,
+                                &quot;colorless&quot;,
+                                true);
+                    }else{
+                        // create wall block &quot;W&quot; with corresponding color 1 to 4
+<span class="fc" id="L339">                        App.board[rowN][colN] = new Block(</span>
+                                colN * App.CELLSIZE,
+                                rowN * App.CELLSIZE + App.TOPBAR,
+                                &quot;W&quot;,
+<span class="fc" id="L343">                                App.colors[Integer.parseInt(currentLetter)],</span>
+                                true);
+                    }
+<span class="fc bfc" id="L346" title="All 2 branches covered.">                }else if(currentLetter.equals(&quot;S&quot;)){</span>
+                    // count the number of spawner for current level
+<span class="fc" id="L348">                    this.spawner_number+=1;</span>
+                    // Should draw spawner &quot;S&quot;
+<span class="fc" id="L350">                    App.board[rowN][colN] = new Block(</span>
+                            colN * App.CELLSIZE,
+                            rowN * App.CELLSIZE + App.TOPBAR,
+                            &quot;S&quot;,
+                            &quot;colorless&quot;,
+                            true);
+<span class="fc bfc" id="L356" title="All 2 branches covered.">                }else if(currentLetter.equals((&quot;B&quot;))){</span>
+                    // Create &quot;B&quot; block
+<span class="fc" id="L358">                    App.board[rowN][colN] = new Block(</span>
+                            colN * App.CELLSIZE,
+                            rowN * App.CELLSIZE + App.TOPBAR,
+                            &quot;B&quot;,
+<span class="fc" id="L362">                            App.colors[Integer.parseInt(this.layoutContent.get(rowN).get(colN+1))],</span>
+                            true);
+
+<span class="fc" id="L365">                    Ball newball = new Ball(App.colors[Integer.parseInt(App.board[rowN][colN].colorIndex)],</span>
+                            App.board[rowN][colN].x+App.CELLSIZE/2,App.board[rowN][colN].y+App.CELLSIZE/2);
+<span class="fc" id="L367">                    this.addBallToTheMap(newball);</span>
+<span class="fc" id="L368">                }else{</span>
+                    // Create tile block &quot;T&quot;
+<span class="fc" id="L370">                    App.board[rowN][colN] = new Block(</span>
+                            colN * App.CELLSIZE,
+                            rowN * App.CELLSIZE + App.TOPBAR,
+                            &quot;T&quot;,
+                            &quot;colorless&quot;,
+                            true);
+                }
+            }
+        }
+<span class="fc" id="L379">    }</span>
+
+    /**
+     * add a ball to the map
+     *
+     * @param newBall the ball we want to add
+     */
+    public void addBallToTheMap(Ball newBall){
+<span class="fc" id="L387">        this.ballsOnTheMap.add(newBall);</span>
+<span class="fc" id="L388">    }</span>
+
+    /**
+     * add currentline to linesCollection
+     */
+    public void addLine(){
+<span class="fc" id="L394">        this.linesCollection.add(currentline);</span>
+<span class="fc" id="L395">    }</span>
+
+    /**
+     * delete currentline from linesCollection
+     */
+    public void deleteLine(){
+<span class="fc" id="L401">        this.linesCollection.remove(currentline);</span>
+<span class="fc" id="L402">    }</span>
+
+    /**
+     * Generate a ball at random spawner
+     */
+    public void serveBall(){
+<span class="fc bfc" id="L408" title="All 2 branches covered.">        if(spawner_number&lt;=0)</span>
+<span class="fc" id="L409">            return;</span>
+<span class="fc" id="L410">        int spawneridx= App.random.nextInt(spawner_number);</span>
+<span class="fc" id="L411">        int idx = 0;</span>
+<span class="fc bfc" id="L412" title="All 2 branches covered.">        for (Block[] row : App.board) {</span>
+<span class="fc bfc" id="L413" title="All 2 branches covered.">            for (Block b : row) {</span>
+<span class="pc bpc" id="L414" title="1 of 4 branches missed.">                if (b.blockType.equals(&quot;S&quot;) &amp;&amp; !this.ballsQueue.isEmpty()){</span>
+<span class="pc bpc" id="L415" title="1 of 2 branches missed.">                    if (idx == spawneridx){</span>
+<span class="fc" id="L416">                        Ball shotBall = this.ballsQueue.remove(0);</span>
+<span class="fc" id="L417">                        shotBall.x = b.x + App.CELLSIZE/2;</span>
+<span class="fc" id="L418">                        shotBall.y = b.y + App.CELLSIZE/2;</span>
+<span class="fc" id="L419">                        this.addBallToTheMap(shotBall);</span>
+                    }
+<span class="fc" id="L421">                    idx++;</span>
+                }
+            }
+        }
+<span class="fc" id="L425">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

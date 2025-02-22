@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="inkball.BallTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2024-10-18T23:58:03" hostname="DESKTOP-MST6JVD" time="0.463">
+  <properties/>
+  <testcase name="testLineCollisionCheck()" classname="inkball.BallTest" time="0.054"/>
+  <testcase name="testUpdateColor()" classname="inkball.BallTest" time="0.043"/>
+  <testcase name="testWallCollisionCheckTop()" classname="inkball.BallTest" time="0.051"/>
+  <testcase name="testLineCollisionHelper()" classname="inkball.BallTest" time="0.04"/>
+  <testcase name="testCheckEnterHole1()" classname="inkball.BallTest" time="0.047"/>
+  <testcase name="testCheckEnterHole2()" classname="inkball.BallTest" time="0.063"/>
+  <testcase name="testBoundaryCollisionCheck()" classname="inkball.BallTest" time="0.056"/>
+  <testcase name="testCollisionHelper()" classname="inkball.BallTest" time="0.051"/>
+  <testcase name="testUpdateVelocity()" classname="inkball.BallTest" time="0.051"/>
+  <system-out><![CDATA[level 0: 1
+level 0: 1
+level 0: 1
+level 0: 1
+level 0: 1
+level 0: 1
+level 0: 1
+level 0: 1
+level 0: 1
+level 0: 1
+level 0: 1
+level 0: 1
+level 0: 1
+level 0: 1
+level 0: 1
+level 0: 1
+level 0: 1
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

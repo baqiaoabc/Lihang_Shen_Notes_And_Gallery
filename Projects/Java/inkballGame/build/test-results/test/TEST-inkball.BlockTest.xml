@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="inkball.BlockTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2024-10-18T23:58:04" hostname="DESKTOP-MST6JVD" time="0.01">
+  <properties/>
+  <testcase name="testBlockColorless()" classname="inkball.BlockTest" time="0.001"/>
+  <testcase name="testBlockWithoutImage()" classname="inkball.BlockTest" time="0.001"/>
+  <testcase name="testBlockInitialization()" classname="inkball.BlockTest" time="0.001"/>
+  <testcase name="testBlockCorners()" classname="inkball.BlockTest" time="0.004"/>
+  <testcase name="testHoleBlock()" classname="inkball.BlockTest" time="0.0"/>
+  <testcase name="testNonBouncyBlock()" classname="inkball.BlockTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
