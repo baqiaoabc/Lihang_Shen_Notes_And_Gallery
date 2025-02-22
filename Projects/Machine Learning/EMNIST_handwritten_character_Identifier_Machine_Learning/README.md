@@ -1,0 +1,1 @@
+Use sklearn library to implement an identifier which can identify emnist characters. For more detail, please read "a2_74_540155277_530783442_490051481.ipynb".

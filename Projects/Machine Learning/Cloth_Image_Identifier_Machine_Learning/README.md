@@ -1,0 +1,1 @@
+Use sklearn library to implement an identifier which can identify given image type. For more detail, please read "Assignment1_Comp5318_2024S2.ipynb".
