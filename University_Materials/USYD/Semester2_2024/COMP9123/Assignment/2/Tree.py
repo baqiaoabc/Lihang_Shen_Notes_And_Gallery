@@ -126,70 +126,70 @@ def print_tree(n, level=0):
     for child in n.children:
         print_tree(child, level + 1)
 
-# 1
-#     2
-#         5
-#         5
-#     3
-#         3
-#         4
-root = Node(1,3)
-
-node1 = Node(2,3)
-node1_1= Node(5,3)
-node1_2= Node(5,3)
-
-node2 = Node(3,3)
-node2_1= Node(3,3)
-node2_2 = Node(4,3)
-
-root.add_child(node1)
-root.add_child(node2)
-node1.add_child(node1_1)
-node1.add_child(node1_2)
-node2.add_child(node2_1)
-node2.add_child(node2_2)
-
-# 9
-#    7
-#       8
-node_new1 = Node(9,3)
-node_new1_1 = Node(7,3)
-node_new1_1_1 = Node(8,3)
-node_new1.add_child(node_new1_1)
-node_new1_1.add_child(node_new1_1_1)
-print_tree(node_new1,0)
-# --------------------------------------------------------
-
-tree = Tree(root)
-print_tree(root,0)
-
-# 1
-#     2
-#         5
-#         5
-#         3
-#               3
-#               4
-tree.move_subtree(node2,node1)
-print_tree(root,0)
-
-# 1
-#     2
-#         5
-#               9
-#                   7
-#                       8
-#         5
-#         3
-#               3
-#               4
-tree.put(node1_1,node_new1)
-print_tree(root,0)
-
-
-children = node1_1.children
-tree.melt_subtree(node1_1)
-print_tree(root,0)
-
-print(children[0].children)
+# # 1
+# #     2
+# #         5
+# #         5
+# #     3
+# #         3
+# #         4
+# root = Node(1,3)
+#
+# node1 = Node(2,3)
+# node1_1= Node(5,3)
+# node1_2= Node(5,3)
+#
+# node2 = Node(3,3)
+# node2_1= Node(3,3)
+# node2_2 = Node(4,3)
+#
+# root.add_child(node1)
+# root.add_child(node2)
+# node1.add_child(node1_1)
+# node1.add_child(node1_2)
+# node2.add_child(node2_1)
+# node2.add_child(node2_2)
+#
+# # 9
+# #    7
+# #       8
+# node_new1 = Node(9,3)
+# node_new1_1 = Node(7,3)
+# node_new1_1_1 = Node(8,3)
+# node_new1.add_child(node_new1_1)
+# node_new1_1.add_child(node_new1_1_1)
+# print_tree(node_new1,0)
+# # --------------------------------------------------------
+#
+# tree = Tree(root)
+# print_tree(root,0)
+#
+# # 1
+# #     2
+# #         5
+# #         5
+# #         3
+# #               3
+# #               4
+# tree.move_subtree(node2,node1)
+# print_tree(root,0)
+#
+# # 1
+# #     2
+# #         5
+# #               9
+# #                   7
+# #                       8
+# #         5
+# #         3
+# #               3
+# #               4
+# tree.put(node1_1,node_new1)
+# print_tree(root,0)
+#
+#
+# children = node1_1.children
+# tree.melt_subtree(node1_1)
+# print_tree(root,0)
+#
+# print(children[0].children)
