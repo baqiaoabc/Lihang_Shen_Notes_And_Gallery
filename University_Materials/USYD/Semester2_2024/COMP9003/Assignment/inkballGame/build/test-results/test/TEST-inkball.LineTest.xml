@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="inkball.LineTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2024-10-18T23:58:04" hostname="DESKTOP-MST6JVD" time="0.006">
+  <properties/>
+  <testcase name="testIsPointOutsideLineSegment()" classname="inkball.LineTest" time="0.001"/>
+  <testcase name="testValidLine1()" classname="inkball.LineTest" time="0.001"/>
+  <testcase name="testValidLine2()" classname="inkball.LineTest" time="0.001"/>
+  <testcase name="testIsPointOnDiagonalLineSegment()" classname="inkball.LineTest" time="0.0"/>
+  <testcase name="testIsPointOnHorizontalLineSegment()" classname="inkball.LineTest" time="0.0"/>
+  <testcase name="testIsPointOnVerticalLineSegment()" classname="inkball.LineTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

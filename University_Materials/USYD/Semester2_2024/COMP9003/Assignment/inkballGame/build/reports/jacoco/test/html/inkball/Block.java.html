@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Block.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">inkballGame</a> &gt; <a href="index.source.html" class="el_package">inkball</a> &gt; <span class="el_source">Block.java</span></div><h1>Block.java</h1><pre class="source lang-java linenums">package inkball;
+
+/**
+ * represent a block, it includes wall, spawner, etc. For more detail, please see the below instruction
+ */
+public class Block {
+    /**
+     * x coordinate of block
+     */
+    public int x;
+
+    /**
+     * y coordinate of block
+     */
+    public int y;
+
+    /**
+     * indicate whether edge tile is used for ending enimation,
+     * true means are currently used for settlement animation,
+     * false otherwise
+     */
+    public boolean animation;
+
+
+    /**
+     * The block could be:
+     * (1) W: wall from 0 - 4;
+     * (2) S: spawner;
+     * (3) H: hole;
+     * (4) B: initial ball spawner;
+     * (5) T: tile;
+     */
+    public String blockType;
+
+    /**
+     * H: hole only needs top left block to draw the image, so this variable will only be used for &quot;H&quot; block
+     */
+    public boolean ImageBlock;
+
+    /**
+     *  image size of current block, &quot;H&quot; block should be twice larger than other block.
+     */
+    public int imageBlockSize;
+
+    /**
+     * except for &quot;T&quot;, &quot;S&quot; and &quot;B&quot;, all blocks have color, namely,
+     * &quot;T&quot;, &quot;S&quot; and &quot;B&quot; will have &quot;colorless&quot; color and &quot;-1&quot; colorIndex
+     */
+    public String color;
+    /**
+     * the color index of corresponding color, for detail, refer to App.colorIndex
+     */
+    public String colorIndex;
+
+    /**
+     * indicate whether block is Bouncy, namely, only &quot;W&quot; block is bouncy
+     */
+    public boolean bouncy;
+
+    /**
+     * indicate how many times bouncy block is hit by the corresponding ball,
+     * notice that Different colour bricks can only be damaged by the ball of
+     * corresponding colour, unless it鈥檚 a grey brick.
+     */
+    public int bouncyNum;
+
+    /**
+     * upperLeft corner point of current block, used for collision detection
+     */
+<span class="fc" id="L70">    public float[] upperLeft= new float[2];</span>
+    /**
+     * upperRight corner point of current block, used for collision detection
+     */
+<span class="fc" id="L74">    public float[] upperRight = new float[2];</span>
+    /**
+     * bottomLeft corner point of current block, used for collision detection
+     */
+<span class="fc" id="L78">    public float[] bottomLeft = new float[2];</span>
+    /**
+     * bottomRight corner point of current block, used for collision detection
+     */
+<span class="fc" id="L82">    public float[] bottomRight = new float[2];</span>
+
+    /**
+     * Block constructor
+     *
+     * @param x The x coordinate of block
+     * @param y The y coordinate of block
+     * @param blockType The block type of block, refer to class variable explain
+     * @param color The color of block
+     * @param ImageBlock Indicate whether we need to draw image for current block,
+     *                   since some block is part of the large block, such as a hole need 4 blocks
+     *                   but only top left block need to draw image
+     */
+<span class="fc" id="L95">    public Block(int x, int y, String blockType, String color, boolean ImageBlock){</span>
+        // this is the base pint for image drawing
+<span class="fc" id="L97">        this.x=x;</span>
+<span class="fc" id="L98">        this.y=y;</span>
+<span class="fc" id="L99">        this.blockType = blockType;</span>
+<span class="fc" id="L100">        this.bouncyNum=0;</span>
+<span class="fc" id="L101">        this.animation = false;</span>
+
+        // match color with the colorIndex
+<span class="fc" id="L104">        this.color = color;</span>
+<span class="fc" id="L105">        this.colorIndex = &quot;-1&quot;;</span>
+<span class="fc bfc" id="L106" title="All 2 branches covered.">        for(int i = 0; i &lt; App.colors.length; i++){</span>
+<span class="fc bfc" id="L107" title="All 2 branches covered.">            if (color.equals(App.colors[i])){</span>
+<span class="fc" id="L108">                this.colorIndex = String.valueOf(i);</span>
+            }
+        }
+
+        // only wall can bounce ball
+<span class="fc" id="L113">        this.bouncy = this.blockType.equals(&quot;W&quot;);</span>
+
+        // set current block as image block
+<span class="fc" id="L116">        this.ImageBlock = ImageBlock;</span>
+        // set size of current block
+<span class="fc" id="L118">        this.imageBlockSize =App.CELLSIZE;</span>
+<span class="fc bfc" id="L119" title="All 4 branches covered.">        if(this.blockType.equals(&quot;H&quot;) &amp;&amp; this.ImageBlock){</span>
+<span class="fc" id="L120">            this.imageBlockSize = 2*App.CELLSIZE;</span>
+        }
+        // I will use 4 block to represent a hole, so need not to specially treat &quot;H&quot;
+<span class="fc" id="L123">        this.upperLeft[0] = this.x;</span>
+<span class="fc" id="L124">        this.upperLeft[1] = this.y;</span>
+
+<span class="fc" id="L126">        this.upperRight[0] = this.x + App.CELLSIZE;</span>
+<span class="fc" id="L127">        this.upperRight[1] = this.y;</span>
+
+<span class="fc" id="L129">        this.bottomLeft[0] = this.x;</span>
+<span class="fc" id="L130">        this.bottomLeft[1] = this.y + App.CELLSIZE;</span>
+
+<span class="fc" id="L132">        this.bottomRight[0] = this.x + App.CELLSIZE;</span>
+<span class="fc" id="L133">        this.bottomRight[1] = this.y + App.CELLSIZE;</span>
+<span class="fc" id="L134">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

@@ -1,0 +1,16 @@
+Date
+	2025-03-16
+Members
+	Shen Lihang; Jiang Ziyang; Tang Tianqi
+Topic
+	discuss about the schedule
+	1. ERD 
+		1.1 Identify entities and relationships from the paragraph. Schedule a meeting on 3-20.
+		1.2 Finalize the ERD. Schedule a meeting on 3-23.
+	2. SQL 
+		2.1 Complete the RM diagram. Schedule a meeting on 3-26.
+		2.2 Implement the code. Schedule a meeting on 3-29.
+
+Q&A
+Q: How to identify ERD relationships from a paragraph?
+A: XXXX (sentence from the paragraph) => Extract ERD relationships and entities.
