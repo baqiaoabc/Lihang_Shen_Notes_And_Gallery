@@ -47,7 +47,9 @@ CREATE TABLE PreOwnedCar(
 CREATE OR REPLACE FUNCTION check_vin_not_in_preowned()
 RETURNS TRIGGER AS $$
 BEGIN
-    IF EXISTS (SELECT 1 FROM PreOwnedCar WHERE VIN = NEW.VIN) THEN
+    IF 
+        EXISTS (SELECT 1 FROM PreOwnedCar WHERE VIN = NEW.VIN) 
+    THEN
         RAISE EXCEPTION 'VIN % already exists in PreOwnedCar', NEW.VIN;
     END IF;
     RETURN NEW;

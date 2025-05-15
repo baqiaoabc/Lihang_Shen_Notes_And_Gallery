@@ -11,9 +11,9 @@ Connect to the database using the connection string
 def openConnection():
     # connection parameters - ENTER YOUR LOGIN AND PASSWORD HERE
 
-    myHost = ""
-    userid = ""
-    passwd = ""
+    myHost = "localhost"
+    userid = "postgres"
+    passwd = "qq****" # update before use
     
     # Create a connection to the database
     conn = None
@@ -30,12 +30,33 @@ def openConnection():
     # return the connection to use
     return conn
 
-'''
-Validate salesperson based on username and password
-'''
-def checkLogin(login, password):
 
-    return ['jdoe', 'John', 'Doe']
+def checkLogin(login, password):
+    '''
+    Validate salesperson based on username and password using the stored function check_login
+    '''
+    try:
+        conn = openConnection()  # Assuming openConnection() is defined elsewhere
+        cur = conn.cursor()
+
+        cur.callproc("check_login",[login, password])
+
+
+        # Fetch the result
+        salesperson = cur.fetchone()
+
+        cur.close()
+        conn.close()
+
+        # If a salesperson is found, return the result as a list
+        if salesperson:
+            return list(salesperson)  # Convert the tuple to a list
+        return None
+
+    except psycopg2.Error as sqle:
+        print("psycopg2.Error: " + str(sqle))
+        return None
+
 
 
 """
@@ -47,20 +68,126 @@ def checkLogin(login, password):
 
     :return: A list of car sale summaries.
 """
+
+
 def getCarSalesSummary():
-    return
+    try:
+        # Assuming openConnection() is defined elsewhere
+        conn = openConnection()
+        if not conn:
+            return []
 
-"""
-    Finds car sales based on the provided search string.
+        cur = conn.cursor()
 
-    This method searches the database for car sales that match the provided search 
-    string. See assignment description for search specification
+        # Call the PostgreSQL function to check login credentials
+        cur.callproc("get_car_sales_summary",[])
 
-    :param search_string: The search string to use for finding car sales in the database.
-    :return: A list of car sales matching the search string.
-"""
+        # Fetch the result
+        cols = [desc[0] for desc in cur.description]
+        summary = [dict(zip(cols, row)) for row in cur.fetchall()]
+
+        #close
+        cur.close()
+        conn.close()
+
+        return summary
+
+    except psycopg2.Error as sqle:
+        print("psycopg2.Error : ", sqle.pgerror)
+        return []
+
+
 def findCarSales(searchString):
-    return
+    # split search String
+    try:
+        conn = openConnection()
+        curs = conn.cursor()
+        # we need to make sure case insensitive for username
+        curs.execute(
+            """
+            SELECT
+                c.cid AS "carsale_id",
+                COALESCE(c.make) AS "make",
+                COALESCE(c.model) AS "model",
+                COALESCE(c."year") AS "builtYear",
+                COALESCE(c.odometer) AS "odometer",
+                COALESCE(c.price) AS "price",
+                COALESCE(c.issold) AS "isSold",
+
+                COALESCE(TO_CHAR(c.saledate, 'DD-MM-YYYY'), '') AS "sale_date",
+                COALESCE(c.buyer, '') AS "buyer",
+                COALESCE(c.salesperson, '') AS "salesperson",
+
+                COALESCE(c.saledate) AS "sale_date_for_order"
+            FROM
+            (
+
+                -- only have unsold car in here
+                SELECT
+                      mo.modelname model,
+                      ma.makename make,
+                      ca.carsaleid cid,
+                      ca.odometer odometer,
+                      ca.issold issold,
+                      ca.builtyear "year",
+                      ca.price price,
+
+                      ca.saledate saledate,
+                      c.firstname || ' ' || c.lastname AS buyer,
+                      s.firstname || ' ' || s.lastname AS salesperson
+                FROM carsales ca
+                NATURAL JOIN model mo
+                NATURAL JOIN make ma
+                JOIN customer c ON c.customerid = ca.buyerid
+                JOIN salesperson s on s.username = ca.salespersonid
+
+                UNION
+
+                -- only have unsold car in here
+                SELECT
+                      mo.modelname model,
+                      ma.makename make,
+                      ca.carsaleid cid,
+                      ca.odometer odometer,
+                      ca.issold issold,
+                      ca.builtyear "year",
+                      ca.price price,
+
+                      NULL AS saledate,
+                      '' AS buyer,
+                      '' AS salesperson
+                FROM carsales ca
+                NATURAL JOIN model mo
+                NATURAL JOIN make ma
+                WHERE ca.issold = false
+
+            ) c
+            WHERE
+                (STRPOS(LOWER(c.make), LOWER(%s)) > 0 OR
+                STRPOS(LOWER(c.model), LOWER(%s)) > 0 OR
+                STRPOS(LOWER(c.buyer), LOWER(%s)) > 0 OR
+                STRPOS(LOWER(c.salesperson), LOWER(%s)) > 0
+                )
+                AND
+                (c."issold" = false
+                    OR
+                c."issold" = true AND c."saledate" >= CURRENT_DATE - INTERVAL '3 years')
+            ORDER BY
+                "isSold" ASC,
+                "sale_date_for_order" ASC,
+                "make" ASC,
+                "model" ASC;
+            """,
+            (searchString, searchString, searchString, searchString),
+        )
+        cols = [desc[0] for desc in curs.description]
+        summary = [dict(zip(cols, row)) for row in curs.fetchall()]
+
+        curs.close()
+        return summary
+    except psycopg2.Error as sqle:
+        print("psycopg2.Error : ", sqle.pgerror)
+
 
 """
     Adds a new car sale to the database.
@@ -72,8 +199,59 @@ def findCarSales(searchString):
     :param car_sale: The CarSale object to be added to the database.
     :return: A boolean indicating if the operation was successful or not.
 """
+
 def addCarSale(make, model, builtYear, odometer, price):
-    return
+    try:
+        conn = openConnection()
+        curs = conn.cursor()
+
+        # fide MakeCode and ModelCode
+        curs.execute(
+            """
+            SELECT make.makecode, model.modelcode
+            FROM make
+            NATURAL JOIN model
+            WHERE 
+                make.makename ILIKE %s
+                AND model.modelname ILIKE %s;
+            """,
+            (make, model)
+        )
+        row = curs.fetchone()
+
+        if not row:
+            print("Make or Model not found.")
+            curs.close()
+            return False
+
+        makecode = row[0]
+        modelcode = row[1]
+
+        # use INSERT + SELECT + WHERE check positive num
+        curs.execute(
+            """
+            INSERT INTO carsales (MakeCode, ModelCode, BuiltYear, Odometer, Price, IsSold)
+            SELECT %s, %s, %s, %s, %s, %s
+            WHERE %s > 0 and %s > 0.0;
+            """,
+            (makecode, modelcode, builtYear, odometer, price, False, odometer, price)
+        )
+
+        if curs.rowcount == 0:
+            print("Insertion failed: odometer and price must be positive.")
+            curs.close()
+            return False
+
+        conn.commit()
+        curs.close()
+        return True
+
+    except psycopg2.Error as sqle:
+        print("psycopg2.Error:", sqle.pgerror)
+        return False
+    except (ValueError, TypeError):
+        print("Illegal instance")
+        return False
 
 """
     Updates an existing car sale in the database.
@@ -85,5 +263,62 @@ def addCarSale(make, model, builtYear, odometer, price):
     :param car_sale: The CarSale object containing updated details for the car sale.
     :return: A boolean indicating whether the update was successful or not.
 """
+
 def updateCarSale(carsaleid, customer, salesperosn, saledate):
-    return
+    try:
+        conn = openConnection()
+        curs = conn.cursor()
+        # get cid
+        curs.execute(
+            """
+            SELECT customerid
+            FROM customer
+            WHERE customerid ILIKE %s;
+            """,
+            (customer,),
+        )
+        row = curs.fetchone()
+        print("row: ",row)
+        cid = row[0]
+        print(cid)
+
+        # get username
+        curs.execute(
+            """
+            SELECT username
+            FROM salesperson
+            WHERE username ILIKE %s;
+            """,
+            (salesperosn,),
+        )
+        row = curs.fetchone()
+        print("row: ",row)
+        sname = row[0]
+        print(sname)
+
+        # insert the data
+        curs.execute(
+            """
+            UPDATE carsales 
+            SET buyerid = %s, salespersonid = %s, saledate = %s, issold = %s
+            WHERE carsaleid = %s
+            AND %s::DATE <= CURRENT_DATE; -- use input as a condition, if fail then not update
+            """,
+            (cid, sname, saledate, True, carsaleid, saledate)
+        )
+        if curs.rowcount == 0:
+            print("Update failed: sale date is in the future or carsaleid not found.")
+            curs.close()
+            return False
+
+    # remember to close the connection
+        conn.commit()
+        curs.close()
+        return True
+    except psycopg2.Error as sqle:
+        print("psycopg2.Error : ", sqle.pgerror)
+        return False
+    except (ValueError, TypeError):
+        print("Illegal instance")
+        return False
+
