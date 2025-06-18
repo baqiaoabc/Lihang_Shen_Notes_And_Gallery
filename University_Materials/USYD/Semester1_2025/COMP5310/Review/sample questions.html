@@ -1,0 +1,2545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Multiple Choice and Short Answer Questions with Hover Answers</title>
+<style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; max-width: 800px; margin: auto;}
+  h2 { color: #2a7ae2; }
+  .question { margin-bottom: 15px; }
+  .answer {
+    margin-top: 5px;
+    background-color: #f0f0f0;
+    color: transparent;
+    border-left: 4px solid #2a7ae2;
+    padding: 5px 10px;
+    font-style: italic;
+    max-width: 700px;
+    transition: color 0.3s ease;
+  }
+  .answer:hover, .answer:focus, .answer.highlight {
+    color: #333;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<h2>✅ Multiple Choice Questions</h2>
+
+<div class="question">
+1. Which of the following best describes nominal data?<br/>
+A. Data with a meaningful order but no consistent difference between values<br/>
+B. Data representing categories with no inherent order<br/>
+C. Data measured on an interval scale<br/>
+D. Data with a true zero point<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+2. Which of the following measures of central tendency is most appropriate for left-skewed data?<br/>
+A. Mean<br/>
+B. Median<br/>
+C. Mode<br/>
+D. Standard Deviation<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+3. In a box plot, what does the line inside the box represent?<br/>
+A. Mean<br/>
+B. Median<br/>
+C. Mode<br/>
+D. Range<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+4. Which chart type is best suited for showing the relationship between two numeric variables?<br/>
+A. Pie chart<br/>
+B. Histogram<br/>
+C. Scatter plot<br/>
+D. Bar chart<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+5. In SQL, which clause is used to filter rows after grouping?<br/>
+A. WHERE<br/>
+B. GROUP BY<br/>
+C. HAVING<br/>
+D. ORDER BY<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+6. In a star schema, what type of table is the fact table?<br/>
+A. A table containing dimension attributes<br/>
+B. A table storing numerical measures<br/>
+C. A table with only categorical data<br/>
+D. A table used only for normalization<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+7. Which of the following is a domain integrity constraint in a relational database?<br/>
+A. Primary Key<br/>
+B. Foreign Key<br/>
+C. Check constraint on a column<br/>
+D. Unique constraint on multiple columns<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+8. Which of the following methods is considered a type of cross-validation?<br/>
+A. LOOCV<br/>
+B. Apriori<br/>
+C. FP-Growth<br/>
+D. Box plot<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+9. In clustering, which metric is used to evaluate the compactness of clusters?<br/>
+A. SSE (Sum of Squared Errors)<br/>
+B. Lift<br/>
+C. Support<br/>
+D. Precision<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+10. Which algorithm uses bottom-up merging to build clusters?<br/>
+A. K-means<br/>
+B. DBSCAN<br/>
+C. Agglomerative clustering<br/>
+D. PCA<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+11. In PCA, which component is typically removed if its eigenvalue is very small and it explains little variance?<br/>
+A. The first principal component<br/>
+B. The last principal component<br/>
+C. The component with the highest variance<br/>
+D. The original data<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+12. In logistic regression, what is the formula used to calculate the probability of a class?<br/>
+A. 𝛼 + 𝛽𝑥<br/>
+B. \( \frac{1}{1 + e^{-(\alpha + \beta x)}} \)<br/>
+C. 𝑦 = 𝑚𝑥 + 𝑐<br/>
+D. 𝑦 = 𝑎𝑥^2 + 𝑏𝑥 + 𝑐<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+13. Which measure combines both precision and recall?<br/>
+A. Accuracy<br/>
+B. F1-score<br/>
+C. Specificity<br/>
+D. Lift<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+14. In text classification, which technique adjusts for term frequency across documents?<br/>
+A. Support<br/>
+B. Confidence<br/>
+C. TF-IDF<br/>
+D. SSE<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+15. In Naive Bayes classification, which method smooths zero probabilities?<br/>
+A. Normalization<br/>
+B. Laplace Smoothing<br/>
+C. Principal Component Analysis<br/>
+D. Entropy reduction<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+16. Which of the following is a correct interpretation of a p-value?<br/>
+A. It is the probability that the null hypothesis is true<br/>
+B. It is the probability of observing data as extreme as the test statistic under the null hypothesis<br/>
+C. It is the probability of Type II error<br/>
+D. It is the probability of rejecting a true alternative hypothesis<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+17. Which of the following statements about frequent itemsets is true?<br/>
+A. If an itemset is frequent, all of its supersets are also frequent<br/>
+B. If an itemset is frequent, all of its subsets are also frequent<br/>
+C. If an itemset is infrequent, some of its supersets might be frequent<br/>
+D. Frequent itemsets are independent of support thresholds<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<h2>✅ Short Answer Questions</h2>
+
+<div class="question">
+1. Given 5 numeric data points: [2, 4, 6, 8, 10], calculate the 75th percentile.<br/>
+(Hint: percentile calculation method)<br/>
+<div class="answer" tabindex="0">
+First, sort the data: 2, 4, 6, 8, 10. The position of the 75th percentile = (5+1)*0.75 = 4.5, between the 4th and 5th data points. The 4th is 8, the 5th is 10, interpolate: 8 + 0.5*(10-8) = 9.<br/>
+<strong>Answer: 9</strong>
+</div>
+</div>
+
+<div class="question">
+2. Briefly describe the difference between a Bar chart and a Histogram.<br/>
+<div class="answer" tabindex="0">
+Bar chart displays categorical data with spaces between bars; each bar represents the frequency or value of a category. Histogram shows distribution of continuous numeric data with no gaps between bars; each bar represents frequency in an interval.
+</div>
+</div>
+
+<div class="question">
+3. Briefly describe the main difference between a Primary Key (PK) and a Foreign Key (FK).<br/>
+<div class="answer" tabindex="0">
+PK uniquely identifies each row in a table, must be unique and not null; FK refers to a PK in another table to establish relationships, can have duplicates.
+</div>
+</div>
+
+<div class="question">
+4. Give examples of an observational study and an experimental study.<br/>
+<div class="answer" tabindex="0">
+Observational study example: Observing lung cancer rates among smokers and non-smokers without intervention.<br/>
+Experimental study example: Giving one group a drug and another a placebo, then comparing effects.
+</div>
+</div>
+
+<div class="question">
+5. Write the decision rule for logistic regression (threshold = 0.5).<br/>
+<div class="answer" tabindex="0">
+Predicted probability \( p = \frac{1}{1 + e^{-(\alpha + \beta x)}} \). Predict positive class if \( p \geq 0.5 \), negative if \( p < 0.5 \).
+</div>
+</div>
+
+<div class="question">
+6. Briefly describe the frequent itemset mining process in the Apriori algorithm.<br/>
+<div class="answer" tabindex="0">
+First find frequent 1-itemsets, generate candidate 2-itemsets from them, calculate support, filter frequent 2-itemsets, iterate until no new frequent itemsets are found.
+</div>
+</div>
+
+<div class="question">
+7. Briefly describe the basic steps of K-means clustering.<br/>
+<div class="answer" tabindex="0">
+Randomly select K centroids, assign data points to nearest centroid, update centroids by calculating means of assigned points, repeat until convergence.
+</div>
+</div>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Week 2 Data Properties and Statistics Questions</title>
+<style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; max-width: 800px; margin: auto;}
+  h2 { color: #2a7ae2; }
+  .question { margin-bottom: 15px; }
+  .answer {
+    margin-top: 5px;
+    background-color: #f0f0f0;
+    color: transparent;
+    border-left: 4px solid #2a7ae2;
+    padding: 5px 10px;
+    font-style: italic;
+    max-width: 700px;
+    transition: color 0.3s ease;
+  }
+  .answer:hover, .answer:focus, .answer.highlight {
+    color: #333;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<h2>✅ Multiple Choice Questions</h2>
+
+<div class="question">
+1. What type of data is a person's eye color?<br/>
+A. Nominal<br/>
+B. Ordinal<br/>
+C. Interval<br/>
+D. Ratio<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+2. Which of the following is an example of ordinal data?<br/>
+A. Hair color<br/>
+B. Temperature in Celsius<br/>
+C. Education level (e.g., High school, Bachelor, Master)<br/>
+D. Number of children<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+3. What measure of central tendency is best for nominal data?<br/>
+A. Mean<br/>
+B. Median<br/>
+C. Mode<br/>
+D. Standard deviation<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+4. Which measure best describes the spread of data?<br/>
+A. Mean<br/>
+B. Median<br/>
+C. Range<br/>
+D. Mode<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+5. What does the 50th percentile represent?<br/>
+A. Minimum value<br/>
+B. Median<br/>
+C. Maximum value<br/>
+D. Mode<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+6. Which data type assumes a meaningful order but no fixed interval?<br/>
+A. Nominal<br/>
+B. Ordinal<br/>
+C. Interval<br/>
+D. Ratio<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+7. What is the interquartile range (IQR)?<br/>
+A. Difference between max and min<br/>
+B. Difference between 75th and 25th percentile<br/>
+C. Average value<br/>
+D. Variance<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+8. Which of the following is a measure of dispersion?<br/>
+A. Mean<br/>
+B. Mode<br/>
+C. Variance<br/>
+D. Median<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+9. Which type of data has a true zero point?<br/>
+A. Nominal<br/>
+B. Ordinal<br/>
+C. Interval<br/>
+D. Ratio<br/>
+<div class="answer" tabindex="0">Answer: D</div>
+</div>
+
+<div class="question">
+10. Which central tendency measure is sensitive to extreme values?<br/>
+A. Median<br/>
+B. Mode<br/>
+C. Mean<br/>
+D. Percentile<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+11. What type of data is temperature in Fahrenheit?<br/>
+A. Nominal<br/>
+B. Ordinal<br/>
+C. Interval<br/>
+D. Ratio<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+12. Which of the following data types allows addition and subtraction but no true zero?<br/>
+A. Interval<br/>
+B. Nominal<br/>
+C. Ordinal<br/>
+D. Ratio<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+13. What does a low variance indicate?<br/>
+A. Data points are spread out widely<br/>
+B. Data points are close to the mean<br/>
+C. Data is skewed<br/>
+D. Data is categorical<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+14. How do you calculate variance?<br/>
+A. Average of data points<br/>
+B. Average squared distance from the mean<br/>
+C. Difference between max and min<br/>
+D. Median value<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+15. Which percentile is the first quartile (Q1)?<br/>
+A. 10th percentile<br/>
+B. 25th percentile<br/>
+C. 50th percentile<br/>
+D. 75th percentile<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+16. Which of the following data is interval data?<br/>
+A. Rank in a competition<br/>
+B. Temperature in Celsius<br/>
+C. Blood type<br/>
+D. Number of siblings<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+17. What does a mode represent?<br/>
+A. The most frequent value<br/>
+B. The middle value<br/>
+C. The average value<br/>
+D. The range<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+18. Which of these is NOT a measure of central tendency?<br/>
+A. Mode<br/>
+B. Variance<br/>
+C. Mean<br/>
+D. Median<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+19. Which is NOT true about ordinal data?<br/>
+A. It has a meaningful order<br/>
+B. Differences between values are consistent<br/>
+C. It can be ranked<br/>
+D. It includes categories<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+20. Which measure is used to describe the spread in skewed data?<br/>
+A. Mean<br/>
+B. Mode<br/>
+C. Median<br/>
+D. Range<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<h2>✅ Short Answer Questions</h2>
+
+<div class="question">
+1. Define nominal data and give two examples.<br/>
+<div class="answer" tabindex="0">
+Nominal data categorizes without any order. Examples: eye color, blood type.
+</div>
+</div>
+
+<div class="question">
+2. What is the difference between interval and ratio data?<br/>
+<div class="answer" tabindex="0">
+Interval data has meaningful intervals but no true zero (e.g., temperature in Celsius), ratio data has true zero allowing ratios (e.g., height, weight).
+</div>
+</div>
+
+<div class="question">
+3. How do you calculate the mean of the data set [4, 8, 6, 10, 12]?<br/>
+<div class="answer" tabindex="0">
+Sum all values: 4 + 8 + 6 + 10 + 12 = 40. Divide by number of values (5): 40/5 = 8. Mean = 8.
+</div>
+</div>
+
+<div class="question">
+4. Explain what the 90th percentile means.<br/>
+<div class="answer" tabindex="0">
+It means 90% of data points are below this value.
+</div>
+</div>
+
+<div class="question">
+5. Calculate the range of the data set [3, 7, 2, 9, 5].<br/>
+<div class="answer" tabindex="0">
+Range = max - min = 9 - 2 = 7.
+</div>
+</div>
+
+<div class="question">
+6. Describe how to find the median of a data set.<br/>
+<div class="answer" tabindex="0">
+Sort data in order, find the middle value. If even number of values, average the two middle values.
+</div>
+</div>
+
+<div class="question">
+7. What is variance and why is it important?<br/>
+<div class="answer" tabindex="0">
+Variance measures average squared deviation from the mean; it shows how spread out data is.
+</div>
+</div>
+
+<div class="question">
+8. How do you interpret a data set with a high standard deviation?<br/>
+<div class="answer" tabindex="0">
+Data points are widely spread from the mean; high variability.
+</div>
+</div>
+
+<div class="question">
+9. Calculate the 25th percentile for the data set [2, 4, 6, 8, 10].<br/>
+<div class="answer" tabindex="0">
+Position = (5+1)*0.25 = 1.5th value. Interpolate between 1st (2) and 2nd (4): 2 + 0.5*(4-2) = 3.
+</div>
+</div>
+
+<div class="question">
+10. Why might median be preferred over mean in some data sets?<br/>
+<div class="answer" tabindex="0">
+Median is not affected by extreme outliers, giving a better central value for skewed data.
+</div>
+</div>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Week 3 Visualization and Correlation Questions</title>
+<style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; max-width: 800px; margin: auto;}
+  h2 { color: #2a7ae2; }
+  .question { margin-bottom: 15px; }
+  .answer {
+    margin-top: 5px;
+    background-color: #f0f0f0;
+    color: transparent;
+    border-left: 4px solid #2a7ae2;
+    padding: 5px 10px;
+    font-style: italic;
+    max-width: 700px;
+    transition: color 0.3s ease;
+  }
+  .answer:hover, .answer:focus, .answer.highlight {
+    color: #333;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<h2>✅ Multiple Choice Questions</h2>
+
+<div class="question">
+1. What does a box plot primarily show?<br/>
+A. Frequency of categories<br/>
+B. Distribution, median, quartiles, and outliers<br/>
+C. Relationship between two variables<br/>
+D. Parts of a whole<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+2. Which of the following measures the strength and direction of a linear relationship between two variables?<br/>
+A. Mean<br/>
+B. Correlation coefficient<br/>
+C. Median<br/>
+D. Variance<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+3. Which chart type is best for showing proportions of a whole?<br/>
+A. Bar chart<br/>
+B. Histogram<br/>
+C. Pie chart<br/>
+D. Scatterplot<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+4. Which plot is used to visualize the frequency distribution of numerical data?<br/>
+A. Pie chart<br/>
+B. Histogram<br/>
+C. Scatterplot<br/>
+D. Box plot<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+5. What does the “whisker” in a box plot represent?<br/>
+A. The mean<br/>
+B. Minimum and maximum values within 1.5 * IQR<br/>
+C. Median<br/>
+D. Standard deviation<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+6. Which visualization is best to display the relationship between two continuous variables?<br/>
+A. Bar chart<br/>
+B. Scatterplot<br/>
+C. Pie chart<br/>
+D. Box plot<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+7. A correlation coefficient close to -1 indicates:<br/>
+A. Strong positive linear relationship<br/>
+B. No relationship<br/>
+C. Strong negative linear relationship<br/>
+D. Weak relationship<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+8. Which chart type should you use to compare the counts of different categories?<br/>
+A. Bar chart<br/>
+B. Histogram<br/>
+C. Pie chart<br/>
+D. Scatterplot<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+9. What does a zero correlation coefficient imply?<br/>
+A. Perfect linear relationship<br/>
+B. No linear relationship<br/>
+C. Strong positive relationship<br/>
+D. Strong negative relationship<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+10. In a box plot, what does the box represent?<br/>
+A. Range<br/>
+B. Interquartile range (IQR)<br/>
+C. Mean and mode<br/>
+D. Outliers<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+11. Which plot would best help detect outliers in a dataset?<br/>
+A. Pie chart<br/>
+B. Box plot<br/>
+C. Bar chart<br/>
+D. Histogram<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+12. What is the typical range of the correlation coefficient?<br/>
+A. 0 to 1<br/>
+B. -1 to 1<br/>
+C. -100 to 100<br/>
+D. 1 to 10<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+13. Which plot type shows data by dividing values into equal-width bins?<br/>
+A. Bar chart<br/>
+B. Histogram<br/>
+C. Pie chart<br/>
+D. Scatterplot<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+14. What type of data is best displayed by a pie chart?<br/>
+A. Categorical data showing parts of a whole<br/>
+B. Continuous data distribution<br/>
+C. Time series data<br/>
+D. Correlation between variables<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+15. Which of the following is NOT a feature of a box plot?<br/>
+A. Median line inside the box<br/>
+B. Outliers shown as points<br/>
+C. Bars showing frequencies<br/>
+D. Whiskers extending to min/max values within limits<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+16. How is a scatterplot useful?<br/>
+A. To show trends or relationships between two variables<br/>
+B. To show proportions of categories<br/>
+C. To show frequency of single variable<br/>
+D. To summarize data distribution<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+17. If two variables have a correlation coefficient of 0.8, what does this mean?<br/>
+A. Weak positive linear relationship<br/>
+B. Strong positive linear relationship<br/>
+C. No relationship<br/>
+D. Strong negative linear relationship<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+18. Which chart would you use to display the frequency of different categories when the order doesn’t matter?<br/>
+A. Bar chart<br/>
+B. Histogram<br/>
+C. Scatterplot<br/>
+D. Pie chart<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+19. What does the median line inside the box in a box plot show?<br/>
+A. Average<br/>
+B. Most frequent value<br/>
+C. Middle value of data<br/>
+D. Range<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+20. Which visualization is least suitable for showing part-to-whole relationships?<br/>
+A. Pie chart<br/>
+B. Bar chart<br/>
+C. Scatterplot<br/>
+D. None of the above<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<h2>✅ Short Answer Questions</h2>
+
+<div class="question">
+1. Describe what a box plot shows about a dataset.<br/>
+<div class="answer" tabindex="0">
+It shows the median, quartiles, spread, and possible outliers in the data.
+</div>
+</div>
+
+<div class="question">
+2. What is correlation and why is it important?<br/>
+<div class="answer" tabindex="0">
+Correlation measures the strength and direction of the linear relationship between two variables.
+</div>
+</div>
+
+<div class="question">
+3. When would you use a bar chart instead of a pie chart?<br/>
+<div class="answer" tabindex="0">
+Use a bar chart when comparing counts of categories or when categories are many or need to be ordered.
+</div>
+</div>
+
+<div class="question">
+4. What is the main difference between a histogram and a bar chart?<br/>
+<div class="answer" tabindex="0">
+A histogram shows frequency distribution of numerical data in bins, bar charts show categorical data counts.
+</div>
+</div>
+
+<div class="question">
+5. How can you detect outliers using a box plot?<br/>
+<div class="answer" tabindex="0">
+Outliers appear as points outside the whiskers, which extend to 1.5 times the IQR from the quartiles.
+</div>
+</div>
+
+<div class="question">
+6. Explain what a scatterplot can reveal about two variables.<br/>
+<div class="answer" tabindex="0">
+It can reveal patterns, trends, and possible correlations or clusters between two continuous variables.
+</div>
+</div>
+
+<div class="question">
+7. What does a correlation coefficient of 0 indicate?<br/>
+<div class="answer" tabindex="0">
+No linear relationship exists between the two variables.
+</div>
+</div>
+
+<div class="question">
+8. Why is the median shown in a box plot instead of the mean?<br/>
+<div class="answer" tabindex="0">
+Because median is resistant to outliers and better represents the central tendency in skewed data.
+</div>
+</div>
+
+<div class="question">
+9. Describe a situation where a pie chart is not appropriate.<br/>
+<div class="answer" tabindex="0">
+When there are too many categories or the exact value comparison is important; a bar chart is better.
+</div>
+</div>
+
+<div class="question">
+10. How does a histogram help understand the shape of data distribution?<br/>
+<div class="answer" tabindex="0">
+By showing frequencies of data in intervals, it reveals skewness, modality, and spread of the data.
+</div>
+</div>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Week 4 RDBMS and SQL Questions</title>
+<style>
+  body { font-family: Arial, sans-serif; max-width: 800px; margin: 20px auto; line-height: 1.5; }
+  h2 { color: #1a73e8; }
+  .question { margin-bottom: 15px; }
+  .answer {
+    margin-top: 5px;
+    background: #f9f9f9;
+    color: transparent;
+    border-left: 4px solid #1a73e8;
+    padding: 5px 10px;
+    font-style: italic;
+    max-width: 700px;
+    transition: color 0.3s ease;
+  }
+  .answer:hover, .answer:focus, .answer.highlight {
+    color: #333;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<h2>✅ Multiple Choice Questions</h2>
+
+<div class="question">
+1. What does RDBMS stand for?<br/>
+A. Relational Database Management System<br/>
+B. Random Database Management System<br/>
+C. Recursive Database Management Software<br/>
+D. Relational Data Machine System<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+2. Which SQL command is used to add new data into a table?<br/>
+A. INSERT<br/>
+B. UPDATE<br/>
+C. DELETE<br/>
+D. CREATE<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+3. What does the PRIMARY KEY ensure in a table?<br/>
+A. Uniqueness of rows<br/>
+B. Foreign key relationships<br/>
+C. Data type restrictions<br/>
+D. Allow null values<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+4. Which SQL command removes rows from a table?<br/>
+A. DELETE<br/>
+B. DROP<br/>
+C. TRUNCATE<br/>
+D. REMOVE<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+5. What is a FOREIGN KEY used for?<br/>
+A. To uniquely identify a record<br/>
+B. To enforce referential integrity between tables<br/>
+C. To store large text data<br/>
+D. To define domain constraints<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+6. Which integrity constraint restricts the set of permissible values in a column?<br/>
+A. Domain constraint<br/>
+B. Key constraint<br/>
+C. Referential constraint<br/>
+D. Unique constraint<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+7. Which SQL command modifies existing data?<br/>
+A. UPDATE<br/>
+B. INSERT<br/>
+C. DELETE<br/>
+D. SELECT<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+8. A Candidate Key is:<br/>
+A. A set of attributes that uniquely identify tuples and can be chosen as primary key<br/>
+B. A foreign key from another table<br/>
+C. Always a single attribute<br/>
+D. Not allowed to contain nulls<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+9. What is the purpose of a Star Schema in a data warehouse?<br/>
+A. To organize fact tables connected directly to dimension tables<br/>
+B. To normalize all tables<br/>
+C. To create complex many-to-many relationships<br/>
+D. To use only one table for all data<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+10. Which of the following is true about Snowflake Schema?<br/>
+A. Dimension tables are normalized<br/>
+B. Fact tables contain only keys<br/>
+C. Dimension tables are denormalized<br/>
+D. There are no foreign keys<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+11. What SQL statement creates a new table?<br/>
+A. CREATE TABLE<br/>
+B. INSERT INTO<br/>
+C. UPDATE TABLE<br/>
+D. SELECT FROM<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+12. Which constraint ensures no duplicate values in a column?<br/>
+A. UNIQUE constraint<br/>
+B. PRIMARY KEY<br/>
+C. FOREIGN KEY<br/>
+D. DOMAIN constraint<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+13. Referential integrity ensures:<br/>
+A. Foreign keys must match primary keys in referenced tables<br/>
+B. Data types are consistent<br/>
+C. Values are within a valid domain<br/>
+D. Each row has a unique identifier<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+14. When updating a record, which SQL command would you use?<br/>
+A. UPDATE<br/>
+B. DELETE<br/>
+C. INSERT<br/>
+D. ALTER<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+15. What happens if you try to insert a duplicate value into a PRIMARY KEY column?<br/>
+A. Error, insertion fails<br/>
+B. Value is replaced<br/>
+C. Duplicate is allowed<br/>
+D. Null is inserted<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+16. What does "domain constraint" limit?<br/>
+A. Allowed values in a column<br/>
+B. Relationships between tables<br/>
+C. Uniqueness of rows<br/>
+D. Presence of nulls<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+17. Which schema uses normalized dimension tables?<br/>
+A. Snowflake Schema<br/>
+B. Star Schema<br/>
+C. Flat Schema<br/>
+D. Galaxy Schema<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+18. Foreign Key in one table refers to:<br/>
+A. Primary Key in another table<br/>
+B. Candidate Key in the same table<br/>
+C. Any column with unique values<br/>
+D. Composite Key<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+19. Which SQL command deletes an entire table structure?<br/>
+A. DROP TABLE<br/>
+B. DELETE<br/>
+C. TRUNCATE<br/>
+D. REMOVE TABLE<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+20. In SQL, which command is used to change data in existing rows?<br/>
+A. UPDATE<br/>
+B. ALTER<br/>
+C. MODIFY<br/>
+D. CHANGE<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<h2>✅ Short Answer Questions</h2>
+
+<div class="question">
+1. What is a Primary Key and why is it important?<br/>
+<div class="answer" tabindex="0">
+A Primary Key uniquely identifies each record in a table and ensures no duplicates.
+</div>
+</div>
+
+<div class="question">
+2. Explain the purpose of a Foreign Key.<br/>
+<div class="answer" tabindex="0">
+A Foreign Key enforces referential integrity by linking a column to the Primary Key in another table.
+</div>
+</div>
+
+<div class="question">
+3. What SQL command would you use to add a new table to a database?<br/>
+<div class="answer" tabindex="0">
+CREATE TABLE
+</div>
+</div>
+
+<div class="question">
+4. How do you insert data into an SQL table?<br/>
+<div class="answer" tabindex="0">
+Use the INSERT INTO statement followed by column names and VALUES.
+</div>
+</div>
+
+<div class="question">
+5. What is the difference between Star Schema and Snowflake Schema?<br/>
+<div class="answer" tabindex="0">
+Star Schema has denormalized dimension tables connected directly to the fact table; Snowflake Schema has normalized dimension tables.
+</div>
+</div>
+
+<div class="question">
+6. Describe the domain integrity constraint.<br/>
+<div class="answer" tabindex="0">
+It restricts the permissible values in a column to a defined domain or data type.
+</div>
+</div>
+
+<div class="question">
+7. How would you update a record in SQL?<br/>
+<div class="answer" tabindex="0">
+Use the UPDATE statement with SET to modify columns and WHERE to specify the row.
+</div>
+</div>
+
+<div class="question">
+8. What happens if you violate referential integrity in a database?<br/>
+<div class="answer" tabindex="0">
+The database rejects the change to prevent inconsistent data, such as deleting a referenced key.
+</div>
+</div>
+
+<div class="question">
+9. What is a Candidate Key?<br/>
+<div class="answer" tabindex="0">
+A Candidate Key is an attribute or set of attributes that can uniquely identify a row and could be chosen as Primary Key.
+</div>
+</div>
+
+<div class="question">
+10. Why is it important to delete data carefully in relational databases?<br/>
+<div class="answer" tabindex="0">
+Because deleting data might break referential integrity or remove important linked records.
+</div>
+</div>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Week 5 SQL NULL and Aggregation Questions</title>
+<style>
+  body { font-family: Arial, sans-serif; max-width: 800px; margin: 20px auto; line-height: 1.5; }
+  h2 { color: #1a73e8; }
+  .question { margin-bottom: 15px; }
+  .answer {
+    margin-top: 5px;
+    background: #f9f9f9;
+    color: transparent;
+    border-left: 4px solid #1a73e8;
+    padding: 5px 10px;
+    font-style: italic;
+    max-width: 700px;
+    transition: color 0.3s ease;
+  }
+  .answer:hover, .answer:focus, .answer.highlight {
+    color: #333;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<h2>✅ Multiple Choice Questions</h2>
+
+<div class="question">
+1. What does NULL represent in a SQL database?<br/>
+A. A zero value<br/>
+B. An empty string<br/>
+C. Unknown or missing value<br/>
+D. A boolean false<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+2. Which SQL keyword is used to check if a value is NULL?<br/>
+A. IS NULL<br/>
+B. NULL<br/>
+C. EQUALS NULL<br/>
+D. NOT NULL<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+3. What happens if you compare NULL with any value using = operator?<br/>
+A. Returns TRUE<br/>
+B. Returns FALSE<br/>
+C. Returns UNKNOWN (NULL)<br/>
+D. Causes an error<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+4. Which SQL aggregate function ignores NULL values?<br/>
+A. COUNT(column)<br/>
+B. COUNT(*)<br/>
+C. SUM(column)<br/>
+D. Both A and C<br/>
+<div class="answer" tabindex="0">Answer: D</div>
+</div>
+
+<div class="question">
+5. How can you calculate the mode in SQL? (most frequent value)<br/>
+A. Using GROUP BY and ORDER BY with COUNT() DESC<br/>
+B. Using AVG() function<br/>
+C. Using MAX() function<br/>
+D. Using MIN() function<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+6. Which SQL function can calculate percentiles?<br/>
+A. PERCENT_RANK()<br/>
+B. PERCENTILE_CONT()<br/>
+C. NTILE()<br/>
+D. All of the above depending on the DBMS<br/>
+<div class="answer" tabindex="0">Answer: D</div>
+</div>
+
+<div class="question">
+7. How does COUNT(*) differ from COUNT(column)?<br/>
+A. COUNT(*) counts all rows, COUNT(column) counts non-NULL values<br/>
+B. COUNT(*) counts non-NULL values, COUNT(column) counts all rows<br/>
+C. Both count all rows<br/>
+D. Both count only NULLs<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+8. What does the SQL clause HAVING do?<br/>
+A. Filters groups after aggregation<br/>
+B. Filters rows before aggregation<br/>
+C. Sorts results<br/>
+D. Joins tables<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+9. Which SQL clause is used to group rows for aggregation?<br/>
+A. GROUP BY<br/>
+B. ORDER BY<br/>
+C. WHERE<br/>
+D. HAVING<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+10. How can you exclude NULL values from a query?<br/>
+A. WHERE column IS NOT NULL<br/>
+B. WHERE column = NULL<br/>
+C. WHERE column != NULL<br/>
+D. WHERE column IS NULL<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+11. Which function returns the total sum of a numeric column ignoring NULLs?<br/>
+A. SUM(column)<br/>
+B. COUNT(column)<br/>
+C. AVG(column)<br/>
+D. MAX(column)<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+12. What is the output of COUNT(column) when all values are NULL?<br/>
+A. 0<br/>
+B. Number of rows<br/>
+C. NULL<br/>
+D. Error<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+13. Which SQL window function is used for percentile calculations?<br/>
+A. PERCENT_RANK()<br/>
+B. ROW_NUMBER()<br/>
+C. RANK()<br/>
+D. DENSE_RANK()<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+14. When calculating mode using SQL, which clause helps identify the most frequent value?<br/>
+A. ORDER BY COUNT(column) DESC LIMIT 1<br/>
+B. GROUP BY column HAVING COUNT(*) > 1<br/>
+C. WHERE column = MAX(column)<br/>
+D. SELECT DISTINCT<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+15. What will this SQL do? `SELECT COUNT(*) FROM table WHERE column IS NULL;`<br/>
+A. Count rows where column is NULL<br/>
+B. Count all rows<br/>
+C. Count rows where column is not NULL<br/>
+D. Causes an error<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+16. If you want to calculate the 90th percentile, which SQL function might you use?<br/>
+A. PERCENTILE_CONT(0.9)<br/>
+B. AVG()<br/>
+C. MAX()<br/>
+D. COUNT()<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+17. Can NULL values affect the calculation of AVG()?<br/>
+A. Yes, NULLs are ignored<br/>
+B. No, NULLs counted as zero<br/>
+C. Yes, NULLs counted as zero<br/>
+D. No, AVG() errors if NULLs present<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+18. Which SQL clause filters aggregated data?<br/>
+A. HAVING<br/>
+B. WHERE<br/>
+C. ORDER BY<br/>
+D. GROUP BY<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+19. To calculate mode, which of these is essential?<br/>
+A. Counting frequency of values<br/>
+B. Calculating average<br/>
+C. Using MIN() function<br/>
+D. Sorting by date<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+20. How does SQL treat NULL in arithmetic operations?<br/>
+A. Result is NULL<br/>
+B. NULL is treated as zero<br/>
+C. Error occurs<br/>
+D. Result is 1<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<h2>✅ Short Answer Questions</h2>
+
+<div class="question">
+1. What does NULL mean in SQL?<br/>
+<div class="answer" tabindex="0">It means an unknown or missing value in the database.</div>
+</div>
+
+<div class="question">
+2. How do you check for NULL values in SQL?<br/>
+<div class="answer" tabindex="0">Use the `IS NULL` or `IS NOT NULL` condition in WHERE clause.</div>
+</div>
+
+<div class="question">
+3. Explain how to calculate the mode using SQL.<br/>
+<div class="answer" tabindex="0">Group by the column, count the occurrences, order descending by count, and select the top value.</div>
+</div>
+
+<div class="question">
+4. What SQL clause groups rows for aggregation?<br/>
+<div class="answer" tabindex="0">GROUP BY</div>
+</div>
+
+<div class="question">
+5. How does COUNT(*) differ from COUNT(column)?<br/>
+<div class="answer" tabindex="0">COUNT(*) counts all rows; COUNT(column) counts non-NULL values only.</div>
+</div>
+
+<div class="question">
+6. Describe how NULL affects aggregation functions like SUM or AVG.<br/>
+<div class="answer" tabindex="0">Aggregation functions ignore NULL values and compute only on non-NULL data.</div>
+</div>
+
+<div class="question">
+7. What SQL function can be used to calculate percentiles?<br/>
+<div class="answer" tabindex="0">Functions like PERCENTILE_CONT, PERCENT_RANK, or NTILE depending on the database.</div>
+</div>
+
+<div class="question">
+8. Why do you need to handle NULL values carefully in aggregation?<br/>
+<div class="answer" tabindex="0">Because NULLs are ignored, which may skew the results if not accounted for.</div>
+</div>
+
+<div class="question">
+9. How would you filter out NULL values in a query?<br/>
+<div class="answer" tabindex="0">Use WHERE column IS NOT NULL to exclude NULLs.</div>
+</div>
+
+<div class="question">
+10. What does the HAVING clause do in SQL?<br/>
+<div class="answer" tabindex="0">It filters groups after aggregation, like a WHERE clause but for aggregated data.</div>
+</div>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Week 6 Statistical Methods and Validation Questions</title>
+<style>
+  body { font-family: Arial, sans-serif; max-width: 900px; margin: 20px auto; line-height: 1.6; }
+  h2 { color: #2a5d9f; }
+  .question { margin-bottom: 18px; }
+  .answer {
+    margin-top: 6px;
+    background: #eef3fb;
+    color: transparent;
+    border-left: 4px solid #2a5d9f;
+    padding: 7px 12px;
+    font-style: italic;
+    max-width: 850px;
+    transition: color 0.3s ease;
+  }
+  .answer:hover, .answer:focus, .answer.highlight {
+    color: #333;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<h2>✅ Multiple Choice Questions</h2>
+
+<div class="question">
+1. What distinguishes an observational study from an experimental study?<br/>
+A. Observational studies manipulate variables; experimental studies do not.<br/>
+B. Experimental studies manipulate variables; observational studies do not.<br/>
+C. Both manipulate variables the same way.<br/>
+D. Neither involves variable manipulation.<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+2. In a study, what is an independent variable?<br/>
+A. The outcome that is measured.<br/>
+B. The variable that is controlled or changed.<br/>
+C. A variable unrelated to the experiment.<br/>
+D. The variable that is hidden.<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+3. What does H0 represent in hypothesis testing?<br/>
+A. The alternative hypothesis.<br/>
+B. The null hypothesis, usually representing no effect.<br/>
+C. The p-value.<br/>
+D. The significance level.<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+4. What does a p-value indicate?<br/>
+A. Probability of the null hypothesis being true.<br/>
+B. Probability of observing data as extreme as the sample if H0 is true.<br/>
+C. Probability that the alternative hypothesis is false.<br/>
+D. Significance level of the test.<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+5. What is the typical role of alpha (α) in hypothesis testing?<br/>
+A. It is the p-value.<br/>
+B. The maximum acceptable Type I error rate.<br/>
+C. The probability of Type II error.<br/>
+D. The test statistic.<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+6. What is p-hacking?<br/>
+A. Using inappropriate data analysis to get significant p-values.<br/>
+B. Using cross-validation to avoid overfitting.<br/>
+C. Correctly calculating p-values.<br/>
+D. Running ANOVA.<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+7. Which test is a parametric test for checking linear correlation between two continuous variables?<br/>
+A. Pearson’s Correlation<br/>
+B. Mann-Whitney U test<br/>
+C. Wilcoxon Signed-Rank Test<br/>
+D. Kruskal-Wallis H-test<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+8. Which assumption is NOT required for Pearson’s Correlation?<br/>
+A. Variables are normally distributed.<br/>
+B. Relationship between variables is linear.<br/>
+C. Variables are categorical.<br/>
+D. Data are paired independent observations.<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+9. Which test would you use to compare means of two related groups?<br/>
+A. Paired Student’s t-test<br/>
+B. Unpaired Student’s t-test<br/>
+C. Mann-Whitney U test<br/>
+D. ANOVA<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+10. Which is a nonparametric test for two independent samples?<br/>
+A. Mann-Whitney U test<br/>
+B. Paired Student’s t-test<br/>
+C. Pearson’s Correlation<br/>
+D. ANOVA<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+11. Which test compares medians of more than two independent groups?<br/>
+A. Kruskal-Wallis H-test<br/>
+B. ANOVA<br/>
+C. Wilcoxon Signed-Rank Test<br/>
+D. Paired t-test<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+12. What does the null hypothesis in ANOVA state?<br/>
+A. At least one group mean differs.<br/>
+B. All group means are equal.<br/>
+C. Groups have equal medians.<br/>
+D. Data are not normally distributed.<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+13. Which validation method uses one observation as a test set and the rest as training?<br/>
+A. Leave-One-Out Cross-Validation (LOOCV)<br/>
+B. Holdout method<br/>
+C. K-fold cross-validation with k=5<br/>
+D. Bootstrap<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+14. Which method splits data into training and testing sets once?<br/>
+A. Holdout method<br/>
+B. LOOCV<br/>
+C. K-fold cross-validation<br/>
+D. Bootstrap<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+15. What does accuracy measure?<br/>
+A. Proportion of correct predictions out of all predictions.<br/>
+B. Proportion of positive samples correctly identified.<br/>
+C. Proportion of true positives out of predicted positives.<br/>
+D. Harmonic mean of precision and recall.<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+16. What does precision measure?<br/>
+A. Proportion of predicted positives that are true positives.<br/>
+B. Proportion of actual positives correctly identified.<br/>
+C. Total proportion of correct predictions.<br/>
+D. The false negative rate.<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+17. Recall is:<br/>
+A. Proportion of actual positives correctly identified.<br/>
+B. Proportion of predicted positives that are correct.<br/>
+C. Proportion of negatives correctly identified.<br/>
+D. The false positive rate.<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+18. F1 score is:<br/>
+A. Harmonic mean of precision and recall.<br/>
+B. Arithmetic mean of accuracy and precision.<br/>
+C. Sum of precision and recall.<br/>
+D. Difference between precision and recall.<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+19. Which of the following is a one-sided test?<br/>
+A. Tests if a mean is greater than a value.<br/>
+B. Tests if a mean is different from a value.<br/>
+C. Tests equality of two means.<br/>
+D. Tests median equality.<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+20. Which of the following assumptions is common to most parametric tests?<br/>
+A. Normal distribution of populations.<br/>
+B. Samples are categorical.<br/>
+C. No assumptions about distribution.<br/>
+D. Small sample size.<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<h2>✅ Short Answer Questions</h2>
+
+<div class="question">
+1. Define an observational study.<br/>
+<div class="answer" tabindex="0">A study where researchers observe without manipulating variables.</div>
+</div>
+
+<div class="question">
+2. Define an experimental study.<br/>
+<div class="answer" tabindex="0">A study where researchers actively manipulate one or more variables to observe effects.</div>
+</div>
+
+<div class="question">
+3. What is a dependent variable?<br/>
+<div class="answer" tabindex="0">The variable being measured or tested in an experiment.</div>
+</div>
+
+<div class="question">
+4. What is an independent variable?<br/>
+<div class="answer" tabindex="0">The variable that is changed or controlled by the researcher.</div>
+</div>
+
+<div class="question">
+5. What does a p-value less than alpha (e.g., 0.05) indicate?<br/>
+<div class="answer" tabindex="0">Evidence to reject the null hypothesis at the given significance level.</div>
+</div>
+
+<div class="question">
+6. What is the purpose of a paired t-test?<br/>
+<div class="answer" tabindex="0">To compare means from the same group before and after an intervention.</div>
+</div>
+
+<div class="question">
+7. When should you use a Mann-Whitney U test instead of a t-test?<br/>
+<div class="answer" tabindex="0">When the samples are independent but data do not meet parametric assumptions (e.g., not normally distributed).</div>
+</div>
+
+<div class="question">
+8. Explain the difference between one-sided and two-sided hypothesis tests.<br/>
+<div class="answer" tabindex="0">One-sided tests check if a parameter is greater or less than a value; two-sided tests check if it is simply different (either direction).</div>
+</div>
+
+<div class="question">
+9. Why is cross-validation used in machine learning?<br/>
+<div class="answer" tabindex="0">To evaluate model performance and generalization by repeatedly training and testing on different subsets of data.</div>
+</div>
+
+<div class="question">
+10. What does F1 score balance?<br/>
+<div class="answer" tabindex="0">Balances precision and recall, providing a single metric for classification performance.</div>
+</div>
+
+</body>
+</html>
+
+<h2>✅ Multiple Choice Questions</h2>
+
+<div class="question">
+1. What distinguishes an observational study from an experimental study?<br/>
+A. Observational studies manipulate variables; experimental studies do not.<br/>
+B. Experimental studies manipulate variables; observational studies do not.<br/>
+C. Both manipulate variables the same way.<br/>
+D. Neither involves variable manipulation.<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+2. In a study, what is an independent variable?<br/>
+A. The outcome that is measured.<br/>
+B. The variable that is controlled or changed.<br/>
+C. A variable unrelated to the experiment.<br/>
+D. The variable that is hidden.<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+3. What does H0 represent in hypothesis testing?<br/>
+A. The alternative hypothesis.<br/>
+B. The null hypothesis, usually representing no effect.<br/>
+C. The p-value.<br/>
+D. The significance level.<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+4. What does a p-value indicate?<br/>
+A. Probability of the null hypothesis being true.<br/>
+B. Probability of observing data as extreme as the sample if H0 is true.<br/>
+C. Probability that the alternative hypothesis is false.<br/>
+D. Significance level of the test.<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+5. What is the typical role of alpha (α) in hypothesis testing?<br/>
+A. It is the p-value.<br/>
+B. The maximum acceptable Type I error rate.<br/>
+C. The probability of Type II error.<br/>
+D. The test statistic.<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+6. What is p-hacking?<br/>
+A. Using inappropriate data analysis to get significant p-values.<br/>
+B. Using cross-validation to avoid overfitting.<br/>
+C. Correctly calculating p-values.<br/>
+D. Running ANOVA.<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+7. Which test is a parametric test for checking linear correlation between two continuous variables?<br/>
+A. Pearson’s Correlation<br/>
+B. Mann-Whitney U test<br/>
+C. Wilcoxon Signed-Rank Test<br/>
+D. Kruskal-Wallis H-test<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+8. Which assumption is NOT required for Pearson’s Correlation?<br/>
+A. Variables are normally distributed.<br/>
+B. Relationship between variables is linear.<br/>
+C. Variables are categorical.<br/>
+D. Data are paired independent observations.<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+9. Which test would you use to compare means of two related groups?<br/>
+A. Paired Student’s t-test<br/>
+B. Unpaired Student’s t-test<br/>
+C. Mann-Whitney U test<br/>
+D. ANOVA<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+10. Which is a nonparametric test for two independent samples?<br/>
+A. Mann-Whitney U test<br/>
+B. Paired Student’s t-test<br/>
+C. Pearson’s Correlation<br/>
+D. ANOVA<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+11. Which test compares medians of more than two independent groups?<br/>
+A. Kruskal-Wallis H-test<br/>
+B. ANOVA<br/>
+C. Wilcoxon Signed-Rank Test<br/>
+D. Paired t-test<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+12. What does the null hypothesis in ANOVA state?<br/>
+A. At least one group mean differs.<br/>
+B. All group means are equal.<br/>
+C. Groups have equal medians.<br/>
+D. Data are not normally distributed.<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+13. Which validation method uses one observation as a test set and the rest as training?<br/>
+A. Leave-One-Out Cross-Validation (LOOCV)<br/>
+B. Holdout method<br/>
+C. K-fold cross-validation with k=5<br/>
+D. Bootstrap<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+14. Which method splits data into training and testing sets once?<br/>
+A. Holdout method<br/>
+B. LOOCV<br/>
+C. K-fold cross-validation<br/>
+D. Bootstrap<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+15. What does accuracy measure?<br/>
+A. Proportion of correct predictions out of all predictions.<br/>
+B. Proportion of positive samples correctly identified.<br/>
+C. Proportion of true positives out of predicted positives.<br/>
+D. Harmonic mean of precision and recall.<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+16. What does precision measure?<br/>
+A. Proportion of predicted positives that are true positives.<br/>
+B. Proportion of actual positives correctly identified.<br/>
+C. Total proportion of correct predictions.<br/>
+D. The false negative rate.<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+17. Recall is:<br/>
+A. Proportion of actual positives correctly identified.<br/>
+B. Proportion of predicted positives that are correct.<br/>
+C. Proportion of negatives correctly identified.<br/>
+D. The false positive rate.<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+18. F1 score is:<br/>
+A. Harmonic mean of precision and recall.<br/>
+B. Arithmetic mean of accuracy and precision.<br/>
+C. Sum of precision and recall.<br/>
+D. Difference between precision and recall.<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+19. Which of the following is a one-sided test?<br/>
+A. Tests if a mean is greater than a value.<br/>
+B. Tests if a mean is different from a value.<br/>
+C. Tests equality of two means.<br/>
+D. Tests median equality.<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+20. Which of the following assumptions is common to most parametric tests?<br/>
+A. Normal distribution of populations.<br/>
+B. Samples are categorical.<br/>
+C. No assumptions about distribution.<br/>
+D. Small sample size.<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<h2>✅ Short Answer Questions</h2>
+
+<div class="question">
+1. Define an observational study.<br/>
+<div class="answer" tabindex="0">A study where researchers observe without manipulating variables.</div>
+</div>
+
+<div class="question">
+2. Define an experimental study.<br/>
+<div class="answer" tabindex="0">A study where researchers actively manipulate one or more variables to observe effects.</div>
+</div>
+
+<div class="question">
+3. What is a dependent variable?<br/>
+<div class="answer" tabindex="0">The variable being measured or tested in an experiment.</div>
+</div>
+
+<div class="question">
+4. What is an independent variable?<br/>
+<div class="answer" tabindex="0">The variable that is changed or controlled by the researcher.</div>
+</div>
+
+<div class="question">
+5. What does a p-value less than alpha (e.g., 0.05) indicate?<br/>
+<div class="answer" tabindex="0">Evidence to reject the null hypothesis at the given significance level.</div>
+</div>
+
+<div class="question">
+6. What is the purpose of a paired t-test?<br/>
+<div class="answer" tabindex="0">To compare means from the same group before and after an intervention.</div>
+</div>
+
+<div class="question">
+7. When should you use a Mann-Whitney U test instead of a t-test?<br/>
+<div class="answer" tabindex="0">When the samples are independent but data do not meet parametric assumptions (e.g., not normally distributed).</div>
+</div>
+
+<div class="question">
+8. Explain the difference between one-sided and two-sided hypothesis tests.<br/>
+<div class="answer" tabindex="0">One-sided tests check if a parameter is greater or less than a value; two-sided tests check if it is simply different (either direction).</div>
+</div>
+
+<div class="question">
+9. Why is cross-validation used in machine learning?<br/>
+<div class="answer" tabindex="0">To evaluate model performance and generalization by repeatedly training and testing on different subsets of data.</div>
+</div>
+
+<div class="question">
+10. What does F1 score balance?<br/>
+<div class="answer" tabindex="0">Balances precision and recall, providing a single metric for classification performance.</div>
+</div>
+<h2>✅ Multiple Choice Questions - Week 8</h2>
+
+<div class="question">
+1. Which of the following is NOT a common cluster distance measure?<br/>
+A. Euclidean distance<br/>
+B. Manhattan distance<br/>
+C. Cosine similarity<br/>
+D. Linear regression<br/>
+<div class="answer" tabindex="0">Answer: D</div>
+</div>
+
+<div class="question">
+2. What is the first step in the K-means clustering algorithm?<br/>
+A. Assign each point to the nearest centroid.<br/>
+B. Randomly initialize cluster centroids.<br/>
+C. Calculate the sum of squared errors.<br/>
+D. Merge the closest clusters.<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+3. In K-means++, the initialization of centroids is improved by:<br/>
+A. Choosing centroids randomly.<br/>
+B. Choosing centroids to be as far apart as possible.<br/>
+C. Choosing centroids based on the average of all points.<br/>
+D. Running hierarchical clustering first.<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+4. What does SSE (Sum of Squared Errors) represent in K-means?<br/>
+A. The sum of squared distances between points and their assigned centroid.<br/>
+B. The total number of clusters.<br/>
+C. The silhouette score.<br/>
+D. The number of iterations.<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+5. Silhouette coefficient measures:<br/>
+A. How similar an object is to its own cluster compared to other clusters.<br/>
+B. The sum of squared errors.<br/>
+C. The number of clusters.<br/>
+D. The dimensionality reduction performance.<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+6. In Agglomerative clustering, the process starts with:<br/>
+A. One cluster containing all data points.<br/>
+B. Each data point as its own cluster.<br/>
+C. Random centroids.<br/>
+D. Predefined clusters.<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+7. Which linkage method in Agglomerative clustering considers the maximum distance between clusters?<br/>
+A. Single linkage<br/>
+B. Complete linkage<br/>
+C. Average linkage<br/>
+D. Ward's linkage<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+8. PCA is used to:<br/>
+A. Increase dimensionality.<br/>
+B. Reduce dimensionality by projecting data to principal components.<br/>
+C. Cluster data points.<br/>
+D. Calculate cluster distances.<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+9. In K-means, after assigning points to clusters, what is the next step?<br/>
+A. Calculate new centroids as the mean of points in each cluster.<br/>
+B. Stop the algorithm.<br/>
+C. Compute silhouette score.<br/>
+D. Perform PCA.<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+10. What is the purpose of Ward's linkage in hierarchical clustering?<br/>
+A. Minimizing the variance within clusters.<br/>
+B. Maximizing cluster distances.<br/>
+C. Using single point linkage.<br/>
+D. Initializing centroids.<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+11. Which method helps to avoid poor cluster initialization in K-means?<br/>
+A. Random initialization<br/>
+B. k-means++<br/>
+C. Agglomerative clustering<br/>
+D. PCA<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+12. The silhouette coefficient ranges between:<br/>
+A. -1 and 1<br/>
+B. 0 and 10<br/>
+C. -10 and 10<br/>
+D. 0 and 1<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+13. What does a silhouette score close to +1 mean?<br/>
+A. Data points are well matched to their own cluster.<br/>
+B. Data points are poorly matched.<br/>
+C. Data points lie between clusters.<br/>
+D. Clusters are overlapping.<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+14. Which PCA step involves finding eigenvalues and eigenvectors?<br/>
+A. Standardizing the data.<br/>
+B. Computing the covariance matrix.<br/>
+C. Projecting data onto components.<br/>
+D. Clustering the data.<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+15. What does SSE tend to do as the number of clusters increases in K-means?<br/>
+A. Increase<br/>
+B. Decrease<br/>
+C. Remain constant<br/>
+D. Randomly vary<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+16. In hierarchical clustering, the dendrogram is:<br/>
+A. A tree diagram showing cluster merges.<br/>
+B. A scatter plot.<br/>
+C. A histogram.<br/>
+D. A matrix of distances.<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+17. Which of the following is NOT a typical step in PCA?<br/>
+A. Normalize data<br/>
+B. Calculate covariance matrix<br/>
+C. Calculate principal components<br/>
+D. Perform cluster assignment<br/>
+<div class="answer" tabindex="0">Answer: D</div>
+</div>
+
+<div class="question">
+18. The k-means algorithm tries to minimize:<br/>
+A. Total intra-cluster variance (SSE).<br/>
+B. Total inter-cluster variance.<br/>
+C. Number of clusters.<br/>
+D. The dimensionality of the data.<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+19. Which distance measure is most sensitive to outliers in clustering?<br/>
+A. Euclidean distance<br/>
+B. Manhattan distance<br/>
+C. Cosine similarity<br/>
+D. Jaccard distance<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+20. When is PCA most useful?<br/>
+A. When data has many correlated features.<br/>
+B. When data has only categorical features.<br/>
+C. When data is already one-dimensional.<br/>
+D. When clusters are known.<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+<h2>✅ Short Answer Questions - Week 8</h2>
+
+<div class="question">
+1. What is cluster distance, and why is it important?<br/>
+<div class="answer" tabindex="0">Cluster distance measures how far apart clusters are, helping to decide cluster similarity and merges.</div>
+</div>
+
+<div class="question">
+2. Describe the main steps of the K-means clustering algorithm.<br/>
+<div class="answer" tabindex="0">Initialize centroids, assign points to nearest centroid, update centroids as mean of assigned points, repeat until convergence.</div>
+</div>
+
+<div class="question">
+3. How does k-means++ improve on random initialization?<br/>
+<div class="answer" tabindex="0">By choosing initial centroids that are far apart to reduce the chance of poor cluster initialization.</div>
+</div>
+
+<div class="question">
+4. What is the difference between Agglomerative and divisive hierarchical clustering?<br/>
+<div class="answer" tabindex="0">Agglomerative starts with individual points and merges clusters; divisive starts with one cluster and splits.</div>
+</div>
+
+<div class="question">
+5. Explain SSE and its role in K-means clustering.<br/>
+<div class="answer" tabindex="0">SSE is the sum of squared distances between points and their cluster centroids, used as an objective function to minimize.</div>
+</div>
+
+<div class="question">
+6. What does the silhouette coefficient measure? How is it interpreted?<br/>
+<div class="answer" tabindex="0">Measures how similar points are to their cluster vs other clusters; values near 1 indicate good clustering.</div>
+</div>
+
+<div class="question">
+7. What is PCA and why is it used?<br/>
+<div class="answer" tabindex="0">Principal Component Analysis reduces data dimensionality by projecting it onto principal components capturing most variance.</div>
+</div>
+
+<div class="question">
+8. Describe the role of eigenvectors and eigenvalues in PCA.<br/>
+<div class="answer" tabindex="0">Eigenvectors define principal component directions; eigenvalues measure variance captured by each component.</div>
+</div>
+
+<div class="question">
+9. How does Agglomerative clustering decide which clusters to merge?<br/>
+<div class="answer" tabindex="0">Based on linkage criteria calculating distances between clusters (e.g., single, complete, average linkage).</div>
+</div>
+
+<div class="question">
+10. Why might one choose hierarchical clustering over K-means?<br/>
+<div class="answer" tabindex="0">Hierarchical clustering does not require predefining cluster number and reveals data hierarchy via dendrograms.</div>
+</div>
+<h2>✅ Multiple Choice Questions - Week 9</h2>
+
+<div class="question">
+1. In simple linear regression, what does the parameter α represent?<br/>
+A. Slope<br/>
+B. Intercept<br/>
+C. Weight<br/>
+D. Error term<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+2. In simple linear regression, the parameter β is:<br/>
+A. Intercept<br/>
+B. Slope<br/>
+C. Residual<br/>
+D. Bias term<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+3. Which method is commonly used to estimate α and β in simple linear regression?<br/>
+A. Maximum Likelihood Estimation<br/>
+B. Least Squares Method<br/>
+C. Gradient Descent only<br/>
+D. K-means Clustering<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+4. What is the main difference between multiple linear regression and simple linear regression?<br/>
+A. Predicting multiple output variables<br/>
+B. Using multiple input features<br/>
+C. Using a logistic function<br/>
+D. Not using intercept α<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+5. How are weights typically updated in multiple linear regression?<br/>
+A. Only by analytical solutions<br/>
+B. Iteratively using methods like gradient descent<br/>
+C. Random initialization without updates<br/>
+D. Using principal component analysis (PCA)<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+6. What does logistic regression output?<br/>
+A. Continuous numerical values<br/>
+B. Probability between 0 and 1<br/>
+C. Direct class labels<br/>
+D. Principal components<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+7. What is the formula of the logistic (sigmoid) function?<br/>
+A. \( \frac{1}{1 + e^{-z}} \)<br/>
+B. \( e^{z} \)<br/>
+C. \( \log(z) \)<br/>
+D. \( z^2 \)<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+8. What threshold is commonly used in logistic regression to decide class membership?<br/>
+A. 0.5<br/>
+B. 1<br/>
+C. -1<br/>
+D. 0<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+9. What is the purpose of gradient descent?<br/>
+A. To find a function's maximum<br/>
+B. To find a function's minimum<br/>
+C. To randomly guess parameters<br/>
+D. To perform clustering<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+10. In gradient descent, what does the learning rate control?<br/>
+A. Speed of parameter updates<br/>
+B. Number of features<br/>
+C. Dataset size<br/>
+D. Output class labels<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+11. Which is NOT a step in gradient descent?<br/>
+A. Initialize parameters<br/>
+B. Compute loss gradient<br/>
+C. Update parameters along gradient direction<br/>
+D. Increase loss value<br/>
+<div class="answer" tabindex="0">Answer: D</div>
+</div>
+
+<div class="question">
+12. What is the common loss function used in linear regression?<br/>
+A. Cross-entropy loss<br/>
+B. Mean Squared Error (MSE)<br/>
+C. Hinge loss<br/>
+D. Silhouette coefficient<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+13. What loss function is commonly used in logistic regression?<br/>
+A. Mean Squared Error<br/>
+B. Cross-entropy (log loss)<br/>
+C. Sum of squared errors<br/>
+D. Euclidean distance<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+14. In multiple linear regression, the weight vector’s dimension equals:<br/>
+A. Number of output classes<br/>
+B. Number of input features<br/>
+C. Always 1<br/>
+D. Number of data points<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+15. The formula to calculate β in simple linear regression is:<br/>
+A. \( \frac{Cov(x, y)}{Var(x)} \)<br/>
+B. \( \frac{Var(y)}{Var(x)} \)<br/>
+C. \( \frac{Cov(y, x)}{Var(y)} \)<br/>
+D. \( \frac{Var(x)}{Cov(x, y)} \)<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+16. Which is the correct gradient descent weight update formula?<br/>
+A. \( w = w + \alpha \times \frac{\partial L}{\partial w} \)<br/>
+B. \( w = w - \alpha \times \frac{\partial L}{\partial w} \)<br/>
+C. \( w = w \times \alpha \)<br/>
+D. \( w = \alpha \times \frac{\partial L}{\partial w} \)<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+17. Logistic regression is best suited for:<br/>
+A. Continuous variable regression<br/>
+B. Binary classification problems<br/>
+C. Clustering problems<br/>
+D. Dimensionality reduction<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+18. A disadvantage of gradient descent is:<br/>
+A. Always finds global optimum<br/>
+B. Can get stuck in local optima<br/>
+C. No need for learning rate<br/>
+D. Works without differentiability<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+19. The intercept α in linear regression is also called:<br/>
+A. Bias term<br/>
+B. Weight<br/>
+C. Loss function<br/>
+D. Gradient<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+20. In logistic regression, the decision boundary corresponds to:<br/>
+A. The point where predicted probability equals 0.5<br/>
+B. The point where predicted probability equals 1<br/>
+C. The maximum likelihood estimate point<br/>
+D. The minimum loss point<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<h2>✅ Short Answer Questions - Week 9</h2>
+
+<div class="question">
+1. What do the parameters α and β represent in simple linear regression?<br/>
+<div class="answer" tabindex="0">α is the intercept, representing the predicted value when the input is zero; β is the slope, representing the change in prediction per unit change in the input.</div>
+</div>
+
+<div class="question">
+2. Briefly explain how the least squares method estimates α and β in simple linear regression.<br/>
+<div class="answer" tabindex="0">It minimizes the sum of squared differences between observed and predicted values by solving closed-form formulas based on means, variances, and covariance of the data.</div>
+</div>
+
+<div class="question">
+3. How are weights updated iteratively in multiple linear regression?<br/>
+<div class="answer" tabindex="0">Weights are updated using gradient descent by repeatedly computing the gradient of the loss function with respect to weights and adjusting weights in the opposite direction of the gradient.</div>
+</div>
+
+<div class="question">
+4. How do you use a formula to decide the class of a sample in logistic regression?<br/>
+<div class="answer" tabindex="0">Calculate the logistic function output (sigmoid) for the linear combination of features; if the output ≥ 0.5, assign class 1; otherwise, assign class 0.</div>
+</div>
+
+<div class="question">
+5. What are the basic steps of the gradient descent algorithm?<br/>
+<div class="answer" tabindex="0">Initialize parameters, compute the gradient of the loss function, update parameters by subtracting learning rate times the gradient, and repeat until convergence.</div>
+</div>
+
+<div class="question">
+6. Why is a learning rate necessary in gradient descent?<br/>
+<div class="answer" tabindex="0">It controls the step size for updates to ensure convergence; too large can overshoot minima, too small can slow convergence.</div>
+</div>
+
+<div class="question">
+7. What is the loss function used in logistic regression and what is its purpose?<br/>
+<div class="answer" tabindex="0">Cross-entropy loss, which measures the difference between predicted probabilities and actual class labels to guide parameter updates.</div>
+</div>
+
+<div class="question">
+8. How do you calculate β in simple linear regression?<br/>
+<div class="answer" tabindex="0">By dividing the covariance of x and y by the variance of x: \( \beta = \frac{Cov(x,y)}{Var(x)} \).</div>
+</div>
+
+<div class="question">
+9. What is the main difference between simple and multiple linear regression?<br/>
+<div class="answer" tabindex="0">Simple linear regression uses one input feature; multiple linear regression uses multiple input features to predict the output.</div>
+</div>
+
+<div class="question">
+10. What problem does logistic regression solve that linear regression cannot?<br/>
+<div class="answer" tabindex="0">Logistic regression models probabilities for classification tasks and handles binary outputs, while linear regression predicts continuous numerical values.</div>
+</div>
+<h2>✅ Multiple Choice Questions - Week 10 & 11</h2>
+
+<div class="question">
+1. What does Information Gain (IG) measure in attribute selection?<br/>
+A. The reduction in entropy after splitting by the attribute.<br/>
+B. The frequency of an attribute.<br/>
+C. The total number of unique values of the attribute.<br/>
+D. The length of the attribute’s name.<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+2. In decision trees, which attribute is considered better?<br/>
+A. The one with higher Information Gain.<br/>
+B. The one with lower entropy.<br/>
+C. The one with more missing values.<br/>
+D. The one with more categories.<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+3. What is the first step to compute Information Gain?<br/>
+A. Calculate total entropy before the split.<br/>
+B. Normalize all attributes.<br/>
+C. Count missing values.<br/>
+D. Calculate the mode of the attribute.<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+4. In TF-IDF, what does TF stand for?<br/>
+A. Total Frequency<br/>
+B. Term Frequency<br/>
+C. Text Frequency<br/>
+D. Token Frequency<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+5. What does IDF in TF-IDF represent?<br/>
+A. Inverse Document Frequency<br/>
+B. Independent Document Frequency<br/>
+C. Initial Document Frequency<br/>
+D. Internal Data Frequency<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+6. Why is IDF important in TF-IDF?<br/>
+A. It increases the weight of frequent words.<br/>
+B. It decreases the weight of common words appearing in many documents.<br/>
+C. It normalizes document lengths.<br/>
+D. It counts total documents.<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+7. In Naive Bayes classification, what assumption is made about features?<br/>
+A. They are dependent.<br/>
+B. They are conditionally independent given the class.<br/>
+C. They are categorical.<br/>
+D. They are continuous.<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+8. What problem does Laplace smoothing solve in Naive Bayes?<br/>
+A. Zero probability for unseen words.<br/>
+B. Overfitting.<br/>
+C. Underfitting.<br/>
+D. Feature scaling.<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+9. How is Laplace smoothing applied in text classification?<br/>
+A. Add 1 to all word counts.<br/>
+B. Subtract 1 from all counts.<br/>
+C. Multiply counts by 2.<br/>
+D. Ignore rare words.<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+10. What is the purpose of TF-IDF in text classification?<br/>
+A. To count total words.<br/>
+B. To weight words based on importance.<br/>
+C. To remove stopwords.<br/>
+D. To split text into sentences.<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+11. What does a higher Information Gain value mean for an attribute?<br/>
+A. It better separates the data.<br/>
+B. It has more missing values.<br/>
+C. It is less useful.<br/>
+D. It has fewer unique values.<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+12. Which metric is often used along with Information Gain in attribute selection?<br/>
+A. Gini Index<br/>
+B. Mean Squared Error<br/>
+C. Cosine Similarity<br/>
+D. Euclidean Distance<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+13. In TF-IDF, what effect does a very common word like "the" have on IDF?<br/>
+A. It lowers the IDF value.<br/>
+B. It increases the IDF value.<br/>
+C. No effect.<br/>
+D. Makes IDF infinite.<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+14. Naive Bayes is often used for which type of data?<br/>
+A. Time series data<br/>
+B. Text data<br/>
+C. Image data<br/>
+D. Unstructured data<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+15. What does the 'Naive' in Naive Bayes refer to?<br/>
+A. The simplicity of the algorithm.<br/>
+B. The assumption of feature independence.<br/>
+C. The inability to handle continuous features.<br/>
+D. The lack of training data.<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+16. Which formula represents TF for a term t in document d?<br/>
+A. \( \frac{\text{count of } t \text{ in } d}{\text{total terms in } d} \)<br/>
+B. \( \frac{\text{count of } t \text{ in corpus}}{\text{total terms in corpus}} \)<br/>
+C. \( \frac{\text{count of } d}{\text{count of } t} \)<br/>
+D. \( \log(\text{count of } t \text{ in } d) \)<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+17. Which is NOT an application of TF-IDF?<br/>
+A. Document ranking<br/>
+B. Spam detection<br/>
+C. Image classification<br/>
+D. Keyword extraction<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+18. What happens if you do NOT use Laplace smoothing in Naive Bayes?<br/>
+A. Zero probabilities can cause multiplication to be zero.<br/>
+B. Better classification.<br/>
+C. Faster training.<br/>
+D. Reduced memory usage.<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+19. What is the main goal of attribute selection using Information Gain?<br/>
+A. To reduce dataset size.<br/>
+B. To choose attributes that best split the data.<br/>
+C. To increase entropy.<br/>
+D. To balance classes.<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+20. When using Naive Bayes for text classification, what are the "features"?<br/>
+A. Words or terms in the text<br/>
+B. Sentences<br/>
+C. Paragraphs<br/>
+D. Characters<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<h2>✅ Short Answer Questions - Week 10 & 11</h2>
+
+<div class="question">
+1. What is Information Gain, and why is it used in attribute selection?<br/>
+<div class="answer" tabindex="0">Information Gain measures how much an attribute decreases the entropy (uncertainty) in the target variable, helping to select the best attribute to split data in decision trees.</div>
+</div>
+
+<div class="question">
+2. How do you calculate the entropy of a dataset?<br/>
+<div class="answer" tabindex="0">Entropy is calculated as the sum of \(-p_i \log_2 p_i\) over all classes, where \(p_i\) is the proportion of instances in class i.</div>
+</div>
+
+<div class="question">
+3. What does TF-IDF aim to represent in text data?<br/>
+<div class="answer" tabindex="0">It reflects how important a word is to a document in a corpus by combining term frequency and inverse document frequency.</div>
+</div>
+
+<div class="question">
+4. How is Term Frequency (TF) computed?<br/>
+<div class="answer" tabindex="0">TF is the count of a term in a document divided by the total number of terms in that document.</div>
+</div>
+
+<div class="question">
+5. Why do we use inverse document frequency (IDF) in TF-IDF?<br/>
+<div class="answer" tabindex="0">IDF reduces the weight of words that appear in many documents, highlighting more unique, informative words.</div>
+</div>
+
+<div class="question">
+6. What is the Naive Bayes assumption, and why is it called "naive"?<br/>
+<div class="answer" tabindex="0">It assumes that all features are conditionally independent given the class label; this simplifying assumption is called "naive" because it rarely holds in practice.</div>
+</div>
+
+<div class="question">
+7. How does Laplace smoothing work in Naive Bayes?<br/>
+<div class="answer" tabindex="0">It adds 1 to the count of each feature to avoid zero probabilities for unseen words during classification.</div>
+</div>
+
+<div class="question">
+8. In text classification using Naive Bayes, what are the features?<br/>
+<div class="answer" tabindex="0">Features are typically words or terms extracted from the text documents.</div>
+</div>
+
+<div class="question">
+9. Why is Information Gain preferred over simply counting the number of attribute values?<br/>
+<div class="answer" tabindex="0">Because Information Gain considers the effectiveness of an attribute in reducing uncertainty about the target variable, not just its uniqueness or frequency.</div>
+</div>
+
+<div class="question">
+10. Describe one advantage and one limitation of using Naive Bayes for text classification.<br/>
+<div class="answer" tabindex="0">Advantage: Fast and works well with high-dimensional data. Limitation: The independence assumption may not hold, potentially reducing accuracy.</div>
+</div>

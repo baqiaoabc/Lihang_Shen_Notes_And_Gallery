@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SQL Questions and Answers</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 20px; background: #f9f9f9; }
+  h2 { color: #2c3e50; }
+  pre {
+    background: #2d2d2d;
+    color: #f8f8f2;
+    padding: 15px;
+    border-radius: 6px;
+    overflow-x: auto;
+  }
+  .question {
+    margin-bottom: 30px;
+    padding: 15px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 8px #ccc;
+  }
+  .schema {
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+  .sql-comment {
+    color: #999;
+  }
+</style>
+</head>
+<body>
+
+<h1>SQL Questions and Answers</h1>
+
+<div class="question">
+  <h2>Question 1 — Multi-table Joins and Group Filtering</h2>
+  <div class="schema">
+    Schema:<br />
+    Students(student_id, name, department_id)<br />
+    Courses(course_id, course_name, credits)<br />
+    Enrollments(student_id, course_id, grade)<br />
+    Departments(department_id, department_name)
+  </div>
+  <p><strong>Question:</strong> Find the names of students who have enrolled in at least 3 courses and have an average grade above 85, along with their department names.</p>
+  <pre>
+SELECT name
+FROM Students
+WHERE student_id IN(
+	SELECT student_id
+	FROM Enrollments
+	GROUP BY student_id
+	HAVING COUNT(DISTINCT course_id) &gt;= 3
+	AND avg(grade) &gt; 85  <span class="sql-comment">// avg更方便</span>
+);
+  </pre>
+</div>
+
+<div class="question">
+  <h2>Question 2 — Window Functions</h2>
+  <div class="schema">
+    Schema:<br />
+    Sales(sale_id, product_id, sale_date, quantity, price)<br />
+    Products(product_id, product_name, category)
+  </div>
+  <p><strong>Question:</strong> For each product category, calculate the total monthly sales (quantity × price), and list the top 3 products by sales amount for each month, showing product name and sales amount.</p>
+  <pre>
+SELECT
+    p.product_name
+FROM 
+    Products p
+JOIN
+    Sales s ON p.product_id = s.product_id
+GROUP BY p.product_id, p.product_name, p.price
+ORDER BY COUNT(s.product_id) * p.price DESC
+LIMIT 3;
+  </pre>
+</div>
+
+<div class="question">
+  <h2>Question 4 — Complex Aggregation and Conditional Aggregation</h2>
+  <div class="schema">
+    Schema:<br />
+    Orders(order_id, customer_id, order_date)<br />
+    OrderDetails(order_id, product_id, quantity, unit_price)<br />
+    Customers(customer_id, customer_name, region)
+  </div>
+  <p><strong>Question:</strong> For each region, count the number of customers who placed more than 50 orders in the past year, and calculate the total order amount for these customers.</p>
+  <pre>
+-- Wrong
+SELECT c.region, COUNT(c.customer_id), COUNT(o1.order_id)
+FROM Orders O1
+NATURAL JOIN OrderDetails O2
+NATURAL JOIN Customers c
+WHERE EXTRACT (YEAR FROM CURRENT_DATE) - EXTRACT(YEAR FROM O1.order_Date) = 1
+GROUP BY c.region
+HAVING COUNT(O1.order_id) &gt; 50
+
+-- Correct
+SELECT 
+    c.region, 
+    COUNT(DISTINCT o.customer_id) AS num_customers,
+    SUM(od.quantity * od.unit_price) AS total_order_amount
+FROM Orders o
+JOIN OrderDetails od ON o.order_id = od.order_id
+JOIN Customers c ON o.customer_id = c.customer_id
+WHERE o.order_date &gt;= CURRENT_DATE - INTERVAL '1 year'
+GROUP BY c.region, o.customer_id
+HAVING COUNT(DISTINCT o.order_id) &gt; 50
+  </pre>
+</div>
+
+<div class="question">
+  <h2>Question 5 — Subqueries and Group Sorting</h2>
+  <div class="schema">
+    Schema:<br />
+    Movies(movie_id, title, release_year)<br />
+    Ratings(user_id, movie_id, rating) (ratings range 1-10)
+  </div>
+  <p><strong>Question:</strong> Find movies released after 2000 that have at least 20 ratings, ordered by average rating descending. Show only the top 10 movies with their titles and average ratings.</p>
+  <pre>
+SELECT 
+	m.title, AVG(r.rating)
+FROM
+	Movies m
+JOIN Ratings r on m.movie_id = r.movie_id
+WHERE 
+	EXTRACT(YEAR FROM m.release_year) &gt; 2000
+GROUP BY m.movie_id, m.title
+HAVING COUNT(r.rating) &gt; 19
+ORDER BY AVG(r.rating) DESC
+LIMIT 10;
+  </pre>
+</div>
+
+<div class="question">
+  <h2>Employees and Departments</h2>
+  <div class="schema">
+    Employees(employee_id, name, department_id, hire_date)<br />
+    Departments(department_id, department_name)<br />
+    Salaries(employee_id, salary, from_date, to_date)
+  </div>
+  <p><strong>Question:</strong> Find the names of departments that have at least 5 employees who have been employed for more than 3 years and have an average salary above $60,000.</p>
+  <pre>
+SELECT
+	d.department_name
+FROM 
+	departments d
+JOIN 
+	Employees e on d.department_id = e.department_id
+JOIN 
+	Salaries s on e.employee_id = s.employee_id
+WHERE e.hire_date &lt; CURRENT_DATE - INTERVAL '3 years'
+GROUP BY d.department_id, d.department_name
+HAVING COUNT(DISTINCT e.employee_id) &gt;= 5
+AND AVG(s.salary) &gt; 60000;
+  </pre>
+</div>
+
+<div class="question">
+  <h2>Books and Authors</h2>
+  <div class="schema">
+    Books(book_id, title, author_id, publish_year)<br />
+    Authors(author_id, name, nationality)<br />
+    Reviews(review_id, book_id, rating)
+  </div>
+  <p><strong>Question:</strong> List the names of authors who have more than 3 books and the average rating above 4.</p>
+  <pre>
+SELECT a.name
+FROM Authors a
+JOIN Books b ON a.author_id = b.author_id
+JOIN Reviews r ON b.book_id = r.book_id
+GROUP BY a.author_id, a.name
+HAVING COUNT(DISTINCT b.book_id) &gt; 3
+   AND AVG(r.rating) &gt; 4;
+  </pre>
+</div>
+
+</body>
+</html>

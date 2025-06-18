@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Multiple Choice and Short Answer Questions with Hover Answers</title>
+<style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; max-width: 800px; margin: auto;}
+  h2 { color: #2a7ae2; }
+  .question { margin-bottom: 15px; }
+  .answer {
+    margin-top: 5px;
+    background-color: #f0f0f0;
+    color: transparent;
+    border-left: 4px solid #2a7ae2;
+    padding: 5px 10px;
+    font-style: italic;
+    max-width: 700px;
+    transition: color 0.3s ease;
+  }
+  .answer:hover, .answer:focus, .answer.highlight {
+    color: #333;
+    cursor: pointer;
+  }
+</style>
+
+<h2>✅ SQL Sample Questions</h2>
+
+
+<div class="question">
+1. Find the name of the manager whose bank has any accounts with a balance greater than $10,000<br/>
+<div class="answer" tabindex="0">
+SELECT DISTINCT b.manager_name<br/>
+FROM Bank b JOIN Account a ON b.bank_id = a.bank_id<br/>
+WHERE a.balance > 10000;
+</div>
+</div>
+
+<div class="question">
+2. Find names of students who enrolled in both COMP9001 and COMP9120:<br/>
+<div class="answer" tabindex="0">
+SELECT name FROM Student WHERE sid IN<br/>
+(SELECT sid FROM Enrolled WHERE uos = 'COMP9001'<br/>
+INTERSECT<br/>
+SELECT sid FROM Enrolled WHERE uos = 'COMP9120');
+</div>
+</div>
+
+<div class="question">
+3. Find students who have taken COMP9001 but not COMP9120<br/>
+<div class="answer" tabindex="0">
+SELECT sid FROM Enrolled WHERE uosCode = 'COMP9001' AND grade IS NOT NULL<br/>
+EXCEPT<br/>
+SELECT sid FROM Enrolled WHERE uosCode = 'COMP9120';
+</div>
+</div>
+
+<div class="question">
+4. Find names of students who did not enrol in COMP9121<br/>
+<div class="answer" tabindex="0">
+SELECT name FROM Student<br/>
+WHERE sid NOT IN (SELECT sid FROM Enrolled WHERE uos = 'COMP9121');
+</div>
+</div>
+
+<div class="question">
+5. Find the number of students from each country other than AUS, that have more students than from AUS:<br/>
+<div class="answer" tabindex="0">
+SELECT country, COUNT(sid) FROM Student WHERE country != 'AUS'<br/>
+GROUP BY country HAVING COUNT(sid) >=<br/>
+(SELECT COUNT(sid) FROM Student WHERE country = 'AUS');
+</div>
+</div>
+
+<div class="question">
+6. Find the names of students who have enrolled in more than one uos:<br/>
+<div class="answer" tabindex="0">
+SELECT name FROM Students WHERE sid IN<br/>
+(SELECT sid FROM Enrolled GROUP BY sid HAVING COUNT(sid) > 1);
+</div>
+</div>
+
+<div class="question">
+7. Find all the banks id that have the lowest total balance across all of their accounts<br/>
+<div class="answer" tabindex="0">
+SELECT bank_id FROM Account GROUP BY bank_id<br/>
+HAVING SUM(balance) <= ALL (SELECT SUM(balance) FROM Account GROUP BY bank_id);
+</div>
+</div>
+
+<div class="question">
+8. Find the employee with the highest salary in a given department (Using ALL):<br/>
+<div class="answer" tabindex="0">
+SELECT employee_id FROM employees WHERE department_id = 10<br/>
+AND salary >= ALL (SELECT salary FROM employees WHERE department_id = 10);
+</div>
+</div>
+
+<div class="question">
+9. Find the employee with the highest salary in a given department (Using EXISTS):<br/>
+<div class="answer" tabindex="0">
+SELECT employee_id FROM employees e1 WHERE department_id = 10<br/>
+AND NOT EXISTS (SELECT 1 FROM employees e2<br/>
+WHERE e2.department_id = e1.department_id<br/>
+AND e2.salary > e1.salary);
+</div>
+</div>
+
+<div class="question">
+10. Find the employee with the highest salary in a given department (Using MAX):<br/>
+<div class="answer" tabindex="0">
+SELECT employee_id FROM employees WHERE department_id = 10<br/>
+AND salary = (SELECT MAX(salary) FROM employees WHERE department_id = 10);
+</div>
+</div>
+
+<div class="question">
+11. Find the employee with the highest salary in a given department (Using LIMIT):<br/>
+<div class="answer" tabindex="0">
+SELECT employee_id FROM employees WHERE department_id = 10<br/>
+ORDER BY salary DESC LIMIT 1;
+</div>
+</div>
+
+<div class="question">
+12. Find the employee with the highest salary in each department:<br/>
+<div class="answer" tabindex="0">
+SELECT e1.department_id, e1.employee_id FROM employees e1<br/>
+WHERE e1.salary >= ALL(SELECT e2.salary FROM employees e2<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE e1.department_id = e2.department_id);
+</div>
+</div>
+
+<div class="question">
+13. Return titles of film released in 2004 and all actors who played in those films, return N/A if film has no actor<br/>
+<div class="answer" tabindex="0">
+SELECT title, COALESCE(first_name, 'N/A') AS actor_firstname<br/>
+FROM Film LEFT JOIN Film_Actor USING (film_id) LEFT JOIN Actor USING (actor_id)<br/>
+WHERE release_year = '2004';
+</div>
+</div>
+
+<div class="question">
+14. Find all actors who have the same first and last name as another actor:<br/>
+<div class="answer" tabindex="0">
+SELECT A1.actor_id, A1.first_name, A1.last_name<br/>
+FROM Actor A1 CROSS JOIN Actor A2<br/>
+WHERE A1.first_name = A2.first_name AND A1.last_name = A2.last_name<br/>
+AND A1.actor_id <> A2.actor_id;
+</div>
+</div>
+
+<div class="question">
+15. Find the name of libraries that have at least one database book<br/>
+<div class="answer" tabindex="0">
+SELECT library_name FROM Library NATURAL JOIN Book NATURAL JOIN Contains<br/>
+WHERE Book_title ILIKE '%Database%';
+</div>
+</div>
