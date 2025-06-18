@@ -1,0 +1,3665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Multiple Choice and Short Answer Questions with Hover Answers</title>
+<style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; max-width: 800px; margin: auto;}
+  h2 { color: #2a7ae2; }
+  .question { margin-bottom: 15px; }
+  .answer {
+    margin-top: 5px;
+    background-color: #f0f0f0;
+    color: transparent;
+    border-left: 4px solid #2a7ae2;
+    padding: 5px 10px;
+    font-style: italic;
+    max-width: 700px;
+    transition: color 0.3s ease;
+  }
+  .answer:hover, .answer:focus, .answer.highlight {
+    color: #333;
+    cursor: pointer;
+  }
+</style>
+
+<h2>Week 1</h2>
+
+<div class="question">
+1. Which of the following data structures typically uses the **least memory** when storing a large number of zero values?<br/>
+A. Dense Vector<br/>
+B. Sparse Vector<br/>
+C. HashMap<br/>
+D. ArrayList<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+2. Which data structure is best suited for quick **lookup of values using a key**?<br/>
+A. Vector<br/>
+B. Sparse Vector<br/>
+C. Map<br/>
+D. LinkedList<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+3. If you frequently need to **modify specific values by index**, which structure is generally the most efficient?<br/>
+A. Map<br/>
+B. One-hot-code<br/>
+C. Sparse Vector<br/>
+D. Set<br/>
+<div class="answer" tabindex="0">Answer: A,B</div>
+</div>
+
+<div class="question">
+4. In terms of **similarity measurement** (e.g., cosine similarity), which pair of data structures are most often used?<br/>
+A. HashMap<br/>
+B. Sparse Vector<br/>
+C. Sparse Vector and Map<br/>
+D. Array and LinkedList<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+5. Which of the following is true about a **Map** in most programming languages?<br/>
+A. It stores values at numeric indexes only<br/>
+B. It uses more memory than Sparse Vectors for the same sparse data<br/>
+C. It is not suitable for key-value storage<br/>
+D. It cannot be used for checking if a key exists<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+6. Which of the following is a **limitation of using dot product** for comparing vectors?<br/>
+A. It requires sparse representation<br/>
+B. It does not consider vector magnitude<br/>
+C. It always returns values between -1 and 1<br/>
+D. It cannot be used on dense vectors<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+7. What is a **key advantage of cosine similarity** over the dot product?<br/>
+A. It is faster to compute<br/>
+B. It scales better with dimensionality<br/>
+C. It considers the direction of vectors only<br/>
+D. It ignores all non-zero elements<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+8. Which of the following is a **requirement for computing cosine similarity**?<br/>
+A. Vectors must have the same number of non-zero entries<br/>
+B. Vectors must be normalized to unit length<br/>
+C. Vectors must be non-negative<br/>
+D. Vectors must be of the same dimension<br/>
+<div class="answer" tabindex="0">Answer: D</div>
+</div>
+
+<div class="question">
+9. What value of cosine similarity indicates that two vectors are **orthogonal** (i.e., completely unrelated)?<br/>
+A. 0<br/>
+B. 1<br/>
+C. -1<br/>
+D. Infinity<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+10. In which scenario might **cosine similarity fail to distinguish vectors** effectively?<br/>
+A. When vectors are of different lengths<br/>
+B. When vectors are sparse<br/>
+C. When vectors have the same direction but different magnitudes<br/>
+D. When vectors contain only zeros<br/>
+<div class="answer" tabindex="0">Answer: D</div>
+</div>
+
+<div class="question">
+11. What is the primary objective of the CBOW model in Word2Vec?<br/>
+A. Predict the target word from surrounding context words<br/>
+B. Predict the context from the target word<br/>
+C. Count the co-occurrence of words<br/>
+D. Convert integers to one-hot vectors<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+12. Why is the CBOW model called “Continuous” Bag of Words?<br/>
+A. Because it uses word counts<br/>
+B. Because it continuously trains the model<br/>
+C. Because word vectors are represented as continuous floating-point numbers<br/>
+D. Because it reads the corpus continuously<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+13. In the CBOW model, what happens after averaging the context word vectors?<br/>
+A. The model uses one-hot encoding<br/>
+B. The result is passed to a softmax layer to predict the target word<br/>
+C. The result is discarded<br/>
+D. The model computes cosine similarity<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+14. How is the loss computed in the CBOW model?<br/>
+A. By comparing predicted context with actual context<br/>
+B. By comparing predicted target word with actual target word using softmax<br/>
+C. Using mean squared error between all vectors<br/>
+D. Using the cosine similarity between context and target<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+15. Which of the following describes the **Skip-gram** model, as opposed to CBOW?<br/>
+A. It averages multiple word vectors<br/>
+B. It predicts the surrounding words given a center word<br/>
+C. It uses word frequency to determine vector direction<br/>
+D. It only works with one-hot vectors<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question"> 
+16. Briefly explain why CBOW uses floating-point vectors instead of integer IDs.<br/>
+<div class="answer" tabindex="0">
+Because CBOW uses embedding layers that represent each word as a continuous vector of floating-point values to capture semantic relationships, rather than using discrete integer representations.
+</div>
+</div>
+
+<div class="question"> 
+17. How does the CBOW model calculate the loss during training?<br/>
+<div class="answer" tabindex="0">
+CBOW calculates loss by using the softmax output to predict the target word and then compares the predicted probability distribution to the actual target word using cross-entropy loss.
+</div>
+</div>
+
+<div class="question">
+18. Why is logarithmic scaling used in term frequency (TF) calculations?<br/>
+A. To increase the weight of frequent terms<br/>
+B. To normalize document length<br/>
+C. To reduce the influence of very frequent words like "the"<br/>
+D. To remove stopwords<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+19. What does IDF (Inverse Document Frequency) measure in TF-IDF?<br/>
+A. The average word length<br/>
+B. The number of documents containing the term<br/>
+C. The rarity of a term across documents<br/>
+D. The length of the document<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+20. Which condition makes the term frequency component tf<sub>t,d</sub> equal to 0 in TF-IDF?<br/>
+A. When the term appears once<br/>
+B. When the document is short<br/>
+C. When the count of the term in the document is 0<br/>
+D. When the IDF is 0<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+21. What is the main purpose of TF-IDF in document analysis?<br/>
+A. To remove punctuation from text<br/>
+B. To highlight terms that are frequent in a document but rare in the collection<br/>
+C. To normalize all words to lowercase<br/>
+D. To compute document length<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+22. In the formula idf<sub>t</sub> = log<sub>10</sub>(N / df<sub>t</sub>), what does **N** represent?<br/>
+A. Number of terms in the vocabulary<br/>
+B. Number of total words in a document<br/>
+C. Number of documents in the collection<br/>
+D. Number of characters in a term<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question"> 
+23. Why does TF-IDF assign **low scores** to words that appear in many documents?<br/>
+<div class="answer" tabindex="0">
+Because IDF decreases as the number of documents containing the term increases, reducing the overall TF-IDF score for common terms.
+</div>
+</div>
+
+<div class="question"> 
+24. What happens to the TF-IDF score if a term does **not appear** in a document?<br/>
+<div class="answer" tabindex="0">
+The TF value becomes 0, so the entire TF-IDF score is 0 regardless of the IDF.
+</div>
+</div>
+
+<div class="question"> 
+25. How does TF-IDF help in text classification or information retrieval?<br/>
+<div class="answer" tabindex="0">
+It helps by emphasizing terms that are important for a specific document but not common across the corpus, allowing better feature selection or ranking.
+</div>
+</div>
+
+<div class="question">
+26. What is a common approach to learn word relationships based on counting?<br/>
+A. Train a convolutional neural network<br/>
+B. Use co-occurrence matrices<br/>
+C. Use one-hot encoding only<br/>
+D. Sort words by frequency<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+27. Why do we apply dimensionality reduction to word vectors?<br/>
+A. To increase model complexity<br/>
+B. To create larger vocabularies<br/>
+C. To convert sparse vectors into dense vectors<br/>
+D. To remove common stopwords<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+28. Which method typically results in a **dense** word vector representation?<br/>
+A. One-hot encoding<br/>
+B. Word co-occurrence matrix<br/>
+C. SVD (Singular Value Decomposition)<br/>
+D. Tokenization<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+29. What is a **sparse vector** in the context of word representation?<br/>
+A. A vector with mostly non-zero values<br/>
+B. A vector that stores word definitions<br/>
+C. A vector with many zero values and few non-zeros<br/>
+D. A vector with binary classification results<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+30. Which of the following correctly describes the goal of dimensionality reduction in NLP?<br/>
+A. To increase the number of features<br/>
+B. To simplify the model by reducing feature dimensions while preserving word relationships<br/>
+C. To cluster all frequent words together<br/>
+D. To expand word embeddings for higher accuracy<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+31. What problem can occur when applying softmax to large input values without normalization?<br/>
+A. Underflow<br/>
+B. Segmentation fault<br/>
+C. Overflow (numeric instability)<br/>
+D. Missing values<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+32. What is a common method to prevent overflow errors in softmax calculations?<br/>
+A. Multiply all values by 2<br/>
+B. Subtract the maximum value from all inputs before applying softmax<br/>
+C. Set all negative values to 0<br/>
+D. Use one-hot encoding first<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+33. What does softmax normalization ensure about the output values?<br/>
+A. All values are integers<br/>
+B. They sum to 1 and can be interpreted as probabilities<br/>
+C. The largest value is always 1<br/>
+D. The input is sorted<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+34. Using a **small context window** (e.g. ±2 words) in word embedding models tends to capture:<br/>
+A. Semantic similarity<br/>
+B. Document frequency<br/>
+C. Syntactic similarity<br/>
+D. Word frequency<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+35. Which of the following best describes the effect of using a **larger context window** (e.g. ±5 words)?<br/>
+A. It focuses on syntax like part-of-speech<br/>
+B. It improves handling of numeric overflow<br/>
+C. It captures semantic relationships between words<br/>
+D. It reduces vocabulary size<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<h2>Week 2</h2>
+
+<div class="question">
+1. Which NLP component deals with obtaining the correct output given an input?<br/>
+A. Data<br/>
+B. Model<br/>
+C. Metric<br/>
+D. Learning Method<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+2. What is a challenge often encountered with the Data component in NLP?<br/>
+A. Data can be split easily<br/>
+B. Not all data can be easily tokenized or split<br/>
+C. Data always contains labeled examples<br/>
+D. Data does not affect model performance<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+3. Which NLP component defines how to adjust the model parameters?<br/>
+A. Model<br/>
+B. Metric<br/>
+C. Learning Method<br/>
+D. Inference Method<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+4. What is the role of the Metric component in NLP?<br/>
+A. Splitting data<br/>
+B. Defining the loss function<br/>
+C. Making predictions<br/>
+D. Updating model weights<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+5. What does the Inference Method in NLP do?<br/>
+A. Collects data<br/>
+B. Determines the final result based on model output<br/>
+C. Trains the model<br/>
+D. Defines the loss<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question"> 
+6. Explain why data splitting can be difficult in NLP tasks.<br/>
+<div class="answer" tabindex="0">
+Because natural language data often contains ambiguous boundaries, idioms, or languages without clear word delimiters, making tokenization and splitting challenging.
+</div>
+</div>
+<div class="question"> 
+7. What is the purpose of the Learning Method in NLP?<br/>
+<div class="answer" tabindex="0">
+The Learning Method defines how the model parameters are updated during training, usually by optimizing a loss function using algorithms like gradient descent.
+</div>
+</div>
+<div class="question"> 
+8. How does the Inference Method relate to the output of an NLP model?<br/>
+<div class="answer" tabindex="0">
+The Inference Method uses the model’s output to make a decision or prediction, such as selecting the most probable label or generating the final text.
+</div>
+</div>
+<div class="question">
+9. In a binary classification task, which error is generally considered less tolerable in medical diagnosis?<br/>
+A. False Positive (FP)<br/>
+B. False Negative (FN)<br/>
+C. Both are equally tolerable<br/>
+D. Neither matters<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+10. What is the key characteristic of micro-averaging in multi-class evaluation?<br/>
+A. It averages metrics per class<br/>
+B. It treats all predictions as one large set regardless of class<br/>
+C. It ignores the majority classes<br/>
+D. It focuses only on the rarest class<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+11. When is macro-averaging preferred?<br/>
+A. When classes are equally important and some are rare<br/>
+B. When overall accuracy is the only concern<br/>
+C. When the dataset has only one class<br/>
+D. When micro-averaging cannot be computed<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+<div class="question">
+12. What does it mean if micro-precision equals micro-recall?<br/>
+A. The dataset has multiple classes with imbalance<br/>
+B. There is no 'None' class in the dataset<br/>
+C. The model is overfitting<br/>
+D. The model only predicts one class<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+13. Which of the following best describes macro-averaging?<br/>
+A. Calculate metrics globally<br/>
+B. Calculate metrics per class and average the results<br/>
+C. Ignore rare classes<br/>
+D. Focus on majority classes only<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+14. If the goal is to maximize the total number of correct predictions without regard to class distribution, which evaluation is preferred?<br/>
+A. Macro-averaging<br/>
+B. Micro-averaging<br/>
+C. Weighted averaging<br/>
+D. None of the above<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+15. Which metric directly reflects how often positive predictions are correct?<br/>
+A. Recall<br/>
+B. Precision<br/>
+C. Accuracy<br/>
+D. F1-score<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question"> 
+16. Why is a False Negative (FN) often less tolerable than a False Positive (FP) in certain applications?<br/>
+<div class="answer" tabindex="0">
+Because an FN means missing a true positive case (e.g., missing a disease diagnosis), which can have serious consequences, while an FP may cause unnecessary follow-up but is less harmful.
+</div>
+</div>
+<div class="question"> 
+17. Explain the difference between micro-averaging and macro-averaging in multi-class classification evaluation.<br/>
+<div class="answer" tabindex="0">
+Micro-averaging aggregates all predictions across classes before calculating metrics, treating all classes equally by instance count; macro-averaging calculates metrics per class and then averages, treating all classes equally regardless of size.
+</div>
+</div>
+<div class="question"> 
+18. What does it mean for micro-precision to equal micro-recall when there is no 'None' class?<br/>
+<div class="answer" tabindex="0">
+It means that the overall precision and recall calculated globally across all classes are the same, indicating a balance between false positives and false negatives in the dataset without an undefined class.
+</div>
+</div>
+<div class="question"> 
+19. When evaluating a model on a dataset with very imbalanced classes, why might macro-averaging provide a better understanding of performance?<br/>
+<div class="answer" tabindex="0">
+Because macro-averaging gives equal weight to each class, it highlights performance on minority classes that might be overlooked when using micro-averaging, which is dominated by majority classes.
+</div>
+</div>
+<div class="question">
+20. In spam email detection, which error is usually considered less tolerable?<br/>
+A. False Positive (legitimate email marked as spam)<br/>
+B. False Negative (spam email not detected)<br/>
+C. Both are equally tolerable<br/>
+D. Neither matters<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+<div class="question">
+21. In medical cancer screening, which error is typically more dangerous?<br/>
+A. False Positive (healthy person diagnosed with cancer)<br/>
+B. False Negative (cancer patient missed)<br/>
+C. Both errors have the same impact<br/>
+D. None of the above<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+22. For a fraud detection system in banking, which error may cause more financial loss?<br/>
+A. False Positive (legitimate transaction flagged as fraud)<br/>
+B. False Negative (fraudulent transaction not detected)<br/>
+C. Both cause equal losses<br/>
+D. Neither is important<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+23. In airport security screening, which error is generally more unacceptable?<br/>
+A. False Positive (innocent passenger flagged)<br/>
+B. False Negative (threat missed)<br/>
+C. Both errors are equally critical<br/>
+D. None of the above<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+24. In an online recommendation system, which error is usually less harmful?<br/>
+A. False Positive (irrelevant recommendation shown)<br/>
+B. False Negative (relevant recommendation missed)<br/>
+C. Both errors have equal impact<br/>
+D. Neither matters<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+<div class="question">
+25. What does the ROC curve plot?<br/>
+A. Precision vs Recall<br/>
+B. True Positive Rate vs False Positive Rate<br/>
+C. Accuracy vs Error Rate<br/>
+D. Sensitivity vs Specificity<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+26. What does the AUC (Area Under the Curve) of an ROC curve represent?<br/>
+A. The proportion of false positives<br/>
+B. The probability that the classifier ranks a random positive instance higher than a random negative instance<br/>
+C. The overall accuracy of the model<br/>
+D. The balance between precision and recall<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+27. Which curve is most useful when dealing with highly imbalanced datasets?<br/>
+A. ROC curve<br/>
+B. Precision-Recall Curve (PRC)<br/>
+C. Learning curve<br/>
+D. Confusion matrix<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+28. In the Precision-Recall Curve, what does a point with high precision and low recall indicate?<br/>
+A. The model misses many positives but predictions are reliable<br/>
+B. The model detects most positives but has many false positives<br/>
+C. The model has high accuracy<br/>
+D. The model has overfitting issues<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+<div class="question">
+29. Which metric summarizes the Precision-Recall Curve similar to how AUC summarizes the ROC curve?<br/>
+A. Average Precision (AP)<br/>
+B. F1 score<br/>
+C. Accuracy<br/>
+D. Specificity<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+
+<h2>Week 3</h2>
+
+<div class="question">
+1. What is the main role of a bias term in a neural network layer?<br/>
+A. To reduce the learning rate<br/>
+B. To add non-linearity<br/>
+C. To shift the activation function<br/>
+D. To avoid overfitting<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+2. What enables a Multi-Layer Perceptron (MLP) to approximate complex functions?<br/>
+A. Having only one layer<br/>
+B. Using linear activation functions<br/>
+C. Adding more layers and non-linearities<br/>
+D. Removing the bias term<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</<div class="question">
+3. Which activation function can cause a vanishing gradient problem?<br/>
+A. ReLU<br/>
+B. tanh<br/>
+C. Sigmoid<br/>
+D. All of the above<br/>
+<div class="answer" tabindex="0">Answer: D</div>
+</div>
+<div class="question">
+4. Which of the following activation functions outputs values only in the range of [0, 1]?<br/>
+A. ReLU<br/>
+B. tanh<br/>
+C. Sigmoid<br/>
+D. Linear<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+5. Why is ReLU preferred over sigmoid in deep neural networks?<br/>
+A. It always gives better accuracy<br/>
+B. It’s smoother<br/>
+C. It reduces the chance of vanishing gradients<br/>
+D. It produces values between -1 and 1<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question"> 
+6. What is the effect of using multiple layers in an MLP model?<br/>
+<div class="answer" tabindex="0">
+Using multiple layers allows the MLP to learn more abstract and complex patterns by combining features learned from previous layers.
+</div>
+</div>
+<div class="question"> 
+7. Explain the mathematical form and output range of the tanh activation function.<br/>
+<div class="answer" tabindex="0">
+The tanh function is defined as (e^x - e^-x)/(e^x + e^-x), and it outputs values in the range [-1, 1].
+</div>
+</div>
+<div class="question"> 
+8. Compare the sigmoid and ReLU activation functions in terms of their gradient behavior.<br/>
+<div class="answer" tabindex="0">
+Sigmoid can suffer from vanishing gradients as its (normal function) output saturates at 0 or 1, making weight updates small. ReLU mitigates this issue by having a constant gradient of 1 for positive inputs, though it can "die" if inputs are always negative.
+</div>
+</div>
+<div class="question">
+9. Why can't a simple perceptron solve the XOR problem?<br/>
+A. It overfits the data<br/>
+B. It has too many layers<br/>
+C. The XOR function is not linearly separable<br/>
+D. It does not use activation functions<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+10. What does a loss function represent in machine learning?<br/>
+A. The learning rate<br/>
+B. The number of hidden layers<br/>
+C. A measure of how wrong the model’s prediction is<br/>
+D. A measure of how fast the model trains<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+11. In gradient-based optimization, why do we use the derivative of the loss function?<br/>
+A. To determine the batch size<br/>
+B. To estimate training time<br/>
+C. To find the direction to update model weights<br/>
+D. To adjust regularization strength<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+12. When performing gradient descent, why do we move in the **negative** direction of the derivative?<br/>
+A. To avoid overfitting<br/>
+B. Because the derivative points toward increasing the loss<br/>
+C. Because it improves model regularization<br/>
+D. To increase model complexity<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+13. What kind of decision boundary does a perceptron learn?<br/>
+A. Non-linear boundary<br/>
+B. Quadratic boundary<br/>
+C. Random boundary<br/>
+D. Linear boundary<br/>
+<div class="answer" tabindex="0">Answer: D</div>
+</div>
+<div class="question">
+14. What mathematical principle is used in backpropagation to compute gradients through multiple layers?<br/>
+A. Linear regression<br/>
+B. Matrix decomposition<br/>
+C. Chain rule<br/>
+D. Taylor series<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+15. In the context of MLP, which component's gradient is calculated using the chain rule during backpropagation?<br/>
+A. Activation only<br/>
+B. Loss function only<br/>
+C. Each layer’s weight and bias<br/>
+D. Only the output layer<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+16. What is the role of the chain rule in backpropagation?<br/>
+A. To estimate the loss value<br/>
+B. To combine learning rates<br/>
+C. To break down the derivative of a composite function<br/>
+D. To generate random weights<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+17. What is the main difference between stochastic gradient descent (SGD) and batch gradient descent?<br/>
+A. SGD uses multiple hidden layers<br/>
+B. SGD computes gradient using one or a few training examples<br/>
+C. SGD has a higher learning rate<br/>
+D. SGD does not use loss functions<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+18. What effect does randomness in SGD have on the training process?<br/>
+A. It always slows down convergence<br/>
+B. It prevents the use of activation functions<br/>
+C. It helps the model escape local minima<br/>
+D. It removes the need for backpropagation<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+19. Which of the following is a **disadvantage** of using SGD?<br/>
+A. It is computationally expensive<br/>
+B. It requires full dataset at every update<br/>
+C. Its updates have high variance and can fluctuate<br/>
+D. It can only be used with linear models<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+20. Why is shuffling the training data important in stochastic gradient descent?<br/>
+A. To make training faster<br/>
+B. To reduce overfitting<br/>
+C. To ensure randomness and avoid learning patterns in data order<br/>
+D. To improve activation functions<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+21. What is the main purpose of applying regularization in a machine learning model?<br/>
+A. To increase model complexity<br/>
+B. To improve training speed<br/>
+C. To reduce overfitting by penalizing large weights<br/>
+D. To change the loss function<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+22. Which regularization method adds the **absolute value** of weights to the loss function?<br/>
+A. L2 Regularization<br/>
+B. Dropout<br/>
+C. L1 Regularization<br/>
+D. Early Stopping<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+23. How does L2 regularization discourage overfitting?<br/>
+A. By randomly dropping neurons during training<br/>
+B. By forcing some weights to be exactly zero<br/>
+C. By penalizing the **square** of the weight values<br/>
+D. By stopping training early<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+24. What does **dropout** do during training?<br/>
+A. It increases the learning rate<br/>
+B. It removes all input features<br/>
+C. It randomly disables neurons to prevent co-adaptation<br/>
+D. It resets weights to zero<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+25. Which regularization technique stops training when validation performance stops improving?<br/>
+A. L1 Regularization<br/>
+B. L2 Regularization<br/>
+C. Dropout<br/>
+D. Early Stopping<br/>
+<div class="answer" tabindex="0">Answer: D</div>
+</div>
+<div class="question">
+26. What is one method to handle variable-length input sequences in neural networks?<br/>
+A. Dropout<br/>
+B. Concatenate all outputs without adjustment<br/>
+C. Pad shorter sequences to a fixed length<br/>
+D. Use L1 regularization<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+27. What does truncating a sequence involve?<br/>
+A. Extending it with zeros<br/>
+B. Splitting it into words<br/>
+C. Cutting it off at a maximum length<br/>
+D. Randomizing the word order<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+28. Which method averages all word embeddings in a sequence to create a fixed-size vector?<br/>
+A. Padding<br/>
+B. Truncating<br/>
+C. Concatenation<br/>
+D. Mean pooling<br/>
+<div class="answer" tabindex="0">Answer: D</div>
+</div>
+<div class="question">
+29. Why can concatenation of all word embeddings be problematic for variable-length inputs?<br/>
+A. It causes loss of information<br/>
+B. It produces variable-sized outputs<br/>
+C. It breaks the grammar<br/>
+D. It doesn't support padding<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+30. What is one issue caused by word order being changed in a sentence?<br/>
+A. It makes the sentence shorter<br/>
+B. It increases overfitting<br/>
+C. It can change the meaning of the sentence<br/>
+D. It prevents dropout from working<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question"> 
+31. Why is padding used when handling variable-length input sequences?<br/>
+<div class="answer" tabindex="0">
+Padding ensures that all input sequences in a batch have the same length, allowing them to be processed together by models like RNNs or transformers.
+</div>
+</div>
+<div class="question"> 
+32. What semantic issue arises when the same positive word appears in different positions in different sentences?<br/>
+<div class="answer" tabindex="0">
+The model needs to relearn the meaning of the word in different positions, which can reduce generalization and efficiency.
+</div>
+</div>
+<div class="question"> 
+33. Explain one reason why simple mean pooling may not be sufficient to represent a sentence.<br/>
+<div class="answer" tabindex="0">
+Mean pooling ignores word order and syntactic structure, so important positional or contextual information may be lost.
+</div>
+</div>
+<div class="question">
+34. What is one main advantage of using RNNs for sequence data?<br/>
+A. They require fixed input length<br/>
+B. They ignore word order<br/>
+C. They capture temporal dependencies and word order<br/>
+D. They don’t require any training<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+35. Which training method is typically used to update weights in an RNN?<br/>
+A. Adam<br/>
+B. Backpropagation Through Time (BPTT)<br/>
+C. Reinforcement learning<br/>
+D. Gradient Clipping<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+36. What is a key problem in training RNNs on long sequences?<br/>
+A. Dropout<br/>
+B. Random initialization<br/>
+C. Gradient vanishing or exploding<br/>
+D. No available optimization<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+37. What is one solution to the **exploding gradient** problem in RNNs?<br/>
+A. Use larger datasets<br/>
+B. Use gradient clipping<br/>
+C. Remove all biases<br/>
+D. Increase learning rate<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+38. Why is LSTM preferred over vanilla RNNs for long sequences?<br/>
+A. It uses fewer parameters<br/>
+B. It runs faster<br/>
+C. It helps avoid vanishing gradients<br/>
+D. It does not use BPTT<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+39. In bidirectional RNNs, how are sequences processed?<br/>
+A. Only from left to right<br/>
+B. From start to the middle<br/>
+C. In both forward and backward directions<br/>
+D. From center to ends<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+40. What is a key characteristic of RNN models when predicting multiple outputs in a single sequence?<br/>
+A. They require separate models for each output<br/>
+B. They can use one RNN to make sequential predictions at each time step<br/>
+C. They ignore the temporal order<br/>
+D. They only predict one final output<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question"> 
+41. What does “Backpropagation Through Time” (BPTT) mean in the context of RNNs?<br/>
+<div class="answer" tabindex="0">
+BPTT is the extension of backpropagation for sequence models, where gradients are computed through the entire unrolled sequence of time steps to update RNN weights.
+</div>
+</div>
+<div class="question"> 
+42. How does an RNN handle variable-length input sequences without padding or truncating?<br/>
+<div class="answer" tabindex="0">
+RNNs process sequences step by step, updating their hidden state after each word, so they can handle different lengths naturally without needing to reshape the input.
+</div>
+</div>
+<div class="question"> 
+43. What does it mean for an RNN to act as an encoder (or accepter)?<br/>
+<div class="answer" tabindex="0">
+An RNN encoder reads an entire input sequence and compresses its information into a fixed-size hidden state, which can then be used for tasks like translation or classification.
+</div>
+</div>
+<div class="question"> 
+44. Describe what a transducer RNN is used for.<br/>
+<div class="answer" tabindex="0">
+A transducer RNN produces output at every time step of the input, making it suitable for sequence-to-sequence tasks like speech recognition or tagging.
+</div>
+</div>
+<div class="question"> 
+45. Explain why bidirectional RNNs do not contain loops in the time dimension.<br/>
+<div class="answer" tabindex="0">
+Each direction in a bidirectional RNN processes the sequence in one pass (forward or backward), and the outputs are concatenated, so there’s no temporal loop like in standard RNN recurrence.
+</div>
+</div>
+<div class="question">
+46. What is the purpose of Part-of-Speech (POS) tagging in NLP?<br/>
+A. Identifying entities like people and places<br/>
+B. Translating text between languages<br/>
+C. Assigning word categories such as noun, verb, or adjective<br/>
+D. Generating embeddings<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+47. Which of the following is an important **context** used for POS tagging?<br/>
+A. Entity location<br/>
+B. Morphological and syntactic context<br/>
+C. Sentence length<br/>
+D. Embedding dimension<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+48. What is the correct label format for BIO tagging in NER?<br/>
+A. Begin, Inside, Outside<br/>
+B. Binary, Indexed, Ordered<br/>
+C. Base, Inclusive, Optional<br/>
+D. Bigram, Integer, Output<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+<div class="question">
+49. In BIOES tagging scheme, what does "S" stand for?<br/>
+A. Start<br/>
+B. Subset<br/>
+C. Single-token entity<br/>
+D. Shared<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+50. Which evaluation method is most commonly used for assessing NER performance?<br/>
+A. Macro precision<br/>
+B. Per-word loss<br/>
+C. Micro-averaged precision, recall, F1<br/>
+D. ROC curve<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question"> 
+51. Why is syntactic distribution important for POS tagging?<br/>
+<div class="answer" tabindex="0">
+Syntactic distribution helps determine a word's part of speech based on how it behaves in relation to other words in a sentence, improving tagging accuracy.
+</div>
+</div>
+<div class="question"> 
+52. Explain why BIOES tagging may provide more accurate boundary detection for named entities than BIO.<br/>
+<div class="answer" tabindex="0">
+BIOES includes additional labels for single-token entities and end tokens, giving the model finer-grained information about entity boundaries, which can improve precision and recall.
+</div>
+</div>
+
+<h2>Week 4</h2>
+
+<div class="question">
+1. Which inference method guarantees the globally optimal solution by exploring all possibilities?<br/>
+A. Greedy<br/>
+B. Beam<br/>
+C. Exhaustive<br/>
+D. Random sampling<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+2. What is a key disadvantage of exhaustive inference?<br/>
+A. Produces poor-quality outputs<br/>
+B. Ignores grammar rules<br/>
+C. Extremely high computational cost<br/>
+D. Generates random sequences<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+3. What does greedy inference typically choose at each step?<br/>
+A. A random token<br/>
+B. The top-1 scoring token<br/>
+C. The average of all tokens<br/>
+D. All tokens above a threshold<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+4. In greedy decoding, which of the following may occur frequently?<br/>
+A. Globally optimal result<br/>
+B. Very slow generation<br/>
+C. Getting stuck in a suboptimal path<br/>
+D. Memory overflow<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+5. Which sampling method randomly chooses from the top k highest probability tokens at each step?<br/>
+A. Top-p<br/>
+B. Beam<br/>
+C. Top-k<br/>
+D. Greedy<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+6. What is the defining feature of Top-p (nucleus) sampling?<br/>
+A. Only the most frequent token is picked<br/>
+B. Tokens are sampled from a dynamic set whose cumulative probability exceeds p<br/>
+C. It exhaustively checks all sequences<br/>
+D. It selects tokens by random permutation<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+7. In contrastive decoding, what does the model use to improve diversity?<br/>
+A. Randomly drops tokens<br/>
+B. Penalizes previously used words<br/>
+C. Balances between model confidence and similarity with a context vector<br/>
+D. Adds noise to top-k results<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+8. Which decoding method maintains multiple partial hypotheses and expands them in parallel?<br/>
+A. Top-k<br/>
+B. Beam search<br/>
+C. Greedy<br/>
+D. Random<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+9. What is a typical trade-off when increasing the beam width in beam search?<br/>
+A. Lower memory usage<br/>
+B. Less diversity in output<br/>
+C. Higher computational cost but potentially better results<br/>
+D. Faster inference time<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+10. Which inference method can be visualized as a tree-like graph where each node is a partial sentence?<br/>
+A. Exhaustive<br/>
+B. Graph-based decoding<br/>
+C. Top-1 sampling<br/>
+D. Contrastive sampling<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+11. What is the main advantage of greedy decoding?<br/>
+A. Always gives the best result<br/>
+B. Fast and simple implementation<br/>
+C. Most diverse o
+<div class="question">
+12. Which decoding method dynamically chooses tokens based on a cumulative probability threshold?<br/>
+A. Top-k sampling<br/>
+B. Top-p sampling<br/>
+C. Beam search<br/>
+D. Greedy<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+13. In beam search, what happens if the beam size is too small?<br/>
+A. Output becomes too random<br/>
+B. Model cannot generate text<br/>
+C. It behaves similarly to greedy decoding<br/>
+D. It always returns multiple sequences<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+14. What is the role of randomness in stochastic decoding methods like Top-k?<br/>
+A. To ensure deterministic output<br/>
+B. To improve diversity and avoid repetition<br/>
+C. To enforce grammar constraints<br/>
+D. To speed up beam search<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+15. In which case is contrastive decoding especially useful?<br/>
+A. When you need the fastest inference possible<br/>
+B. When grammar is more important than fluency<br/>
+C. When balancing diversity and relevance is critical<br/>
+D. When exhaustive search is needed<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+16. What is one weakness of Top-k sampling?<br/>
+A. Always generates the same output<br/>
+B. Ignores all low-probability tokens<br/>
+C. Fixed k may not adapt to different situations<br/>
+D. Too slow for real-time applications<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+17. Which method explicitly avoids deterministic behavior in inference?<br/>
+A. Top-1<br/>
+B. Beam Search<br/>
+C. Random Sampling<br/>
+D. Exhaustive Search<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+18. Which decoding method can lead to the “repetition problem” if used alone without temperature control?<br/>
+A. Top-p<br/>
+B. Random sampling<br/>
+C. Greedy decoding<br/>
+D. Beam search with large width<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+19. What does increasing the beam width generally lead to?<br/>
+A. Increased randomness<br/>
+B. Decreased computational cost<br/>
+C. More candidates for final output<br/>
+D. Lower quality results<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+20. Why might graph-based decoding be useful in structured prediction tasks?<br/>
+A. It ignores token order<br/>
+B. It randomly chooses outputs<br/>
+C. It models dependencies between partial sequences explicitly<br/>
+D. It ensures fixed-length output<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question"> 
+21. Explain the main advantage and drawback of using exhaustive inference in NLP tasks.<br/>
+<div class="answer" tabindex="0">
+The main advantage of exhaustive inference is that it guarantees finding the globally optimal output by exploring all possible sequences. However, it is computationally expensive and impractical for large vocabularies or long sequences.
+</div>
+</div>
+<div class="question"> 
+22. What is greedy decoding and why might it result in suboptimal output?<br/>
+<div class="answer" tabindex="0">
+Greedy decoding selects the most probable word at each step (Top-1). It is fast and simple but can lead to suboptimal sequences because it does not consider future possibilities.
+</div>
+</div>
+<div class="question"> 
+23. Describe how Top-k sampling works and when it is useful.<br/>
+<div class="answer" tabindex="0">
+Top-k sampling selects from the k most probable words at each step. It introduces controlled randomness and is useful when generating more diverse and natural-sounding text.
+</div>
+</div>
+<div class="question"> 
+24. How does Top-p (nucleus) sampling differ from Top-k sampling?<br/>
+<div class="answer" tabindex="0">
+Top-p sampling dynamically chooses the smallest set of top words whose cumulative probability exceeds p. It adapts better to different contexts than Top-k, which always selects a fixed number of candidates.
+</div>
+</div>
+<div class="question"> 
+25. What is contrastive decoding and how does it enhance generation quality?<br/>
+<div class="answer" tabindex="0">
+Contrastive decoding balances the model’s confidence with similarity to a context representation. This helps produce diverse but relevant outputs and mitigates repetition.
+</div>
+</div>
+<div class="question"> 
+26. What is the principle behind beam search and how does it improve over greedy decoding?<br/>
+<div class="answer" tabindex="0">
+Beam search keeps multiple hypotheses (beams) at each step and selects the top candidates based on cumulative scores. It explores more options than greedy decoding and often finds better sequences.
+</div>
+</div>
+<div class="question"> 
+27. What are the trade-offs of increasing beam size in beam search?<br/>
+<div class="answer" tabindex="0">
+Larger beam sizes increase the chance of finding better outputs but also raise computational costs and may reduce output diversity due to over-concentration on high-probability paths.
+</div>
+</div>
+<div class="question"> 
+28. Why is random sampling sometimes used in inference despite being less accurate?<br/>
+<div class="answer" tabindex="0">
+Random sampling can produce more creative and diverse outputs, which is desirable in tasks like story generation or dialogue systems where exact accuracy is less critical than variation.
+</div>
+</div>
+<div class="question"> 
+29. In which scenarios is graph-based decoding particularly beneficial?<br/>
+<div class="answer" tabindex="0">
+Graph-based decoding is useful in structured prediction tasks like parsing or semantic role labeling, where the relationships between tokens matter and can be modeled as a graph.
+</div>
+</div>
+<div class="question"> 
+30. How can inference strategies impact the fairness or bias of NLP models?<br/>
+<div class="answer" tabindex="0">
+Inference strategies that overly favor high-probability tokens may reinforce biases in training data. Sampling or contrastive methods may introduce more diverse perspectives and reduce biased outputs.
+</div>
+</div>
+
+<h2>Week 5</h2>
+<div class="question">
+1. What is the main purpose of the Viterbi algorithm in sequence tagging tasks?<br/>
+A. Generate new words<br/>
+B. Compute all possible sequences<br/>
+C. Find the most likely label sequence<br/>
+D. Optimize the training loss<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+2. In the context of Viterbi, what does the emission model represent?<br/>
+A. The probability of transitioning between labels<br/>
+B. The probability of a word given a label<br/>
+C. The final prediction step<br/>
+D. The number of labels used<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+3. What does the transition model represent in the Viterbi algorithm?<br/>
+A. How likely a label is given a word<br/>
+B. How likely a label follows another label<br/>
+C. How many layers the model has<br/>
+D. The likelihood of generating the next word<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+4. What is the time complexity of the Viterbi algorithm using only 1 previous label?<br/>
+A. O(|words|)<br/>
+B. O(|words| * |labels|)<br/>
+C. O(|words| * |labels|^2)<br/>
+D. O(|words|^2 * |labels|)<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+5. What happens to the complexity of the Viterbi algorithm when using 2 previous labels instead of 1?<br/>
+A. It becomes linear<br/>
+B. It becomes quadratic<br/>
+C. It becomes cubic<br/>
+D. It stays the same<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+6. Which of the following models can incorporate the Viterbi algorithm?<br/>
+A. Only Hidden Markov Models<br/>
+B. Only CRFs<br/>
+C. Any model with sequential structure<br/>
+D. Only RNNs and Transformers<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+7. What kind of problem is Viterbi best suited to solve?<br/>
+A. Text summarization<br/>
+B. Named Entity Recognition<br/>
+C. Question answering<br/>
+D. Document classification<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+8. In Viterbi decoding, what do we store at each step during dynamic programming?<br/>
+A. Only the current best score<br/>
+B. The label sequence<br/>
+C. The best score and backpointer for each label<br/>
+D. The full probability matrix<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+9. What is the key assumption when applying the Viterbi algorithm to a linear model like a CRF?<br/>
+A. Input features must be normalized<br/>
+B. The model must be trained with supervised data<br/>
+C. The score depends on the current and previous label(s)<br/>
+D. Each input is independent<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+10. Which of the following is a disadvantage of increasing the number of previous labels in Viterbi decoding?<br/>
+A. Higher prediction accuracy<br/>
+B. Lower memory usage<br/>
+C. Simpler implementation<br/>
+D. Increased computational complexity<br/>
+<div class="answer" tabindex="0">Answer: D</div>
+</div>
+<div class="question"> 
+11. What is the purpose of the emission model in the Viterbi algorithm?<br/>
+<div class="answer" tabindex="0">
+The emission model calculates the probability of an observed word given a particular label. It captures the relationship between the input word and its tag.
+</div>
+</div>
+<div class="question"> 
+12. What does the transition model in Viterbi decoding represent?<br/>
+<div class="answer" tabindex="0">
+The transition model defines the probability of transitioning from one label to another in a sequence. It models the dependencies between adjacent labels.
+</div>
+</div>
+<div class="question"> 
+13. Explain why the Viterbi algorithm is considered a dynamic programming approach.<br/>
+<div class="answer" tabindex="0">
+Viterbi uses dynamic programming to store and reuse the best scores and paths up to each point in the sequence, avoiding redundant computation and ensuring optimal decoding.
+</div>
+</div>
+<div class="question"> 
+14. What is the time complexity of the Viterbi algorithm when using one previous label?<br/>
+<div class="answer" tabindex="0">
+The time complexity is O(|words| * |labels|²), since for each word and current label, it checks all possible previous labels.
+</div>
+</div>
+<div class="question"> 
+15. How does increasing the number of previous labels in the Viterbi algorithm affect its complexity?<br/>
+<div class="answer" tabindex="0">
+Using two previous labels increases the complexity to O(|words| * |labels|³), which increases the computational cost due to the larger number of possible label combinations.
+</div>
+</div>
+<div class="question"> 
+16. Why is the Viterbi algorithm compatible with models like CRFs, RNNs, and Transformers?<br/>
+<div class="answer" tabindex="0">
+Because these models can provide scoring functions that depend on both previous and current inputs or labels, which Viterbi requires for optimal sequence decoding.
+</div>
+</div>
+<div class="question"> 
+17. What role do backpointers play in the Viterbi algorithm?<br/>
+<div class="answer" tabindex="0">
+Backpointers store the path of labels that led to the highest score at each step. They are used to reconstruct the best sequence during the traceback phase.
+</div>
+</div>
+<div class="question"> 
+18. How does Viterbi decoding improve the performance of sequence tagging tasks?<br/>
+<div class="answer" tabindex="0">
+It ensures that the most probable sequence of labels is chosen globally, rather than making independent local decisions, thus improving sequence consistency.
+</div>
+</div>
+<div class="question"> 
+19. What is a limitation of the Viterbi algorithm in terms of scalability?<br/>
+<div class="answer" tabindex="0">
+Its time and space complexity increase significantly with more labels or longer label dependencies, making it computationally intensive for large-scale tasks.
+</div>
+</div>
+<div class="question"> 
+20. Describe a real-world NLP task where Viterbi decoding is commonly applied.<br/>
+<div class="answer" tabindex="0">
+Viterbi decoding is commonly used in Part-of-Speech tagging, Named Entity Recognition, and other sequence labeling tasks to find the most likely tag sequence.
+</div>
+</div>
+<div class="question">
+21. What is the time complexity of the CKY parsing algorithm?<br/>
+A. O(|words|)<br/>
+B. O(|words|^2)<br/>
+C. O(|rules_comb| * |words|^3 + |rules_arc| * |words|^2)<br/>
+D. O(|rules_comb| * |words|)<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+22. What type of grammar is required for the CKY algorithm?<br/>
+A. Context-sensitive grammar<br/>
+B. Regular grammar<br/>
+C. Chomsky Normal Form (CNF)<br/>
+D. Free-text grammar<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+23. Why is CKY algorithm considered cubic in time complexity?<br/>
+A. Because it parses all possible POS tags<br/>
+B. Because it checks all triples of sub-spans<br/>
+C. Because of backtracking mechanism<br/>
+D. Because of the number of arcs in a dependency tree<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+24. In CKY, what does "rules_comb" refer to?<br/>
+A. Terminal rules only<br/>
+B. All binary production rules<br/>
+C. Unary transitions<br/>
+D. Lexical mappings<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+25. When might parsing still be required even with LLMs?<br/>
+A. When generating images<br/>
+B. When performing arithmetic<br/>
+C. When exact syntactic structure is needed<br/>
+D. When running stochastic gradient descent<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+26. What makes LLMs less reliable for certain parsing tasks?<br/>
+A. They cannot generate outputs<br/>
+B. They rely entirely on statistical predictions<br/>
+C. They are too fast<br/>
+D. They use rule-based logic<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+27. What is one benefit of CKY over LLM-based syntactic interpretation?<br/>
+A. CKY is faster<br/>
+B. CKY gives a formally verifiable parse<br/>
+C. CKY uses reinforcement learning<br/>
+D. CKY is differentiable<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+28. What does CKY use dynamic programming for?<br/>
+A. Generating responses<br/>
+B. Learning rules<br/>
+C. Efficiently computing parses over spans<br/>
+D. Optimizing model parameters<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+29. Why do some NLP systems still incorporate graph parsing modules?<br/>
+A. To reduce runtime<br/>
+B. To increase hallucination<br/>
+C. For tasks needing high structural accuracy<br/>
+D. To replace pre-trained models<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+30. Which of the following best describes a “binary rule” in the context of CKY parsing?<br/>
+A. A rule with one terminal<br/>
+B. A rule with two children non-terminals<br/>
+C. A rule with three symbols on the right<br/>
+D. A recursive rule<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question"> 
+31. Why is Chomsky Normal Form required for the CKY algorithm?<br/>
+<div class="answer" tabindex="0">
+Because CKY is designed to operate over binary production rules, and CNF ensures all productions follow either A → BC or A → a format, which is essential for the algorithm’s structure.
+</div>
+</div>
+<div class="question"> 
+32. Explain a situation where LLMs may fail but CKY parsing would succeed.<br/>
+<div class="answer" tabindex="0">
+LLMs may fail to enforce strict grammatical constraints or produce hallucinated parse trees, while CKY parsing, grounded in formal grammars, provides guaranteed syntactic validity.
+</div>
+</div<div class="question"> 
+33. Why is CKY considered a dynamic programming algorithm?<br/>
+<div class="answer" tabindex="0">
+It builds larger parses from smaller ones and stores intermediate results in a chart, preventing redundant computation and ensuring efficient parsing over all substrings.
+</div>
+</div>
+<div class="question"> 
+34. How can CKY parsing be integrated with neural models?<br/>
+<div class="answer" tabindex="0">
+Neural models can generate soft scores or probabilities for grammar rules, which CKY can then use for weighted parsing or probabilistic parse selection.
+</div>
+</div>
+<div class="question"> 
+35. What advantage does graph-based parsing provide in NLP pipelines?<br/>
+<div class="answer" tabindex="0">
+It provides structured syntactic information that can improve downstream tasks such as relation extraction, coreference resolution, and semantic role labeling by enforcing linguistic constraints.
+</div>
+</div>
+<div class="question">
+36. What does "reference" typically mean in NLP tasks?<br/>
+A. The act of translating sentences<br/>
+B. A mention that refers to some entity or concept<br/>
+C. A function that outputs a vector<br/>
+D. The root of a dependency tree<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+37. What is the goal of coreference resolution?<br/>
+A. To assign part-of-speech tags<br/>
+B. To identify all distinct entities in text<br/>
+C. To find all expressions that refer to the same entity<br/>
+D. To translate documents into other languages<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+38. What is a challenge specific to entity linking?<br/>
+A. Detecting misspelled words<br/>
+B. Mapping mentions to the correct entry in a knowledge base<br/>
+C. Predicting the next sentence<br/>
+D. Performing syntactic parsing<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+39. Which of the following is **not** a method to reduce reference space?<br/>
+A. Mention detection and filtering<br/>
+B. Sentence embedding<br/>
+C. Link mention pairs<br/>
+D. Find the transitive closure of mention links<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+40. In coreference resolution, what is typically referred to as an “antecedent”?<br/>
+A. The word immediately before the mention<br/>
+B. The verb governing the mention<br/>
+C. The original entity that a later mention refers to<br/>
+D. The last noun in the sentence<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+41. What is a key difference between coreference resolution and entity linking?<br/>
+A. Coreference only works for verbs<br/>
+B. Entity linking requires a knowledge base<br/>
+C. Coreference requires translation<br/>
+D. Entity linking groups mentions in clusters<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+42. Which of the following is true about "transitive closure" in coreference resolution?<br/>
+A. It removes all non-entity mentions<br/>
+B. It links every mention directly to the first mention<br/>
+C. It groups mentions that are indirectly connected via shared links<br/>
+D. It filters out pronouns<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question"> 
+43. What is the main goal of entity linking (also called Wikification)?<br/>
+<div class="answer" tabindex="0">
+The goal is to associate a mention in text with a corresponding entry in a structured knowledge base, such as Wikipedia or Wikidata, to provide disambiguation and context.
+</div>
+</div>
+<div class="question"> 
+44. Describe a common approach to reducing the coreference search space.<br/>
+<div class="answer" tabindex="0">
+One common approach is to perform mention detection and filtering first to identify likely candidates, then link mention pairs that refer to the same entity, and finally apply transitive closure to form entity clusters.
+</div>
+</div>
+<div class="question"> 
+45. How can coreference resolution enhance downstream NLP applications?<br/>
+<div class="answer" tabindex="0">
+Coreference resolution improves coherence and understanding in tasks like question answering, summarization, and machine reading by resolving what each pronoun or mention refers to, leading to more accurate interpretation.
+</div>
+</div>
+
+
+<h2>Week 6</h2>
+<div class="question">
+1. What is the main idea behind the Continuous Bag of Words (CBOW) model in word2vec?<br/>
+A. Predict the context words given the target word<br/>
+B. Predict the target word given the context words<br/>
+C. Use co-occurrence counts directly<br/>
+D. Cluster words into topics<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+2. Which of the following is true about the Skip-gram model?<br/>
+A. It predicts the target word given context words<br/>
+B. It predicts context words given the target word<br/>
+C. It uses count-based co-occurrence matrices<br/>
+D. It does not produce word embeddings<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+3. What distinguishes GloVe embeddings from word2vec embeddings?<br/>
+A. GloVe is prediction-based, word2vec is count-based<br/>
+B. GloVe uses global word co-occurrence statistics, word2vec uses local context<br/>
+C. Both use identical training methods<br/>
+D. GloVe uses neural networks, word2vec uses SVM<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+4. FastText differs from word2vec mainly because it:<br/>
+A. Uses subword information (character n-grams)<br/>
+B. Only works for short documents<br/>
+C. Does not use context words<br/>
+D. Is based on TF-IDF weighting<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+<div class="question">
+5. In word2vec CBOW, how is the target word predicted?<br/>
+A. By summing or averaging the context word vectors<br/>
+B. By using only the first context word<br/>
+C. By ignoring context words<br/>
+D. By multiplying all word vectors<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+<div class="question">
+6. Which embedding method explicitly models subword information?<br/>
+A. GloVe<br/>
+B. Skip-gram<br/>
+C. FastText<br/>
+D. CBOW<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+7. What type of training does GloVe primarily use?<br/>
+A. Predicting context words<br/>
+B. Matrix factorization on co-occurrence counts<br/>
+C. Supervised classification<br/>
+D. Reinforcement learning<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+8. Why does FastText perform better on rare or out-of-vocabulary words?<br/>
+A. Because it trains longer<br/>
+B. Because it uses character n-grams to compose word vectors<br/>
+C. Because it ignores rare words<br/>
+D. Because it uses larger embedding size<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+9. What is a disadvantage of the Skip-gram model compared to CBOW?<br/>
+A. It cannot handle large corpora<br/>
+B. It requires more training time due to predicting multiple context words<br/>
+C. It only predicts one word<br/>
+D. It ignores word order<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+10. Which of the following is NOT true about word2vec embeddings?<br/>
+A. They are dense continuous vectors<br/>
+B. They capture semantic relationships<br/>
+C. They rely solely on co-occurrence counts<br/>
+D. They can be learned using neural networks<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+11. Explain how the CBOW model learns word embeddings.<br/>
+<div class="answer" tabindex="0">
+CBOW learns word embeddings by predicting a target word from its surrounding context words. The context words' vectors are averaged or summed and passed through a weight matrix and softmax to predict the target word. The model updates embeddings by minimizing the prediction loss.
+</div>
+</div>
+<div class="question">
+12. Describe the key difference between count-based methods like GloVe and predictive methods like word2vec.<br/>
+<div class="answer" tabindex="0">
+Count-based methods like GloVe use global word co-occurrence statistics to build a co-occurrence matrix and factorize it to get embeddings, while predictive methods like word2vec learn embeddings by predicting words within a local context window using a neural network.
+</div>
+</div>
+<div class="question">
+13. Why does FastText use subword information, and what benefit does it provide?<br/>
+<div class="answer" tabindex="0">
+FastText represents words as bags of character n-grams, which allows it to capture morphological information and generate embeddings for rare or out-of-vocabulary words by composing them from subword units, improving generalization.
+</div>
+</div>
+<div class="question">
+14. What does fine-tuning generally involve when the training data differs from real data?<br/>
+A. Using the exact same pre-trained model without changes<br/>
+B. Adjusting parts of the model to better fit the new data<br/>
+C. Ignoring the new data and retraining from scratch<br/>
+D. Only changing the data format<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+15. In fine-tuning, what does adjusting only the first few layers of the model typically achieve?<br/>
+A. Updating the embedding table to better represent new data<br/>
+B. Changing only the output predictions<br/>
+C. Speeding up the prediction process without model changes<br/>
+D. Removing overfitting completely<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+<div class="question">
+16. What is the advantage of adjusting only the last few layers of a model during fine-tuning?<br/>
+A. It allows fast training on new real data<br/>
+B. It changes the embedding table extensively<br/>
+C. It ignores the prediction errors<br/>
+D. It requires more training data<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+<div class="question">
+17. What does back-propagation during both training and prediction mean in the context of fine-tuning?<br/>
+A. Only the embedding table is updated<br/>
+B. Both embedding table and model parameters are optimized<br/>
+C. Model parameters are frozen<br/>
+D. No optimization occurs<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+18. Explain the three different approaches to fine-tuning when your data differs from the original training data.<br/>
+<div class="answer" tabindex="0">
+The three approaches are: (1) Retrain with correct training data by adjusting the embedding table and early layers to get better representations; (2) During prediction, adjust only the last few layers without changing embeddings for faster adaptation to real data; (3) Use back-propagation on both training and prediction to optimize the entire model including embeddings and parameters for best overall performance.
+</div>
+</div>
+<div class="question">
+19. What is WordNet primarily used for in understanding word senses?<br/>
+A. Training deep neural networks<br/>
+B. Providing a lexical database grouping words into sets of synonyms (synsets)<br/>
+C. Generating word embeddings<br/>
+D. Translating words between languages<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+20. When training a model with multiple word vectors per word, what does each vector represent?<br/>
+A. A different grammatical tense<br/>
+B. A unique word sense or meaning<br/>
+C. A synonym<br/>
+D. A document context<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+21. Which technique provides contextualized word representations that change depending on the sentence?<br/>
+A. Word2Vec<br/>
+B. GloVe<br/>
+C. ELMo<br/>
+D. One-hot encoding<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+22. How does ELMo train its contextualized representations?<br/>
+A. By using a single fixed embedding per word<br/>
+B. By training a bidirectional language model on large text corpora<br/>
+C. By clustering word occurrences<br/>
+D. By rule-based disambiguation<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+23. What is a major benefit of using multiple vectors per word sense?<br/>
+A. Reduces vocabulary size<br/>
+B. Captures polysemy by representing different meanings separately<br/>
+C. Improves training speed<br/>
+D. Simplifies the embedding process<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+24. Explain the role of WordNet in computational linguistics for word sense understanding.<br/>
+<div class="answer" tabindex="0">WordNet acts as a lexical database that organizes words into sets of synonyms (synsets) and captures semantic relations, which helps in disambiguating and understanding different word senses in natural language processing.</div>
+</div>
+
+<div class="question">
+25. How do models with multiple word vectors handle words with multiple senses?<br/>
+<div class="answer" tabindex="0">They assign distinct vectors to each sense of a word, allowing the model to differentiate meanings depending on context rather than using a single vector for all senses.</div>
+</div>
+
+<div class="question">
+26. Describe how ELMo generates context-dependent word embeddings.<br/>
+<div class="answer" tabindex="0">ELMo trains a deep bidirectional language model that produces embeddings for each word based on the entire sentence context, allowing the representation to vary dynamically depending on usage.</div>
+</div>
+
+<div class="question">
+27. Why are contextual representations like ELMo important compared to static embeddings?<br/>
+<div class="answer" tabindex="0">Because they capture the meaning of words depending on the surrounding context, effectively handling polysemy and improving understanding of word senses in different sentences.</div>
+</div>
+<div class="question">
+28. What is the main role of the encoder in an RNN encoder-decoder model?<br/>
+A. To generate the final output sequence<br/>
+B. To encode the input sequence into a fixed-size context vector<br/>
+C. To perform beam search<br/>
+D. To apply teacher forcing<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+29. How does the decoder in an RNN encoder-decoder model decide when to stop generating output?<br/>
+A. When a predefined maximum length is reached<br/>
+B. When a special end-of-sequence token is generated<br/>
+C. When the input sequence ends<br/>
+D. When the loss stops decreasing<br/>
+<div class="answer" tabindex="0">Answer: A,B</div>
+</div>
+
+<div class="question">
+30. What is teacher forcing during training of encoder-decoder models?<br/>
+A. Using the model's own predictions as input for the next step<br/>
+B. Feeding the ground-truth previous token as input to the decoder at each time step<br/>
+C. Ignoring the decoder output<br/>
+D. Using beam search during training<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+31. What does 'sequence to sequence' model refer to?<br/>
+A. A model that predicts a single label from input<br/>
+B. A model that converts one sequence into another sequence<br/>
+C. A model that predicts multiple independent outputs<br/>
+D. A model that does clustering<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+32. How can greedy inference be applied to sequence to sequence models?<br/>
+A. By selecting the highest probability token at each decoding step<br/>
+B. By searching all possible sequences exhaustively<br/>
+C. By random sampling tokens<br/>
+D. By using teacher forcing during inference<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+33. How is beam search decoding stopped in an encoder-decoder model?<br/>
+A. When all beam candidates generate the end-of-sequence token<br/>
+B. When maximum beam width is reached<br/>
+C. When the input sequence ends<br/>
+D. After a fixed number of iterations<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+34. How is the score of different length sequences typically adjusted during beam search?<br/>
+A. By ignoring length differences<br/>
+B. By length normalization or penalizing shorter sequences<br/>
+C. By using fixed length outputs<br/>
+D. By scoring only the first token<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+35. Which is a common issue in encoder-decoder models?<br/>
+A. Overfitting on very small datasets<br/>
+B. Difficulty capturing long-range dependencies due to fixed-size context vector<br/>
+C. Not being able to handle variable-length input<br/>
+D. Lack of differentiability<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+36. Why might an encoder-decoder model use teacher forcing during training?<br/>
+A. To speed up inference<br/>
+B. To stabilize and speed up training by providing correct context<br/>
+C. To avoid using the decoder<br/>
+D. To ensure randomness<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+37. Which of the following best describes the 'decoder' in an RNN encoder-decoder?<br/>
+A. It compresses the input sequence<br/>
+B. It generates output sequence tokens one at a time conditioned on previous tokens and context<br/>
+C. It selects the most important features<br/>
+D. It performs embedding lookup<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+38. Explain how teacher forcing works during the training of an encoder-decoder model.<br/>
+<div class="answer" tabindex="0">Teacher forcing feeds the ground-truth previous token as input to the decoder at each step instead of the decoder's own predicted token, which helps the model learn faster and more accurately by providing the correct context.</div>
+</div>
+
+<div class="question">
+39. Describe how an encoder-decoder model stops the decoding process during inference.<br/>
+<div class="answer" tabindex="0">The decoding stops when the decoder generates a special end-of-sequence token, indicating that the output sequence is complete.</div>
+</div>
+
+<div class="question">
+40. What is the 'sequence to sequence' model concept and why is it useful?<br/>
+<div class="answer" tabindex="0">A sequence to sequence model transforms one sequence into another, such as translating sentences or summarizing text, allowing flexible input and output lengths and handling complex sequence tasks.</div>
+</div>
+
+<div class="question">
+41. Explain how beam search differs from greedy decoding in encoder-decoder models.<br/>
+<div class="answer" tabindex="0">Beam search keeps multiple candidate sequences at each step and explores them to find a more globally optimal output, whereas greedy decoding selects only the highest probability token at each step, which might be suboptimal.</div>
+</div>
+
+<div class="question">
+42. What is a common challenge of using a fixed-size context vector in encoder-decoder models?<br/>
+<div class="answer" tabindex="0">A fixed-size context vector can cause information bottlenecks, making it difficult to capture long-range dependencies or all relevant input details, especially for long sequences.</div>
+</div>
+<div class="question">
+43. What does chrF metric compare to evaluate translation quality?<br/>
+A. Word-level n-grams<br/>
+B. Character-level n-grams<br/>
+C. Sentence embeddings<br/>
+D. Syntactic parse trees<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+44. In chrF, what do false positives (FP) and false negatives (FN) represent?<br/>
+A. FP: correct predicted n-grams, FN: incorrect predicted n-grams<br/>
+B. FP: predicted n-grams not in reference, FN: reference n-grams not predicted<br/>
+C. FP: missing words, FN: extra words<br/>
+D. FP and FN do not apply in chrF<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+45. What does the Fβ-score in chrF measure?<br/>
+A. Precision only<br/>
+B. Recall only<br/>
+C. A weighted harmonic mean of precision and recall<br/>
+D. Accuracy<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+46. BLEU score primarily compares which of the following for translation evaluation?<br/>
+A. Character-level n-grams<br/>
+B. Word-level n-grams<br/>
+C. Syntax trees<br/>
+D. Sentence embeddings<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+47. Why does BLEU’s geometric mean work better with multiple sentences?<br/>
+A. Because longer sentences have more n-grams<br/>
+B. Because it smooths out zero n-gram matches that would cause score 0 in single sentences<br/>
+C. Because it compares embeddings<br/>
+D. Because it only uses unigram matches<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+48. What is a major drawback of using word n-grams in translation scoring?<br/>
+A. They do not consider word order<br/>
+B. No 4-gram matches results in a score of zero<br/>
+C. They always overestimate quality<br/>
+D. They ignore punctuation<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+49. Explain how chrF differs from BLEU in evaluating translation quality.<br/>
+<div class="answer" tabindex="0">chrF compares character-level n-grams to calculate an F-score, making it more sensitive to small variations and better at capturing morphological variations, while BLEU compares word-level n-grams and is more sensitive to exact word matches.</div>
+</div>
+
+<div class="question">
+50. What issues arise from using word n-grams such as in BLEU when evaluating a single sentence translation?<br/>
+<div class="answer" tabindex="0">Using word n-grams, if no exact 4-gram matches exist, BLEU score can become zero, which unfairly penalizes translations, especially for short or diverse sentences.</div>
+</div>
+
+<div class="question">
+51. Describe the roles of false positives and false negatives in the chrF metric.<br/>
+<div class="answer" tabindex="0">False positives are character n-grams predicted by the system but not present in the reference, and false negatives are character n-grams present in the reference but missing from the prediction; both affect precision and recall in the F-score calculation.</div>
+</div>
+<div class="question">
+52. When a sentence cannot be split on whitespace, what is the first approach to tokenize it?<br/>
+A. Start with big units and delete units<br/>
+B. Start with small units and combine units<br/>
+C. Use whitespace only<br/>
+D. Ignore tokenization<br/>
+<div class="answer" tabindex="0">Answer: A,B</div>
+</div>
+
+<div class="question">
+53. Which of the following tokenization methods starts with small units and then combines them?<br/>
+A. Unigram / SentencePiece<br/>
+B. Byte Pair Encoding (BPE)<br/>
+C. Both A and B<br/>
+D. None of the above<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+54. What tokenization method starts with both big and small units, then deletes units?<br/>
+A. BPE<br/>
+B. WordPiece<br/>
+C. Unigram / SentencePiece<br/>
+D. Character-level tokenization<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+55. Compared to BPE and WordPiece, Unigram tokenization tends to produce:<br/>
+A. Smaller and meaningless subword units<br/>
+B. More meaningful subword units<br/>
+C. Only character tokens<br/>
+D. Only whole words<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+56. Which of the following statements is true about WordPiece?<br/>
+A. It starts with big units and deletes them<br/>
+B. It starts with small units and combines them<br/>
+C. It ignores subword units<br/>
+D. It always produces tokens longer than BPE<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+57. Explain the main difference between Unigram/SentencePiece and BPE/WordPiece tokenization methods.<br/>
+<div class="answer" tabindex="0">BPE and WordPiece start from small units (characters) and combine them into larger subwords, while Unigram/SentencePiece start from a large set of subwords and delete less probable ones, leading to more meaningful subword units.</div>
+</div>
+
+<div class="question">
+58. Why is it necessary to use subword tokenization methods like BPE or Unigram?<br/>
+<div class="answer" tabindex="0">Because some languages or domains do not have clear whitespace-based word boundaries, and subword tokenization helps handle unknown words by breaking them into smaller, more frequent units.</div>
+</div>
+
+<div class="question">
+59. How does the Unigram model ensure subword units are more meaningful?<br/>
+<div class="answer" tabindex="0">Unigram model starts with a large vocabulary of subwords and iteratively removes less likely units based on probability, selecting subwords that better represent meaningful linguistic units.</div>
+</div>
+
+
+<h2>Week 7</h2>
+<!-- 选择题 -->
+<div class="question">
+1. What is the main purpose of Cross Attention in an RNN-based encoder-decoder model?<br/>
+A. To initialize decoder hidden states<br/>
+B. To summarize the input sequence into a single vector<br/>
+C. To allow the decoder to focus on relevant parts of the encoder's output at each step<br/>
+D. To perform backpropagation across time steps<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+2. Which of the following is <b>not</b> a type of cross-attention similarity function?<br/>
+A. Additive attention<br/>
+B. Multiplicative attention<br/>
+C. Subtractive attention<br/>
+D. Scaled dot product attention<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+3. What is the main benefit of <b>Scaled Dot Product Attention</b> over plain dot product attention?<br/>
+A. It simplifies the network<br/>
+B. It avoids large dot product magnitudes that can cause softmax saturation<br/>
+C. It increases the number of parameters<br/>
+D. It avoids gradient descent<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+4. Which attention method introduces a <b>trainable weight matrix</b> to match Query and Key?<br/>
+A. Dot Product Attention<br/>
+B. Additive Attention<br/>
+C. Multiplicative Attention<br/>
+D. Reduced-Rank Multiplicative Attention<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+5. Additive attention is also known as:<br/>
+A. Bilinear attention<br/>
+B. Feedforward attention<br/>
+C. Rank-reduced attention<br/>
+D. Scaled product attention<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<!-- 简答题 -->
+<div class="question"> 
+6. Why is Cross Attention important in encoder-decoder architectures like in machine translation?<br/>
+<div class="answer" tabindex="0">
+Cross Attention allows the decoder to selectively attend to relevant parts of the encoder's output at each time step, enabling better alignment between input and output sequences, especially when the input is long or unstructured.
+</div>
+</div>
+
+<div class="question"> 
+7. What is the key difference between Multiplicative Attention and Additive Attention?<br/>
+<div class="answer" tabindex="0">
+Multiplicative Attention uses a dot product (possibly with a trainable matrix) to compute similarity between Query and Key, while Additive Attention uses a feedforward network with a non-linear activation (like tanh) to compute attention scores.
+</div>
+</div>
+
+<div class="question"> 
+8. What problem does Scaled Dot Product Attention solve and how?<br/>
+<div class="answer" tabindex="0">
+It solves the problem of large dot products in high-dimensional vectors, which can cause the softmax function to produce extremely small gradients. Scaling by √d (where d is the dimension) mitigates this effect and stabilizes training.
+</div>
+</div>
+<div class="question">
+9. In self-attention, what do Q, K, and V represent?<br/>
+A. Query, Key, and Value vectors<br/>
+B. Quality, Knowledge, and Volume<br/>
+C. Quantile, Kernel, and Variable<br/>
+D. Question, Knowledge, and Verification<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+10. How does self-attention propagate information from previous tokens similar to RNN hidden states?<br/>
+A. By maintaining a recurrent hidden state<br/>
+B. By using attention weights to aggregate information from all previous tokens<br/>
+C. By applying convolution over token embeddings<br/>
+D. By concatenating all past token embeddings<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+11. Which method adds nonlinearity in self-attention similar to RNN hidden layers?<br/>
+A. Softmax activation on attention scores<br/>
+B. Applying a nonlinear activation function (e.g., ReLU) after linear projections<br/>
+C. Using dropout on Q, K, V<br/>
+D. Layer normalization before attention<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+12. What is a common technique to incorporate positional information in self-attention models?<br/>
+A. Random initialization of embeddings<br/>
+B. Sinusoidal positional encodings<br/>
+C. Ignoring position altogether<br/>
+D. Using max pooling over token embeddings<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+13. Which positional encoding technique preserves cosine similarity for words with the same relative distance?<br/>
+A. Learned positional embeddings<br/>
+B. Rotary Positional Embeddings (RoPE)<br/>
+C. Absolute positional embeddings<br/>
+D. Random positional embeddings<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+14. What is a benefit of learned positional embeddings compared to sinusoidal encodings?<br/>
+A. They are fixed and non-trainable<br/>
+B. They can adapt to specific training data<br/>
+C. They require no additional parameters<br/>
+D. They are based on trigonometric functions<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+15. How does causal masking help during self-attention training?<br/>
+A. It masks future tokens to prevent information leakage<br/>
+B. It removes padding tokens<br/>
+C. It speeds up computation by skipping tokens<br/>
+D. It increases the embedding size<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+16. Which of the following is NOT a drawback of sinusoidal positional encoding?<br/>
+A. It is not learned<br/>
+B. It cannot generalize to longer sequences than training<br/>
+C. It encodes position using fixed sinusoids<br/>
+D. It may not capture complex position patterns<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+17. How does self-attention handle backpropagation compared to RNNs?<br/>
+A. Using the same recurrent backpropagation through time<br/>
+B. Using direct differentiation of matrix multiplications and softmax<br/>
+C. It does not require backpropagation<br/>
+D. Using genetic algorithms<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+18. What does the QKV projection in self-attention primarily facilitate?<br/>
+A. Dimension reduction<br/>
+B. Computation of attention scores between tokens<br/>
+C. Data augmentation<br/>
+D. Output classification<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question"> 
+19. Explain what Q, K, and V stand for in self-attention and their roles.<br/>
+<div class="answer" tabindex="0">
+Q (Query) is the vector that queries other tokens; K (Key) is the vector representing each token to be matched against the query; V (Value) is the vector containing the actual information to be aggregated based on attention weights.
+</div>
+</div>
+
+<div class="question"> 
+20. How does self-attention propagate information from previous tokens without recurrence like RNNs?<br/>
+<div class="answer" tabindex="0">
+Self-attention calculates attention weights between the current token and all other tokens, allowing it to aggregate information globally without sequential hidden states.
+</div>
+</div>
+
+<div class="question"> 
+21. Describe how nonlinearity can be introduced in self-attention similar to RNN hidden layers.<br/>
+<div class="answer" tabindex="0">
+Nonlinearity can be introduced by applying nonlinear activation functions (e.g., ReLU or tanh) after linear projections of Q, K, V or within feedforward sublayers following the attention mechanism.
+</div>
+</div>
+
+<div class="question"> 
+22. What are the pros and cons of sinusoidal positional encodings?<br/>
+<div class="answer" tabindex="0">
+Pros: No additional parameters, can generalize to longer sequences; Cons: Fixed and non-learnable, may not capture complex positional patterns.
+</div>
+</div>
+
+<div class="question"> 
+23. Explain the main advantage of Rotary Positional Embeddings (RoPE) in self-attention.<br/>
+<div class="answer" tabindex="0">
+RoPE preserves the relative position information through rotation in the embedding space, ensuring that cosine similarity remains consistent for token pairs with the same relative distance.
+</div>
+</div>
+
+<div class="question"> 
+24. How does causal masking work during training of self-attention models?<br/>
+<div class="answer" tabindex="0">
+Causal masking prevents each token from attending to future tokens by masking out attention weights to subsequent positions, enabling autoregressive training.
+</div>
+</div>
+<div class="question">
+25. What is the main difference between self-attention in Transformers and traditional attention mechanisms?<br/>
+A. Self-attention attends only to the current token<br/>
+B. Self-attention attends to all tokens in the input sequence<br/>
+C. Traditional attention uses multi-head attention<br/>
+D. Traditional attention uses residual connections<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+26. What does multi-head attention in the Transformer allow?<br/>
+A. Attending to multiple positions with different representation subspaces<br/>
+B. Reducing the input sequence length<br/>
+C. Applying dropout to attention scores<br/>
+D. Using only one attention head for speed<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+27. Why is scaled dot-product attention used instead of simple dot-product attention?<br/>
+A. To increase the magnitude of dot products<br/>
+B. To prevent softmax gradients from becoming too small when dimensions are large<br/>
+C. To speed up computation<br/>
+D. To reduce memory consumption<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+28. What role do residual connections play in Transformer layers?<br/>
+A. They speed up training by skipping layers<br/>
+B. They help gradients flow through deep networks and stabilize training<br/>
+C. They reduce the number of parameters<br/>
+D. They prevent overfitting<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+29. How does layer normalization help in the Transformer architecture?<br/>
+A. Normalizes inputs across the batch dimension<br/>
+B. Normalizes inputs across the feature dimension for each token<br/>
+C. Removes noise from data<br/>
+D. Reduces input dimensionality<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+30. What is the primary difference in attention between the Transformer encoder and decoder?<br/>
+A. Encoder uses cross attention, decoder uses self-attention<br/>
+B. Decoder uses cross attention to attend to encoder outputs, encoder uses self-attention<br/>
+C. Both use only self-attention<br/>
+D. Decoder does not use attention<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+31. Why is Transformer considered more efficient compared to RNNs?<br/>
+A. Because it uses convolution<br/>
+B. Because self-attention can be parallelized over the entire sequence<br/>
+C. Because it has fewer parameters<br/>
+D. Because it uses dropout<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+32. Which Transformer model is mainly evaluated on the GLUE benchmark?<br/>
+A. GPT-2<br/>
+B. BERT<br/>
+C. Transformer-XL<br/>
+D. XLNet<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+33. What is the key characteristic of GPT-1 compared to BERT?<br/>
+A. GPT-1 is bidirectional, BERT is unidirectional<br/>
+B. GPT-1 uses a decoder-only architecture, BERT uses encoder-only<br/>
+C. GPT-1 uses convolution layers, BERT uses transformers<br/>
+D. GPT-1 is trained on translation tasks<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+34. What do scaling laws in Transformers generally describe?<br/>
+A. How increasing model size, data, and compute affect performance<br/>
+B. How model accuracy decreases with size<br/>
+C. How training speed scales with batch size<br/>
+D. How to scale model inputs<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+35. Why is attention in Transformers considered quadratic in complexity?<br/>
+A. Because the number of parameters grows quadratically<br/>
+B. Because attention computes pairwise interactions between all tokens in the sequence<br/>
+C. Because the number of layers is squared<br/>
+D. Because it uses second-order derivatives<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+36. How does FlashAttention help with the quadratic complexity problem?<br/>
+A. It reduces the number of layers<br/>
+B. It optimizes memory bandwidth and computation to handle large sequences efficiently<br/>
+C. It changes attention to linear complexity<br/>
+D. It prunes attention heads<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+37. What is the main benefit of multi-head attention?<br/>
+A. Reduces overfitting<br/>
+B. Allows the model to jointly attend to information from different representation subspaces<br/>
+C. Speeds up training<br/>
+D. Compresses input embeddings<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+38. Residual connections in Transformers help prevent which problem?<br/>
+A. Overfitting<br/>
+B. Vanishing gradients<br/>
+C. Gradient explosion<br/>
+D. Data imbalance<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+39. Which of the following is NOT a typical component inside a Transformer encoder layer?<br/>
+A. Multi-head self-attention<br/>
+B. Feedforward neural network<br/>
+C. Cross attention<br/>
+D. Layer normalization<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+40. In the Transformer decoder, cross attention attends to:<br/>
+A. The decoder’s previous outputs<br/>
+B. The encoder’s output representations<br/>
+C. The decoder’s input embeddings<br/>
+D. Itself only<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+41. Explain the process of moving from self-attention to the full Transformer architecture. <br/>
+<div class="answer" tabindex="0">
+The Transformer extends self-attention by stacking multiple layers of multi-head attention and feedforward networks, adding residual connections and layer normalization to stabilize training and improve learning. This structure enables parallel processing of sequence data efficiently.
+</div>
+</div>
+
+<div class="question">
+42. How does multi-head attention enhance the model's ability to capture information? <br/>
+<div class="answer" tabindex="0">
+Multi-head attention allows the model to jointly attend to information from different representation subspaces at different positions, improving the model's ability to capture diverse features and contextual relationships.
+</div>
+</div>
+
+<div class="question">
+43. What roles do residual connections and layer normalization play in Transformer encoders? <br/>
+<div class="answer" tabindex="0">
+Residual connections help mitigate the vanishing gradient problem and allow gradients to flow through deeper layers, while layer normalization stabilizes training by normalizing inputs to each layer, resulting in faster convergence and better performance.
+</div>
+</div>
+
+<div class="question">
+44. In the Transformer decoder, why is cross-attention used instead of self-attention? <br/>
+<div class="answer" tabindex="0">
+Cross-attention allows the decoder to attend to the encoder's output, integrating encoded source information while generating target sequences, unlike self-attention which only attends to previous decoder outputs.
+</div>
+</div>
+
+<div class="question">
+45. What are the main benefits of Transformer models in terms of efficiency compared to traditional RNNs? <br/>
+<div class="answer" tabindex="0">
+Transformers allow parallel computation over sequence elements, avoiding sequential dependencies of RNNs, which results in much higher training and inference efficiency especially for long sequences.
+</div>
+</div>
+
+<div class="question">
+46. What is the GLUE Benchmark and why is it important for evaluating Transformer models like BERT and GPT? <br/>
+<div class="answer" tabindex="0">
+GLUE Benchmark is a collection of diverse NLP tasks used to evaluate the general language understanding ability of models. It helps compare models like BERT and GPT on a standardized set of tasks to assess their overall performance.
+</div>
+</div>
+
+<div class="question">
+47. What problem does FlashAttention aim to solve in Transformer architectures, and how does it improve memory bandwidth usage? <br/>
+<div class="answer" tabindex="0">
+FlashAttention addresses the quadratic memory and compute complexity of attention by optimizing memory access patterns and computation, reducing memory bandwidth bottlenecks and enabling faster and more memory-efficient training and inference.
+</div>
+</div>
+
+<h2>Week 8</h2>
+
+<!-- 选择题 -->
+<div class="question">
+1. What is the basic assumption of the N-Gram Language Model?<br/>
+A. Each word is independent of all others<br/>
+B. Each word depends only on the previous n-1 words<br/>
+C. Each word depends on all previous words<br/>
+D. Each sentence is treated as a single unit<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+2. What problem arises due to the strong assumption in an N-Gram model?<br/>
+A. Overfitting<br/>
+B. High bias<br/>
+C. Cannot capture long-distance dependencies<br/>
+D. Memory overflow<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+3. How can we make the assumption of N-Gram models less strong?<br/>
+A. Lower the value of n<br/>
+B. Use unrelated words<br/>
+C. Increase the value of n<br/>
+D. Ignore punctuation<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+4. If n = 3, what is the formula to calculate the probability of word c given a and b?<br/>
+A. count(c)/count(a)<br/>
+B. count(abc)/count(ab)<br/>
+C. count(ab)/count(abc)<br/>
+D. count(a)/count(c)<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+5. What tokens are added to sequences to mark boundaries in N-Gram models?<br/>
+A. <’unknown>, <‘skip><br/>
+B. <‘start>, <‘end><br/>
+C. <‘left>, <’right><br/>
+D. <’s>, <’e><br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+6. What numerical issue can arise when multiplying many small probabilities in an N-Gram model?<br/>
+A. Overflow<br/>
+B. Memory leak<br/>
+C. Underflow<br/>
+D. Infinite loop<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+7. What is a common way to deal with numerical underflow in language models?<br/>
+A. Use addition instead<br/>
+B. Normalize the counts<br/>
+C. Use log probabilities<br/>
+D. Increase batch size<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+8. What is the Markov assumption in the context of language modeling?<br/>
+A. The next word depends on the entire sentence<br/>
+B. The next word is random<br/>
+C. The next word depends only on a fixed number of previous words<br/>
+D. Words are not dependent<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+9. Why might matching scores in an N-Gram model be surprising?<br/>
+A. Because of normalization<br/>
+B. Due to smoothing errors<br/>
+C. Due to the Markov assumption losing context<br/>
+D. Because the model is non-deterministic<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+10. Which of the following helps capture longer dependencies in language models?<br/>
+A. Lowering the learning rate<br/>
+B. Increasing the N in N-Gram<br/>
+C. Decreasing sequence length<br/>
+D. Using less data<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+11. What does “<‘start>” token help with in training N-Gram models?<br/>
+A. Prevent overfitting<br/>
+B. Predict sentence boundaries<br/>
+C. Reduce loss<br/>
+D. Avoid punctuation errors<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+12. Why are probabilities multiplied across the sentence in N-Gram models?<br/>
+A. To detect punctuation<br/>
+B. To learn sentence structure<br/>
+C. To calculate the overall sentence probability<br/>
+D. To reduce memory usage<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<!-- 简答题 -->
+<div class="question">
+13. What is the main limitation of the N-Gram model in capturing language dependencies?<br/>
+<div class="answer" tabindex="0">
+N-Gram models rely on the Markov assumption, which only considers the last n-1 words. This causes them to struggle with capturing long-distance dependencies and deeper contextual meaning.
+</div>
+</div>
+
+<div class="question">
+14. How do we calculate P(c | a, b) in a trigram model?<br/>
+<div class="answer" tabindex="0">
+We use the formula P(c | a, b) = count(abc) / count(ab), where "abc" is the trigram and "ab" is the bigram context.
+</div>
+</div>
+
+<div class="question">
+15. Why do we take the log of probabilities in N-Gram models?<br/>
+<div class="answer" tabindex="0">
+Taking the log of probabilities helps avoid numerical underflow, especially when multiplying many small probabilities across a sentence. It also converts the product into a sum, making computations more stable.
+</div>
+</div>
+
+<div class="question">
+16. How does increasing the value of n in an N-Gram model affect performance?<br/>
+<div class="answer" tabindex="0">
+Increasing n allows the model to capture longer contexts, improving accuracy. However, it also increases data sparsity and the need for more training data to get reliable estimates.
+</div>
+</div>
+
+<div class="question">
+17. What are the roles of <start> and <end> tokens in sequence modeling?<br/>
+<div class="answer" tabindex="0">
+<start> and <end> tokens help the model learn where a sentence begins and ends. They ensure proper probability calculation for sentence boundaries and improve the model's ability to handle sentence structure.
+</div>
+</div>
+<!-- 选择题 -->
+<div class="question">
+18. What training objective is used by BERT?<br/>
+A. Next-token prediction<br/>
+B. Masked-token prediction<br/>
+C. Permuted sequence prediction<br/>
+D. Deleted sequence prediction<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+19. Which model is known for using span prediction to train better contextual embeddings?<br/>
+A. GPT<br/>
+B. SpanBERT<br/>
+C. RoBERTa<br/>
+D. ELMo<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+20. Why is span masking more effective than single-token masking?<br/>
+A. It reduces model size<br/>
+B. It better captures the context around contiguous segments<br/>
+C. It makes training faster<br/>
+D. It avoids overfitting<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+21. Which of the following models uses next-token prediction as a training objective?<br/>
+A. BERT<br/>
+B. ELECTRA<br/>
+C. GPT<br/>
+D. T5<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+22. What is the key difference between BERT and RoBERTa’s pretraining objective?<br/>
+A. RoBERTa uses span prediction<br/>
+B. RoBERTa removes the next sentence prediction task<br/>
+C. BERT uses decoder architecture<br/>
+D. RoBERTa uses permuted sequence prediction<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+23. Which model uses a combination of masked-token and random-token correction?<br/>
+A. ELECTRA<br/>
+B. RoBERTa<br/>
+C. BART<br/>
+D. BERT<br/>
+<div class="answer" tabindex="0">Answer: D</div>
+</div>
+
+<div class="question">
+24. Which model performs token edit detection during pretraining?<br/>
+A. GPT-2<br/>
+B. ELECTRA<br/>
+C. T5<br/>
+D. SpanBERT<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+25. Which training objective is used by BART to help it recover from corrupted input sequences?<br/>
+A. Next-token prediction<br/>
+B. Span masking<br/>
+C. Infilling sequence prediction<br/>
+D. Token edit detection<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+26. Which model is designed to predict a deleted span of tokens rather than just a single token?<br/>
+A. ELMo<br/>
+B. GPT-1<br/>
+C. T5<br/>
+D. ELECTRA<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+27. Which model uses rotated sequence prediction as part of its training objective?<br/>
+A. BART<br/>
+B. GPT<br/>
+C. ELECTRA<br/>
+D. SpanBERT<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<!-- 简答题 -->
+<div class="question">
+28. Why is span masking considered a better training strategy than individual token masking?<br/>
+<div class="answer" tabindex="0">
+Span masking teaches the model to understand and predict contiguous phrases, which improves its understanding of syntax and semantics. It better captures the dependencies between nearby tokens than single-token masking.
+</div>
+</div>
+
+<div class="question">
+29. What is the primary difference in objective between ELECTRA and BERT?<br/>
+<div class="answer" tabindex="0">
+While BERT predicts the original tokens for masked positions, ELECTRA uses a discriminator to detect whether each token in the sequence is original or replaced, making the training more efficient and leading to faster convergence.
+</div>
+</div>
+
+<div class="question">
+30. Describe the training process used by T5.<br/>
+<div class="answer" tabindex="0">
+T5 uses a text-to-text framework where all tasks are cast into a unified text generation format. It is trained with masked span prediction, deleted sequence reconstruction, and other sequence corruption techniques to improve its generalization.
+</div>
+</div>
+
+<div class="question">
+31. How does BART combine encoder-decoder architecture with pretraining tasks?<br/>
+<div class="answer" tabindex="0">
+BART uses a transformer encoder-decoder structure and is pretrained by corrupting input text (e.g., masking, deletion, rotation) and training the model to reconstruct the original. This allows BART to learn both understanding and generation capabilities.
+</div>
+</div>
+
+<div class="question">
+32. What makes GPT different from BERT in terms of architecture and training?<br/>
+<div class="answer" tabindex="0">
+GPT uses a unidirectional decoder-only architecture and is trained to predict the next token in a left-to-right manner. In contrast, BERT uses a bidirectional encoder trained on masked tokens, allowing it to understand both left and right context.
+</div>
+</div>
+
+<div class="question">
+33. Which method involves using LLMs without further training or adaptation?<br/>
+A. Fine-tuning on labeled data<br/>
+B. Using outputs of LLMs as features<br/>
+C. Directly using LLMs<br/>
+D. Using LLMs in a feedback loop<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+34. What is an advantage of using LLMs directly (Method 1)?<br/>
+A. Requires large amounts of labeled data<br/>
+B. No training cost<br/>
+C. Customizable for specific domains<br/>
+D. Requires adapter tuning<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+35. In Method 2, how are LLM outputs used?<br/>
+A. Fine-tuned on downstream tasks<br/>
+B. Input to another downstream model<br/>
+C. Used only for generation<br/>
+D. Translated into embeddings<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+36. What is a drawback of Method 2 (using LLM output as input to a model)?<br/>
+A. High compute cost<br/>
+B. Difficult to interpret<br/>
+C. Pipeline latency and potential error propagation<br/>
+D. Requires training from scratch<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+37. Which fine-tuning method updates only a small number of parameters?<br/>
+A. Feedforward<br/>
+B. Adapter<br/>
+C. Full fine-tuning<br/>
+D. Decoder adjustment<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+38. What is the key advantage of adapter-based fine-tuning?<br/>
+A. It changes all model weights<br/>
+B. It adds minimal task-specific parameters<br/>
+C. It trains faster than all other methods<br/>
+D. It increases model complexity<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+39. Which task is best modeled using a decoder-only language model?<br/>
+A. NER<br/>
+B. Classification<br/>
+C. Coreference Resolution<br/>
+D. Summarization<br/>
+<div class="answer" tabindex="0">Answer: D</div>
+</div>
+
+<div class="question">
+40. Which of the following tasks maps best to a sequence-to-sequence (encoder-decoder) format?<br/>
+A. Sentiment Classification<br/>
+B. Token Classification<br/>
+C. Coreference Resolution<br/>
+D. Language Modeling<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+41. Which modeling method is used in Named Entity Recognition (NER)?<br/>
+A. Decoder only<br/>
+B. Encoder only<br/>
+C. Encoder-Decoder<br/>
+D. Both B and C depending on implementation<br/>
+<div class="answer" tabindex="0">Answer: D</div>
+</div>
+
+<div class="question">
+42. In the context of using LLMs, what is a key downside of full fine-tuning?<br/>
+A. Too simple for complex tasks<br/>
+B. Insufficient training capacity<br/>
+C. Requires updating the entire model, which is costly<br/>
+D. Lacks flexibility in model output<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<!-- 简答题 -->
+<div class="question">
+43. What is the benefit of using LLMs directly without modification (Method 1)?<br/>
+<div class="answer" tabindex="0">
+Using LLMs directly enables quick deployment and access to general knowledge without the cost of training. It is especially useful for zero-shot or few-shot tasks, where the model’s pretrained capabilities are sufficient.
+</div>
+</div>
+
+<div class="question">
+44. How does Method 2 (LLM output as input) differ from direct use of LLMs?<br/>
+<div class="answer" tabindex="0">
+Method 2 treats the LLM as a feature extractor. It outputs embeddings or text that are then fed into a separate model. This creates a modular pipeline but may introduce latency and error propagation between stages.
+</div>
+</div>
+
+<div class="question">
+45. Compare full fine-tuning with adapter-based fine-tuning.<br/>
+<div class="answer" tabindex="0">
+Full fine-tuning updates all model parameters, offering maximum flexibility but high cost. Adapter-based fine-tuning adds lightweight layers (adapters) between existing layers, allowing task adaptation with fewer parameters and less compute.
+</div>
+</div>
+
+<div class="question">
+46. Which architecture is suitable for translation tasks and why?<br/>
+<div class="answer" tabindex="0">
+Encoder-decoder architecture is best for translation because it can encode the source language context and then generate output in a different target language, preserving meaning and fluency.
+</div>
+</div>
+
+<div class="question">
+47. Why are classification tasks suitable for all three modeling types (encoder, decoder, encoder-decoder)?<br/>
+<div class="answer" tabindex="0">
+Classification only requires predicting a label for a given input, which can be done via any architecture. Encoders can process the input efficiently, decoders can generate the label as a token, and encoder-decoders can map input to output in a structured way.
+</div>
+</div>
+
+<div class="question">
+48. Which of the following is an intrinsic metric used to evaluate LLMs?<br/>
+A. BLEU<br/>
+B. F1 Score<br/>
+C. Perplexity<br/>
+D. Accuracy<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+49. What does a lower perplexity value indicate in a language model?<br/>
+A. Higher memory usage<br/>
+B. More uncertainty in predictions<br/>
+C. Better language modeling ability<br/>
+D. Longer training time<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+50. Which metric evaluates how well a model ranks the correct answer among alternatives?<br/>
+A. BLEU<br/>
+B. Perplexity<br/>
+C. Mean Reciprocal Rank (MRR)<br/>
+D. ROUGE<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+51. What type of metric is BLEU considered when evaluating language models?<br/>
+A. Intrinsic<br/>
+B. Extrinsic<br/>
+C. Structural<br/>
+D. Probabilistic<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+52. What is a characteristic of extrinsic metrics in LLM evaluation?<br/>
+A. They measure internal model uncertainty only<br/>
+B. They are used exclusively for perplexity measurement<br/>
+C. They evaluate performance on downstream tasks<br/>
+D. They calculate log-likelihood of tokens<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<!-- HTML 简答题 -->
+
+<div class="question">
+53. What is the definition of perplexity in evaluating LLMs?<br/>
+<div class="answer" tabindex="0">
+Perplexity is a measure of how well a language model predicts a sample. It is the exponential of the average negative log-likelihood of predicted tokens. Lower perplexity indicates better predictive performance.
+</div>
+</div>
+
+<div class="question">
+54. How is Mean Reciprocal Rank (MRR) used in evaluating LLMs?<br/>
+<div class="answer" tabindex="0">
+MRR evaluates the quality of ranked outputs from a model. It calculates the reciprocal of the rank of the correct answer and averages it over many queries. It is especially useful in retrieval and QA tasks.
+</div>
+</div>
+
+<div class="question">
+55. What is the key difference between intrinsic and extrinsic metrics in LLM evaluation?<br/>
+<div class="answer" tabindex="0">
+Intrinsic metrics evaluate the language model's internal performance (e.g., perplexity, MRR), while extrinsic metrics measure how
+</div>
+</div>
+
+<h2>Week 9</h2>
+<!-- 选择题 -->
+<div class="question">
+1. What is the main goal of model distillation in LLM efficiency?<br/>
+A. Increase model size<br/>
+B. Reduce training data<br/>
+C. Create a smaller model that mimics a larger one<br/>
+D. Add more layers to the model<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+2. Which technique increases sparsity in a model?<br/>
+A. Quantization<br/>
+B. Adding dropout<br/>
+C. Pruning weights<br/>
+D. Using more data<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+3. What does PEFT stand for?<br/>
+A. Parameter-Efficient Fine Tuning<br/>
+B. Pretrained Embedding Fine Tuning<br/>
+C. Partial Evaluation for Training<br/>
+D. Probabilistic Estimation for Transformers<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+4. Which quantization level is associated with LLM.int8?<br/>
+A. 8-bit integer precision<br/>
+B. 32-bit floating point<br/>
+C. 16-bit floating point<br/>
+D. Binary precision<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+5. What does SMoE stand for in mixture of models?<br/>
+A. Sparse Mixture of Experts<br/>
+B. Standard Model of Efficiency<br/>
+C. Soft Multi-output Encoder<br/>
+D. Sequential Mixture of Embeddings<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<!-- 简答题 -->
+<div class="question">
+6. What is the purpose of model distillation?<br/>
+<div class="answer" tabindex="0">
+Model distillation aims to transfer knowledge from a large, complex teacher model to a smaller, more efficient student model, maintaining performance while reducing size and computational cost.
+</div>
+</div>
+
+<div class="question">
+7. How does parameter-efficient fine tuning (PEFT) like LoRA improve training efficiency?<br/>
+<div class="answer" tabindex="0">
+PEFT methods like LoRA fine-tune only a small subset of parameters or add low-rank adapters, significantly reducing memory and computational requirements during training compared to full model fine-tuning.
+</div>
+</div>
+
+<div class="question">
+8. What advantage does quantization provide for large language models?<br/>
+<div class="answer" tabindex="0">
+Quantization reduces the precision of model weights (e.g., from 32-bit float to 8-bit integer), decreasing memory usage and speeding up inference with minimal loss in accuracy.
+</div>
+</div>
+<!-- 选择题 -->
+<div class="question">
+9. What does "0-shot" learning mean in In-Context Learning?<br/>
+A. Using no examples in the prompt<br/>
+B. Using one example in the prompt<br/>
+C. Using many examples in the prompt<br/>
+D. Using labeled examples only<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+10. Which factor affects In-Context Learning performance the most?<br/>
+A. Number of layers in the model<br/>
+B. Order of examples in the prompt<br/>
+C. Length of the training data<br/>
+D. Type of optimizer used<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+11. In In-Context Learning, how important is the label on the example?<br/>
+A. Very important, it directly affects performance<br/>
+B. Somewhat important, better than random<br/>
+C. Not very important; example structure matters more<br/>
+D. Labels cause the model to perform worse<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+12. What is a "verbalizer" in the context of In-Context Learning?<br/>
+A. A model that generates text<br/>
+B. A template used to format examples<br/>
+C. A type of loss function<br/>
+D. A method to evaluate perplexity<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+13. What is the consequence of bad explanations in Chain of Thought prompting?<br/>
+A. The model ignores the explanation<br/>
+B. The model answers correctly regardless<br/>
+C. The model is more likely to give wrong answers<br/>
+D. It improves the model’s accuracy<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<!-- 简答题 -->
+<div class="question">
+14. Explain why the order of examples matters in In-Context Learning.<br/>
+<div class="answer" tabindex="0">
+The order of examples influences how the model perceives patterns and relationships between inputs and outputs, affecting its ability to generalize and produce accurate predictions.
+</div>
+</div>
+
+<div class="question">
+15. Describe the role of the example structure versus example labels in In-Context Learning.<br/>
+<div class="answer" tabindex="0">
+The structure of examples, including how they are formatted and presented, is more critical than the correctness of labels because it helps the model understand task patterns, while labels themselves have less impact.
+</div>
+</div>
+<!-- 选择题 -->
+<div class="question">
+16. In kNN-LM, what effect does increasing k have on perplexity?<br/>
+A. Increases perplexity<br/>
+B. Decreases perplexity<br/>
+C. No effect<br/>
+D. Makes perplexity unstable<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+17. What does a small lambda (λ) value in kNN-LM indicate?<br/>
+A. Model depends more on external data<br/>
+B. Model depends more on in-context information<br/>
+C. Model ignores both internal and external data<br/>
+D. Model is unstable<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+18. Which retrieval method involves multiple rounds of interaction between retriever and language model?<br/>
+A. Parallel Interaction<br/>
+B. Sequential Single Interaction<br/>
+C. Sequential Multiple Interaction<br/>
+D. None of the above<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+19. Which method retrieves relevant information once before the language model generates output?<br/>
+A. Parallel Interaction<br/>
+B. Sequential Single Interaction<br/>
+C. Sequential Multiple Interaction<br/>
+D. None of the above<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+20. Retrieval-augmented in-context learning (Retrieval ICL) belongs to which category?<br/>
+A. Parallel Interaction<br/>
+B. Sequential Single Interaction<br/>
+C. Sequential Multiple Interaction<br/>
+D. None of the above<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+21. What is a key advantage of using bigger external data in kNN-LM?<br/>
+A. Slower response time<br/>
+B. More reliable retrieval<br/>
+C. More perplexity<br/>
+D. Less memory usage<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<!-- 简答题 -->
+<div class="question">
+22. Explain the difference between Parallel Interaction and Sequential Single Interaction in retrieval augmentation.<br/>
+<div class="answer" tabindex="0">
+Parallel Interaction retrieves relevant information once before the language model generates the output, while Sequential Single Interaction retrieves a small number of examples first, then the model uses these examples to generate output.
+</div>
+</div>
+
+<div class="question">
+23. What is the main feature of Sequential Multiple Interaction in retrieval-augmented models?<br/>
+<div class="answer" tabindex="0">
+Sequential Multiple Interaction involves multiple rounds of interaction where the retriever and language model communicate repeatedly, allowing retrieval at each generation step to improve output.
+</div>
+</div>
+
+<div class="question">
+24. Why does a larger k in kNN-LM generally reduce perplexity?<br/>
+<div class="answer" tabindex="0">
+A larger k means the model considers more nearest neighbors during prediction, leading to more accurate and contextually relevant predictions, thereby reducing perplexity.
+</div>
+</div>
+
+<h2>Week 10</h2>
+<div class="question">
+1. What is the first step in the data processing pipeline for LLM training?<br/>
+A. Quality filtering<br/>
+B. Download data<br/>
+C. Minhash deduplication<br/>
+D. Train model-based detector<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+2. Which tool is used specifically for extracting clean text from web pages?<br/>
+A. FastText LanguageFilter<br/>
+B. Trafilatura<br/>
+C. Minhash deduplication<br/>
+D. PII Formatting<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+3. What is the purpose of Minhash deduplication in data filtering?<br/>
+A. Remove duplicate or near-duplicate documents<br/>
+B. Filter out personal identifiable information<br/>
+C. Detect low-quality text<br/>
+D. Classify documents by language<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+4. Which filtering step helps identify and remove personal identifiable information (PII)?<br/>
+A. Url Filtering<br/>
+B. Train model-based detector<br/>
+C. PII Formatting<br/>
+D. FastText LanguageFilter<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+5. What is a trade-off when using more data of lower quality versus less data of higher quality for LLM training?<br/>
+A. More data always results in better performance<br/>
+B. Less data is always preferred for faster training<br/>
+C. Higher quality data can improve model performance despite less quantity<br/>
+D. Data quality does not affect model performance<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+<div class="question">
+6. What is a key risk when training models on only one dataset?<br/>
+A. Underfitting<br/>
+B. Overfitting<br/>
+C. Improving generalization<br/>
+D. Faster training<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+7. What are "shortcuts" in the context of dataset validity?<br/>
+A. Simple data preprocessing steps<br/>
+B. Models exploiting superficial patterns instead of true understanding<br/>
+C. Efficient training methods<br/>
+D. Data augmentation techniques<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+8. Which method helps judge if a model is truly understanding the task rather than relying on shortcuts?<br/>
+A. Increasing dataset size<br/>
+B. Testing on out-of-distribution or real-world data<br/>
+C. Using simpler models<br/>
+D. Reducing training epochs<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+9. What can be done to reduce shortcut learning in datasets?<br/>
+A. Use only synthetic data<br/>
+B. Collect real-world usage data and design robust evaluation<br/>
+C. Remove difficult examples<br/>
+D. Train only on validation data<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+10. What does it mean when a wrong answer has many matching words with the input question?<br/>
+A. The answer is probably correct<br/>
+B. The model is vulnerable to shallow word overlap and shortcuts<br/>
+C. The dataset is too small<br/>
+D. The question is ambiguous<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+11. How can "minimal edits" to a true answer be used to test model robustness?<br/>
+A. To create easier questions<br/>
+B. To generate new training data<br/>
+C. To create challenging near-correct but wrong answers that test understanding<br/>
+D. To improve model speed<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+12. Why should we consider whether a task contains social bias before creating a dataset?<br/>
+A. To ensure tasks are easy<br/>
+B. To prevent propagating harmful stereotypes or unfairness<br/>
+C. To reduce computational costs<br/>
+D. To maximize dataset size<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+1. What is one way to create annotations efficiently?<br/>
+A. Annotate from scratch only<br/>
+B. Edit auto-generated labels<br/>
+C. Use random labels<br/>
+D. Skip annotation<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+2. What is a key factor to maintain when editing auto-generated labels?<br/>
+A. Speed<br/>
+B. Consistency<br/>
+C. Ambiguity<br/>
+D. Randomness<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+3. What is the first step in annotating from scratch?<br/>
+A. Full annotation<br/>
+B. Pilot annotation<br/>
+C. Training annotators<br/>
+D. Consistency checks<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+4. What is the purpose of pilot annotation?<br/>
+A. To test the annotation process and guidelines<br/>
+B. To finish the entire annotation<br/>
+C. To train annotators only<br/>
+D. To skip consistency checks<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+5. What is done after pilot annotation?<br/>
+A. Skip annotation<br/>
+B. Train annotators<br/>
+C. Measure agreement<br/>
+D. Remove data<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+6. What are attention checks used for in full annotation?<br/>
+A. To speed up annotation<br/>
+B. To ensure annotators are paying attention<br/>
+C. To create labels automatically<br/>
+D. To reduce dataset size<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+7. What are consistency checks for?<br/>
+A. To check if annotators follow guidelines consistently<br/>
+B. To increase dataset size<br/>
+C. To reduce the number of annotators<br/>
+D. To automate annotation<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+8. Which metric is more general for measuring inter-annotator agreement?<br/>
+A. Cohen’s Kappa<br/>
+B. Accuracy<br/>
+C. Krippendorf’s Alpha<br/>
+D. Precision<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+9. What does Cohen’s Kappa measure?<br/>
+A. Random agreement only<br/>
+B. Agreement corrected for chance<br/>
+C. Annotation speed<br/>
+D. Dataset size<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+10. What should you do if inter-annotator agreement is low?<br/>
+A. Ignore it<br/>
+B. Retrain annotators and clarify guidelines<br/>
+C. Remove all labels<br/>
+D. Increase dataset size only<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+11. What is the advantage of measuring agreement on labels?<br/>
+A. To detect annotation quality<br/>
+B. To speed up annotation<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+12. Why train annotators before full annotation?<br/>
+A. To reduce errors and improve consistency<br/>
+B. To increase dataset size<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<h2>Week 11</h2>
+<div class="question">
+1. What is FLAN-T5 known for?<br/>
+A. Faster training<br/>
+B. Higher generalization<br/>
+C. Smaller model size<br/>
+D. Less training data<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+2. How does task size affect model generalization?<br/>
+A. More different tasks help the model be more general<br/>
+B. Fewer tasks improve generalization<br/>
+C. Task size has no effect<br/>
+D. Only large datasets matter<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+3. According to LIMA for Alpaca, are tens of thousands of tasks necessary?<br/>
+A. Yes, always<br/>
+B. No, fewer tasks can be sufficient<br/>
+C. Only for small models<br/>
+D. None of the above<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+4. What is the observed pattern regarding model size and instruction fine-tuning?<br/>
+A. Bigger models always benefit more<br/>
+B. Smaller models benefit more<br/>
+C. No clear pattern<br/>
+D. Larger models perform worse<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+5. What role does synthetic data play in instruction tuning?<br/>
+A. It is not useful<br/>
+B. It helps improve generalization<br/>
+C. It reduces model size<br/>
+D. It replaces real data<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+6. Does increasing training examples always improve generation quality?<br/>
+A. Yes<br/>
+B. No<br/>
+C. Only for small datasets<br/>
+D. Only with bigger models<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+7. What happens to perplexity as instruction fine-tuning steps increase?<br/>
+A. Perplexity decreases<br/>
+B. Perplexity remains constant<br/>
+C. Perplexity increases<br/>
+D. Perplexity disappears<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+8. Why are token-level metrics insufficient in instruction tuning?<br/>
+A. They are too slow<br/>
+B. They do not capture sequence-level quality<br/>
+C. They are not differentiable<br/>
+D. They require more data<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+9. What is a remaining issue in instruction tuning tasks?<br/>
+A. Lack of training data<br/>
+B. Some tasks have no single best answer<br/>
+C. Models are too small<br/>
+D. Computation cost<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+10. What metric is needed because token-level metrics do not work well?<br/>
+A. Accuracy<br/>
+B. Perplexity (ppl)<br/>
+C. F1-score<br/>
+D. BLEU<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+11. Why might filtered data produce better generation quality?<br/>
+A. Because it removes noise and low-quality examples<br/>
+B. Because it increases dataset size<br/>
+C. Because it increases vocabulary<br/>
+D. Because it is faster to train on<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+12. What does instruction tuning aim to improve?<br/>
+A. Speed<br/>
+B. Generalization to new tasks<br/>
+C. Model size<br/>
+D. Tokenization<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+13. What is the benefit of using many different tasks during instruction tuning?<br/>
+Answer: Using many different tasks helps the model generalize better to unseen tasks by learning a variety of instructions and outputs.
+</div>
+
+<div class="question">
+14. Why does perplexity sometimes increase during instruction fine-tuning?<br/>
+Answer: Because instruction tuning focuses on generation quality and task alignment rather than just next-token prediction, perplexity may increase even as performance improves on downstream tasks.
+</div>
+
+<div class="question">
+15. Why are token-level metrics not sufficient for evaluating instruction tuning?<br/>
+Answer: Token-level metrics do not capture the overall semantic correctness or appropriateness of generated sequences, so sequence-level metrics like perplexity or human evaluation are needed.
+</div>
+<div class="question">
+16. What is the main objective of RLHF?<br/>
+A. To increase model size<br/>
+B. To optimize model preferences based on human feedback<br/>
+C. To reduce training time<br/>
+D. To simplify tokenization<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+17. Which component is central to RLHF methods?<br/>
+A. Embedding table<br/>
+B. Reward model<br/>
+C. Tokenizer<br/>
+D. Data augmentation<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+18. Which method is known to simplify RLHF by avoiding reward model training?<br/>
+A. Supervised Fine-Tuning<br/>
+B. DPO (Direct Preference Optimization)<br/>
+C. Data Augmentation<br/>
+D. Reinforcement Learning<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+19. Where does preference data for RLHF typically come from?<br/>
+A. Automatic generation<br/>
+B. User-based feedback<br/>
+C. Random sampling<br/>
+D. Synthetic data only<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+20. What does alignment brittleness in RLHF mean?<br/>
+A. Model size is too big<br/>
+B. The model’s alignment to human preferences can be fragile and inconsistent<br/>
+C. Training is too slow<br/>
+D. Reward models are perfect<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+21. What approach is suggested to reduce toxicity in preference optimization?<br/>
+A. Using larger datasets<br/>
+B. Applying DPO near the transformer output step<br/>
+C. Ignoring user feedback<br/>
+D. Using more layers in the transformer<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+22. Which of the following comparisons shows that preference optimization works?<br/>
+A. Blue top-right vs light blue bottom-left<br/>
+B. Green bottom-left vs light blue top-right<br/>
+C. Green top-right vs yellow/red bottom-left<br/>
+D. Red top-left vs blue bottom-right<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+23. What is a key challenge with reward models in RLHF?<br/>
+A. They require less data<br/>
+B. They may be unreliable<br/>
+C. They are very fast<br/>
+D. They do not affect training<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+24. What does supervised fine-tuning improve compared to prompt tuning?<br/>
+A. It does not improve anything<br/>
+B. It improves performance by directly adjusting the model<br/>
+C. It reduces vocabulary size<br/>
+D. It reduces model size<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+25. What is the plain method of collecting preference data?<br/>
+A. Using synthetic labels<br/>
+B. Asking labelers to create preferences<br/>
+C. Using unsupervised clustering<br/>
+D. Randomly generating labels<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+26. What is a benefit of using DPO over traditional RLHF?<br/>
+A. It requires more computational resources<br/>
+B. It avoids unreliable reward model training<br/>
+C. It is slower to train<br/>
+D. It ignores user preferences<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+<div class="question">
+27. Explain the main purpose of RLHF in model training.<br/>
+Answer: RLHF aims to align language models with human preferences by using human feedback to guide the model's outputs through a reward model and reinforcement learning.
+</div>
+
+<div class="question">
+28. Why might reward models be unreliable in RLHF?<br/>
+Answer: Reward models can be unreliable because they are learned approximations of human preferences and may not capture all nuances or may overfit to limited feedback data.
+</div>
+
+<div class="question">
+29. How does Direct Preference Optimization (DPO) simplify the RLHF process?<br/>
+Answer: DPO removes the need to explicitly train a reward model by directly optimizing the model based on preference data, which can reduce complexity and potential errors.
+</div>
+<div class="question">
+30. What is one approach to automatically find good prompts for a task?<br/>
+A. Manually writing prompts only<br/>
+B. Making the prompt a vector<br/>
+C. Ignoring the prompt<br/>
+D. Using only rule-based methods<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+31. How effective is the approach of making the prompt a vector?<br/>
+A. Very effective<br/>
+B. Moderately effective<br/>
+C. Not very effective<br/>
+D. Perfectly effective<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+32. What method uses rewards to guide the model in finding better prompts?<br/>
+A. Supervised learning<br/>
+B. Reinforcement learning (RL)<br/>
+C. Unsupervised learning<br/>
+D. Clustering<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+33. How well does reinforcement learning perform in automatically finding better prompts?<br/>
+A. Works very well<br/>
+B. Works moderately well<br/>
+C. Does not work so well<br/>
+D. Not used for prompts<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+34. Which tools build systems where prompts are only one part of the overall framework?<br/>
+A. TensorFlow and PyTorch<br/>
+B. LangChain and ChainForge<br/>
+C. Scikit-learn and Keras<br/>
+D. NLTK and SpaCy<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<h2>Week 12</h2>
+<div class="question">
+1. What is a characteristic of multimodal agents?<br/>
+A. They only process text.<br/>
+B. They process multiple types of input like text, images, and audio.<br/>
+C. They do not interact with the environment.<br/>
+D. They are limited to rule-based systems.<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+2. What defines physically embodied agents?<br/>
+A. They exist only as software.<br/>
+B. They interact with the physical world through sensors and actuators.<br/>
+C. They only perform calculations.<br/>
+D. They cannot learn from experience.<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+3. Which benchmark is used to measure agent progress on web interaction tasks?<br/>
+A. GLUE<br/>
+B. WebArena<br/>
+C. ImageNet<br/>
+D. SQuAD<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+4. What does SWE-Bench evaluate?<br/>
+A. Physical robot movement<br/>
+B. Security and privacy in AI<br/>
+C. Software engineering tasks<br/>
+D. Sentiment analysis<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+5. What is a focus of PrivacyLens in agent measurement?<br/>
+A. Speed of the agent<br/>
+B. Privacy and data protection<br/>
+C. Memory usage<br/>
+D. Hardware efficiency<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+6. What is a key challenge for LLMs acting as agents with reasoning?<br/>
+A. Generating tokens only<br/>
+B. Creating and using memory<br/>
+C. Running on low-power devices<br/>
+D. Simple keyword matching<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+7. What does "self-consistency with chain of thought" refer to?<br/>
+A. Generating a single output<br/>
+B. Voting with multiple outputs to choose the most probable answer<br/>
+C. Ignoring previous outputs<br/>
+D. Using external databases<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+8. How can reflection be implemented in LLM prompts?<br/>
+A. By ignoring past outputs<br/>
+B. By including statements reflecting on past outputs to correct mistakes<br/>
+C. By deleting previous outputs<br/>
+D. By randomizing outputs<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+9. What does "Tree of Thoughts" help with?<br/>
+A. Generating random outputs<br/>
+B. Exploring multiple reasoning paths to improve problem solving<br/>
+C. Reducing model size<br/>
+D. Increasing training speed<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+10. What does "planning" in an agent context involve?<br/>
+A. Only updating a database<br/>
+B. Updating the prompt (short term memory) and updating a database (long term memory)<br/>
+C. Only generating text<br/>
+D. Ignoring context<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+11. What is an example of LLMs performing actions beyond generating tokens?<br/>
+A. Text classification only<br/>
+B. Retrieval-Augmented Generation (RAG)<br/>
+C. Simple token prediction<br/>
+D. Image classification<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+12. What does the ReAct framework combine?<br/>
+A. Reasoning and acting in a single model<br/>
+B. Only acting<br/>
+C. Only reasoning<br/>
+D. Static rule-based reasoning<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+13. Why is reasoning before generating important in LLM agents?<br/>
+A. It decreases performance<br/>
+B. It allows the model to plan and improve output quality<br/>
+C. It increases randomness<br/>
+D. It is not important<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+14. Which of the following is NOT a challenge in LLM-based agents?<br/>
+A. Creating and using memory<br/>
+B. Model thinking before generation<br/>
+C. Fast GPU computation<br/>
+D. Handling multiple reasoning paths<br/>
+<div class="answer" tabindex="0">Answer: C</div>
+</div>
+
+<div class="question">
+15. What does voting with multiple outputs in chain of thought aim to achieve?<br/>
+A. Reduce diversity<br/>
+B. Increase accuracy by selecting the most probable answer<br/>
+C. Increase randomness<br/>
+D. Generate less output<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+16. What does adding reflective statements in the prompt help the model to do?<br/>
+A. Forget previous knowledge<br/>
+B. Self-correct past mistakes<br/>
+C. Generate shorter responses<br/>
+D. Avoid context<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+17. What is the benefit of exploring multiple reasoning paths in Tree of Thoughts?<br/>
+A. Random outputs<br/>
+B. Systematic exploration and better problem solving<br/>
+C. Faster token generation<br/>
+D. Less memory use<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+18. How can short-term memory be updated in LLM agents?<br/>
+A. By ignoring previous tokens<br/>
+B. By updating the prompt<br/>
+C. By deleting all context<br/>
+D. By only reading new input<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
+
+<div class="question">
+19. How can long-term memory be updated in LLM agents?<br/>
+A. By updating the database<br/>
+B. By forgetting old data<br/>
+C. By only using the prompt<br/>
+D. By ignoring history<br/>
+<div class="answer" tabindex="0">Answer: A</div>
+</div>
+
+<div class="question">
+20. What is a key advantage of LLM agents using ReAct?<br/>
+A. Separate reasoning and acting steps<br/>
+B. Integrating reasoning and acting for improved decision-making<br/>
+C. No need for memory<br/>
+D. Only works with static data<br/>
+<div class="answer" tabindex="0">Answer: B</div>
+</div>
