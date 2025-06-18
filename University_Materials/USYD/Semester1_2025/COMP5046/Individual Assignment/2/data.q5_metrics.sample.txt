@@ -1,0 +1,9 @@
+(
+	{ 
+		("SELECT name FROM course ;", "SELECT name FROM course ;"): 1,
+		("SELECT name FROM course ;", "SELECT code FROM course ;"): 2,
+		("SELECT code FROM course ;", "SELECT name FROM course ;"): 3,
+		("SELECT code FROM course ;", "SELECT code FROM course ;"): 4,
+	},
+	{ "SELECT code FROM course ;", "SELECT name FROM course ;" }
+)

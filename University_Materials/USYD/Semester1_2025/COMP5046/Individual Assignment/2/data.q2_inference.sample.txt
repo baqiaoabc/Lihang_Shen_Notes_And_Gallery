@@ -1,0 +1,23 @@
+(
+	{
+		'train': [
+			('What are all the courses ?', 'SELECT name FROM course ;'),
+			('What are all the course codes ?', 'SELECT code FROM course ;')
+		],
+		 'dev': [
+			('What are all the courses ?', 'SELECT name FROM course ;')
+		],
+		'test': [
+			('Please give me the names of courses .', 'SELECT name FROM course ;'),
+			('Please give the locations of courses .', 'SELECT location FROM course ;')
+		]
+	}, 
+	{
+		'SELECT name FROM course ;',
+		'SELECT code FROM course ;',
+		'SELECT location FROM course ;'
+	},
+	'Please list courses',
+	'SELECT name FROM course ;',
+	2
+)

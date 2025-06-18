@@ -1,0 +1,41 @@
+Terminal window
+
+conda create -n any_name python=3.10
+
+conda env list # list all environments I have created before
+
+Y
+
+conda activate any_name
+
+pip install -U spacy pandas label-studio
+
+# cd to the correct folder with correct file
+(lab10) C:\Users\Thinkpad>cd
+C:\Users\Thinkpad
+(lab10) C:\Users\Thinkpad>cd C:\Users\Thinkpad\Desktop\comp5046\comp4446-5046_lab9
+python label-with-spacy.py
+label-studio init ner-tagging
+label-studio start ner-tagging
+
+hint: 
+windows does not need to use python3
+
+python -m spacy download en_core_web_sm
+
+--------------------------------------------------
+Slate
+
+conda activate comp5046_a5
+
+slate slate-ner.md -t categorical -s token -o -c ner.config -l log.tutorial.ner.txt -sl -sm
+
+
+
+slate -c ner-book.config -t categorical -s token -o -l log.a5.ner.txt -sl -sm -sp data/data.275.txt
+
+H
+arrow keys 
+shifp + p
+u
+shift + arrow keys to expand the selection
