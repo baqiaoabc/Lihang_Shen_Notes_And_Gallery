@@ -1,0 +1,76 @@
+UAV + powerline inspection
+
+powerline inspection source:IEEE International Conference on Robotics and Automation
+
+International Journal of Electrical Power and Energy Systems
+
+Guan, H., Sun, X., Su, Y., Hu, T., Wang, H., Wang, H., Peng, C., & Guo, Q. (2021). UAV-lidar aids automatic intelligent powerline inspection. International Journal of Electrical Power & Energy Systems, 130, 106987. https://doi.org/10.1016/j.ijepes.2021.106987
+
+
+Energy Reports
+
+Li, Y., Ni, M., & Lu, Y. (2022). Insulator defect detection for power grid based on light correction enhancement and YOLOv5 model. Energy Reports, 8, 807–814. Scopus. https://doi.org/10.1016/j.egyr.2022.08.027
+
+MDPI 
+
+Liu, Y., Shi, J., Liu, Z., Huang, J., & Zhou, T. (2019). Two-layer routing for high-voltage powerline inspection by cooperated ground vehicle and drone. Energies, 12(7). Scopus. https://doi.org/10.3390/en12071385
+
+
+DSD （b+）
+
+Schofield, O. B., Lorenzen, K. H., & Ebeid, E. (2020). Cloud to Cable: A Drone Framework for Autonomous Power line Inspection. In Trost A., Zemva A., & Skavhaug A. (Eds.), Proc. - Euromicro Conf. Digit. Syst. Des., DSD (pp. 503–509). Institute of Electrical and Electronics Engineers Inc.; Scopus. https://doi.org/10.1109/DSD51259.2020.00085
+
+2010 1st International Conference on Applied Robotics for the Power Industry, CARPI 2010
+
+Hrabar, S., Merz, T., & Frousheger, D. (2010). Development of an autonomous helicopter for aerial powerline inspections. Int. Conf. Appl. Rob. Power Ind., CARPI. 2010 1st International Conference on Applied Robotics for the Power Industry, CARPI 2010. Scopus. https://doi.org/10.1109/CARPI.2010.5624432
+
+ICSTCC
+
+Takaya, K., Ohta, H., Kroumov, V., Shibayama, K., & Nakamura, M. (2019). Development of UAV system for autonomous power line inspection. In Precup R.-E. (Ed.), Int. Conf. Syst. Theory, Control Comput., ICSTCC - Proc. (pp. 762–767). Institute of Electrical and Electronics Engineers Inc.; Scopus. https://doi.org/10.1109/ICSTCC.2019.8885596
+
+ICUAS
+
+Hamelin, P., Miralles, F., Lambert, G., Lavoie, S., Pouliot, N., Montfrond, M., & Montambault, S. (2019). Discrete-time control of LineDrone: An assisted tracking and landing UAV for live power line inspection and maintenance. Int. Conf. Unmanned Aircr. Syst., ICUAS, 292–298. Scopus. https://doi.org/10.1109/ICUAS.2019.8798137
+
+ICMA
+
+Wang, H., Li, E., Yang, G., & Guo, R. (2019). Design of an Inspection Robot System with Hybrid Operation Modes for Power Transmission Lines. Proc. IEEE Int. Conf. Mechatronics Autom., ICMA, 2571–2576. Scopus. https://doi.org/10.1109/ICMA.2019.8816540
+
+
+
+---------------------------------
+Conference
+
+
+IJCNN International Joint Conference on Neural Networks
+
+IROS IEEE\RSJ International Conference on Intelligent Robots and Systems
+
+Euromicro Conference on Digital System Design
+---------------------------------
+Journal
+
+International Journal of Electrical Power & Energy Systems
+
+Energy Reports
+
+Electric Power Systems Research
+
+IEEE Transactions on Aerospace and Electronic Systems
+
+IEEE Transactions on Instrumentation and Measurement
+
+Computers and Electrical Engineering
+
+---------------------
+Researcher
+
+Yongjie Zhai - North China Electric Power University
+https://ieeexplore.ieee.org/author/37278658600
+https://ieeexplore.ieee.org/document/11059918
+
+Kaiming He
+https://ieeexplore.ieee.org/author/37085360867
+
+ARCAA Australian Research Centre for Aerospace Automation
+http://arcaa.aero/research/crc-spatial-information/

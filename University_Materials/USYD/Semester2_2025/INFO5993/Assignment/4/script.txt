@@ -1,0 +1,258 @@
+🟩 Slide 1 — Introduction (≈ 1 min)
+
+Hello everyone, my name is Lihang Shen, and my supervisor is Vera Chung.
+Today, I’ll be presenting my research project titled “Inspection of Power Lines Using UAVs.”
+
+Namely, this work explores how UAVs — or drones — can be used to automatically detect faults along power transmission lines. And drones is shown in this picture here.
+
+🟩 Slide 2 — Background (≈ 1.5 min)
+First of all, I want to give you some background information.
+
+So In recent years, with the rapid development of technology, our demand for electricity become higher and higher.
+
+For example, in China, the government is strongly promoting electric vehicles，and more and more people begin to using EV rather than using traditional cars. 
+
+Besides almost every household owns an electric bike — even in rural areas. 
+
+This rising of energy consumption requires 
+	more power plants, 
+	longer transmission lines,  
+	more maintenance.
+As the transmission lines expands, ensuring the reliability and safety of these power lines becomes more important.
+
+🟩 Slide 3 — Research Motivation (≈ 1.5 min)
+
+Traditionally, power line inspection has relied heavily on manual labor.
+Workers need to climb poles or towers to check the lines — this process is not only time-consuming but also extremely dangerous.
+
+Especially in remote mountain areas, access can be very difficult.
+The State Grid of China even emphasizes the rule of “safety over efficiency,” which shows how risky manual inspection can be.
+
+Moreover, if inspections are delayed, even a small defect could lead to line breakage or wildfires, resulting in huge economic losses.
+Therefore, developing an automatic UAV-based inspection system becomes both necessary and meaningful.
+
+Personally, I became interested in this topic because it perfectly combines computer vision, safety engineering, and real-world impact. And suit my carrer
+
+So next, I’ll explain why UAVs are the most suitable choice compared with other inspection platforms.
+
+🟩 Slide 4 — Comparison of Inspection Platforms (≈ 1 min)
+
+As shown here, this table compares several inspection methods — UAVs, land vehicles, aerial vehicles, fixed cameras, satellites, and inspection robots.
+
+From this comparison, we can see that UAVs strike the best balance.
+They are low-cost, efficient, safe, and offer good coverage.
+
+While tracking and navigation can be challenging, many studies have already proposed effective solutions — for instance, using vegetation color or line geometry to help distinguish power lines from the background.
+
+And based on this understanding, most recent research has focused on how to make UAV-based inspection more intelligent through computer vision and AI models.
+
+🟩 Slide 5 — Existing Research Areas (≈ 1 min)
+
+Currently, UAV-based inspection focuses on four main areas:
+
+Detection of power components
+
+Detection of power lines
+
+Detection of power towers
+
+Detection of defects
+
+Each of these tasks brings unique challenges — for example, detecting thin wires in complex backgrounds, or identifying small insulators from far distances.
+
+Among these, defect detection and component detection are particularly important, as they directly relate to system reliability.
+
+For instance, detecting whether an insulator is cracked or contaminated can prevent an entire section of the grid from short-circuiting.
+
+🟩 Slide 6 — Research Gap: Detection of Defects (≈ 1.5 min)
+
+When it comes to detecting defects, there are still major limitations.
+
+First, most algorithms depend solely on RGB images, which means hidden or internal defects may be missed.
+For example, a crack that is invisible to the human eye in an RGB image might be clearly visible in infrared imagery.
+
+Second, there’s a limited range of defect categories — most studies only focus on broken insulators, while other types such as corrosion, pollution, or loosened fittings are often ignored.
+
+These issues make it difficult for UAVs to perform consistent and reliable inspections under real-world conditions.
+
+And this brings us to my next point — how can we build a model that overcomes these gaps?
+
+🟩 Slide 8 — Research Objectives (≈ 1.5 min)
+
+My research aims to answer this question:
+
+“How can we develop a robust, generalizable, and efficient UAV-based defect detection framework that can identify both common and rare defects under diverse conditions?”
+
+To achieve this, I have two key objectives:
+
+Enhance existing datasets — by merging multiple open-source UAV datasets and applying image enhancement and augmentation to create a more balanced dataset.
+
+Develop a more robust model — by exploring new YOLO variants that include attention mechanisms and lightweight backbones for real-time UAV deployment.
+
+Together, these two objectives aim to make UAV inspections not only accurate in the lab, but also reliable in real-world environments.
+
+🟩 Slide 9 — Research Plan and Timeline (≈ 1.5 min)
+
+Finally, this is my overall research plan, which spans from December 2025 to May 2026.
+
+Stage 1: Prepare and enhance datasets through augmentation and curation.
+
+Stage 2: Develop and optimize YOLO-based models.
+
+Stage 3: Integrate multi-sensor data and simulate UAV deployment on a GPU to evaluate real-time performance.
+
+Stage 4: Conduct extensive testing under different weather and lighting conditions.
+
+Stage 5: Complete report writing and submission.
+
+Through this plan, I hope to design a practical and robust framework that enhances both safety and efficiency in power line inspection.
+
+In the long term, this research could contribute to fully autonomous power grid inspection, reducing human risk and maintenance costs significantly.
+
+Thank you for listenin
+
+
+
+
+
+
+
+
+
+
+**Slide 1 — Introduction**
+Hello everyone, my name is Lihang Shen, and my supervisor is Vera Chung.
+Today, I’ll be presenting my research project **“Inspection of Power Lines Using UAVs.”**
+This work explores how uavs, namely drones, can be used to automatically detect faults  along power transmission lines.
+
+---
+
+**Slide 2 — Background**
+In recent years, with the rapid development of technology, our demand for electricity has grown dramatically.
+In China, for example, the government has been actively promoting electric vehicles, and almost every household now owns electric bicycles — even in rural areas.
+At the same time, the increasing energy consumption in cities requires more power plants and longer transmission lines.
+As a result, the total coverage area of power lines has expanded significantly, making reliable inspection and maintenance more important than ever.
+
+---
+
+**Slide 3 — Research Motivation**
+Traditionally, inspection of power lines has relied on manual labor.
+Workers have to climb up poles or towers to check the lines, which is not only time-consuming but also extremely dangerous.
+This is especially true in remote mountain areas where access is difficult.
+The State Grid of China even emphasizes **safety over efficiency** rule, highlighting how risky manual inspections can be.
+Moreover, delayed or insufficient inspections can lead to line failures or even wildfires, causing massive economic losses.
+Therefore, developing an **automatic UAV-based inspection system** becomes both necessary and meaningful. And next I will explain why we use UAV not other method.
+
+---
+
+**Slide 4 — Comparison of Inspection Platforms**
+As you can see, This table compares several inspection methods: UAVs, land vehicles, aerial vehicles, fixed cameras, satellites, and inspection robots.
+From this comparison, we can see that **UAVs strike the best balance** — they are low-cost, efficient, safe, and have good coverage.
+Although tracking and navigation can be challenging, but there are already many paper solve this issue, such as use green plant to distinguish powerline. As a result, UAVs remain the most flexible and practical solution for general-purpose inspection tasks.
+
+---
+
+**Slide 5 — Existing Research Areas**
+Currently, UAV-based power line inspection research focuses on four main detection areas:
+
+1. **Detection of Power Components**
+2. **Detection of Power Lines**
+3. **Detection of Power Towers**
+4. **Detection of Defects**
+   Each of these tasks comes with its own challenges — for instance, as I mentioned before, in some circumstance power line is difficult to recognize. Among those areas, Detection of defects and power components are the most important since there are still many gaps.
+
+---
+
+**Slide 6 — Research Gap: Detection of Defects**
+For example, 
+
+most algorithm is RGB-only dependency and Surface-only detection which means hidden defects may be missed. However, if algorithm can recognize infrared image, then it might recognize more defects
+
+
+Another gap is the limitation of defect categories, current paper mainly focuse on few type of defects, such as insulator broken, but there are also many other defects can lead to power line failure.
+
+---
+
+
+**Slide 8 — Research Objectives**
+After find those gap. I would like to introduce my resaech question which is "how to develop a robust, generalizable, and efficient UAV-based insulator defect detection framework that can reliably identify both common and rare defects under diverse operational and environmental conditions, while supporting real-time deployment and multi-sensor data fusion.” For you to easy understand, the key point here is to enhance existing datasets which try to form a more complete dataset. Besides, developing a new variant of YOLO algorithm as YOLO is very popular in this research area.
+
+---
+
+**Slide 9 — Research Plan and Timeline**
+Finally, this is my overall research plan, which spans from **December 2025 to May 2026**.
+
+* In **Stage 1**, I will prepare and enhance datasets through augmentation and curation.
+* **Stage 2** focuses on developing and optimizing YOLO-based models.
+* In **Stage 3**, I’ll integrate multi-sensor data and simulate UAV edge deployment on a high-performance GPU to evaluate real-time performance before actual field tests.
+* **Stage 4** involves rigorous evaluation under various environmental conditions.
+* And **Stage 5** concludes with report writing and submission.
+
+Through this plan, I aim to design a practical and robust UAV-based insulator defect detection framework that enhances both safety and efficiency in power line inspection.
+
+this page list the reference for the image usage.
+
+Thank you for listening. I’d be happy to take any questions.
+
+
+
+
+总共9面ppt，演讲时间10分钟
+
+第一面
+	Hello, everyone my name is Lihang Shen, and my supervisor is Vera Chung
+	Today 介绍title “inspection power line by using UAVs”
+
+第二面
+	放3张用电量增大的图片，灯火通明的不夜城，大功率机械，电车
+	解释背景：随着今年来科技水平的发展，人们对于电的需求越来越大，比如在中国，政府大力推广电动汽车，以及几乎每家每户都有的电动自行车，这些甚至都普及到了偏远的农村。而城市用电的增加也增长了对于输电线路可靠性的要求，因为需要更多发电站来供给城市。这些无疑都增加了输电线路的长度和覆盖面积。
+	
+第三面
+	放三张图片：工人爬上电线杆进行检测，偏远山区的线缆，山火
+	我做这个研究的动机：因为输电线路的扩大，因此采用传统的人工检测已经很困难，有些线路处于偏远的山区，因此要进行经常检测的话费时费力。此外，检修线路并不安全，传统的人工需要人们爬到电线杆子上去查看，这是非常危险的，在中国，国家电网甚至把安全放在了效率前面，由此可见一斑。此外，不及时的检测可能会导致输电线路起火，如果附近正好有森林，很容易产生火灾，进而导致更严重的经济损失。为了避免上述情况，我觉得研究一个使用UAV来巡检的算法是最为合适的
+	
+第四面
+	一张对比各种方法的图片，具体内容如下，我要总结其中的重点
+	
+	| **Platform**          | **Cost** | **Tracking** | **Accuracy** | **Efficiency** | **Coverage** | **Safety** | **Usage**           |
+| --------------------- | -------- | ------------ | ------------ | -------------- | ------------ | ---------- | ------------------- |
+| **UAV**               | Low      | Difficult    | Good         | Fast           | Good         | Safe       | General purpose     |
+| **Land vehicles**     | Low      | Easy         | Good         | Slow           | Limited      | Safe       | Road-side lines     |
+| **Aerial vehicles**   | High     | Easy         | Bad          | Fast           | Good         | Unsafe     | Hard-to-reach areas |
+| **Fixed camera**      | High     | Easy         | Good         | N/A            | Limited      | Safe       | For towers          |
+| **Satellite**         | High     | Difficult    | Bad          | Slow           | Good         | N/A        | Hard-to-reach areas |
+| **Inspection robots** | High     | Easy         | Good         | Slow           | Limited      | Safe       | Detailed inspection |
+
+第五面
+	介绍目前四个 DetectionofPowerComponents DetectionofPowerLines DetectionofPowerTowers DetectionofDefect 以及对应的难点
+
+第六面
+	重点介绍DetectionofDefect，这是我的主要研究方向，因为这一块的gap还比较明显，即Insulator defect detection, in particular, faces additional challenges. Although YOLO
+based detectors and transfer learning strategies have improved small-defect detection and
+ cross-environment generalization, current methods remain strongly dependent on RGB
+ imagery and lack large-scale, standardized datasets that encompass diverse environmental
+ scenarios, lighting conditions, and defect types. Lightweight architectures and edge-cloud
+ deployment have facilitated real-time inspection, yet model performance still degrades
+ under extreme occlusion or rare defect categories, limiting reliability for autonomous UAV
+ operations. Furthermore, most approaches focus on surface-visible defects, neglecting the
+ potential for multi-sensor integration (e.g., infrared, LiDAR) to detect subtle or hidden
+ faults.
+
+第七面
+	图片：描述一下大致如何用UAV来巡检
+	
+	步骤为：用UAV收集数据->处理图片->使用诸如深度学习或机器学习的方法来分类图片中有用的部分->再用别的方法，比如深度学习来判断是否有问题
+	
+第八面
+	讲述我的objectives1. Enhancing existing dataset: Due to limited resources, building a completely
+ new dataset is challenging. However, I can merge existing open-source datasets, as
+ mentioned in [3], and apply image enhancement techniques to create a more diverse
+ and generalized dataset for model training.
+ 2. Discover a more robust model: Based on the literature review, YOLO-based
+ approaches have been increasingly recognized as effective for defect detection. I plan
+ to explore and experiment with novel YOLO variants identified in recent studies,
+ aiming to develop a more robust model with improved performance for insulator
+ defect detection.
+ 
+第九面
+	我的research plan，一个时间图
