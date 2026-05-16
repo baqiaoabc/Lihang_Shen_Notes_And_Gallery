@@ -338,24 +338,11 @@ class Buff:
         self.spawned_at = spawned_at
 
     def draw(self, surface: pygame.Surface, y_offset: int = 0):
-        """Render buff icon with color and shape cues."""
+        """Render buff icon."""
         color = BUFF_COLORS[self.buff_type]
         draw_rect = self.rect.move(0, y_offset)
         pygame.draw.rect(surface, color, draw_rect, border_radius=3)
         pygame.draw.rect(surface, (20, 20, 20), draw_rect, BUFF_BORDER, border_radius=3)
-
-        # Shape cue: size buffs use circles, speed buffs use arrows.
-        cx, cy = draw_rect.centerx, draw_rect.centery - 4
-        if self.buff_type in ("Big Paddle", "Small Paddle"):
-            radius = 5 if self.buff_type == "Big Paddle" else 3
-            pygame.draw.circle(surface, (20, 20, 20), (cx, cy), radius, 1)
-            if self.buff_type == "Big Paddle":
-                pygame.draw.circle(surface, (20, 20, 20), (cx, cy), 2)
-        else:
-            direction = 1 if self.buff_type == "Speed Boost" else -1
-            pygame.draw.line(surface, (20, 20, 20), (cx - 6 * direction, cy), (cx + 5 * direction, cy), 2)
-            pygame.draw.line(surface, (20, 20, 20), (cx + 5 * direction, cy), (cx + 1 * direction, cy - 3), 2)
-            pygame.draw.line(surface, (20, 20, 20), (cx + 5 * direction, cy), (cx + 1 * direction, cy + 3), 2)
 
 
 class Game:
@@ -398,7 +385,7 @@ class Game:
         self.puck = Puck()
         self.puck.set_base_speed(PUCK_SPEED)
 
-        self.state = STATE_TUTORIAL
+        self.state = STATE_START
         self.left_score = 0
         self.right_score = 0
         self.regulation_time_left = REGULATION_TIME
@@ -427,6 +414,7 @@ class Game:
         self.buff_mode_option_index = 0
         self.menu_actions = [
             "Start Match",
+            "Beginner Guide",
             "Regulation Time",
             "Map Mode",
             "Puck Speed",
@@ -502,6 +490,8 @@ class Game:
         action = self.menu_actions[self.menu_index]
         if action == "Start Match":
             self.start_new_match()
+        elif action == "Beginner Guide":
+            self.state = STATE_TUTORIAL
         elif action == "Quit Game":
             self.running = False
         else:
@@ -752,7 +742,7 @@ class Game:
         self.screen.blit(stat_line, (SCREEN_WIDTH // 2 - stat_line.get_width() // 2, panel_y + 46))
 
         if pygame.time.get_ticks() / 1000.0 <= self.controls_hint_until:
-            controls = "Left: W A S D   Right: Arrow Keys   R: Restart   ESC: Quit"
+            controls = "Left: W A S D   Right: Arrow Keys   R: Restart   ESC: Menu"
             hint = self.small_font.render(controls, True, SUBTEXT_COLOR)
             self.screen.blit(hint, (SCREEN_WIDTH // 2 - hint.get_width() // 2, panel_y + 72))
 
@@ -805,17 +795,18 @@ class Game:
         title = self.big_font.render("Chaos Air Hockey", True, TEXT_COLOR)
         self.screen.blit(title, (SCREEN_WIDTH // 2 - title.get_width() // 2, 70))
 
-        subtitle = self.small_font.render("Use Up/Down to select, Enter to confirm.", True, SUBTEXT_COLOR)
+        subtitle = self.small_font.render("Choose your settings, then start a local 2-player match.", True, SUBTEXT_COLOR)
         self.screen.blit(subtitle, (SCREEN_WIDTH // 2 - subtitle.get_width() // 2, 130))
-        helper = self.small_font.render("Press H for full tutorial", True, SUBTEXT_COLOR)
+        helper = self.small_font.render("Up/Down: Select   Enter: Confirm", True, SUBTEXT_COLOR)
         self.screen.blit(helper, (SCREEN_WIDTH // 2 - helper.get_width() // 2, 156))
 
-        menu_box = pygame.Rect(SCREEN_WIDTH // 2 - 260, 185, 520, 305)
+        menu_box = pygame.Rect(SCREEN_WIDTH // 2 - 310, 185, 620, 365)
         pygame.draw.rect(self.screen, (12, 18, 28), menu_box, border_radius=10)
         pygame.draw.rect(self.screen, (138, 154, 176), menu_box, 2, border_radius=10)
 
         option_labels = [
             "Start Match",
+            "Beginner Guide",
             f"Regulation Time: {self.format_countdown(REGULATION_TIME_OPTIONS[self.time_option_index])}",
             f"Map Mode: {MAP_MODE_OPTIONS[self.map_mode_option_index]}",
             f"Puck Speed: {PUCK_SPEED_OPTIONS[self.puck_speed_option_index]}",
@@ -829,61 +820,45 @@ class Game:
             prefix = "> " if idx == self.menu_index else "  "
             surf = self.font.render(prefix + line, True, color)
             self.screen.blit(surf, (SCREEN_WIDTH // 2 - surf.get_width() // 2, y))
-            y += 48
-
-        guide_lines = [
-            "How to Play:",
-            "Left Player: W A S D",
-            "Right Player: Arrow Keys",
-            "Hit the puck into the opponent goal to score.",
-            "Tie after regulation enters sudden-death overtime.",
-            "Buffs trigger only when puck collides with them.",
-        ]
-
-        y = 520
-        help_box = pygame.Rect(SCREEN_WIDTH // 2 - 330, 500, 660, 190)
-        pygame.draw.rect(self.screen, (10, 15, 24), help_box, border_radius=10)
-        pygame.draw.rect(self.screen, (120, 138, 160), help_box, 1, border_radius=10)
-        for i, line in enumerate(guide_lines):
-            color = TEXT_COLOR if i == 0 else SUBTEXT_COLOR
-            surf = self.small_font.render(line, True, color)
-            self.screen.blit(surf, (SCREEN_WIDTH // 2 - surf.get_width() // 2, y))
-            y += 28
+            y += 46
 
     def draw_tutorial_screen(self):
         """Draw full-screen tutorial and controls reference."""
         self.screen.fill((8, 12, 20))
 
-        title = self.big_font.render("Chaos Air Hockey - How To Play", True, TEXT_COLOR)
+        title = self.big_font.render("Chaos Air Hockey - Beginner Guide", True, TEXT_COLOR)
         self.screen.blit(title, (SCREEN_WIDTH // 2 - title.get_width() // 2, 36))
 
         lines = [
-            "Goal:",
-            "Score by hitting the puck into the opponent goal before regulation time ends.",
-            "Tie at end of regulation enters sudden-death overtime.",
+            "1. Main Goal:",
+            "Hit the puck into your opponent's goal to score.",
+            "The player with more goals when time ends wins.",
+            "If the score is tied, overtime starts and the next goal wins.",
             "",
-            "Controls:",
-            "Left Player: W A S D",
-            "Right Player: Arrow Keys",
-            "R: Restart match   ESC: Back to start menu",
+            "2. Controls:",
+            "Left Player moves with W A S D.",
+            "Right Player moves with the Arrow Keys.",
+            "R restarts the match. ESC returns to the start menu.",
             "",
-            "Buff Rules:",
-            "Buffs activate only when the puck touches them (not paddles).",
-            "The effect target depends on who touched the puck last.",
-            "Big Paddle / Small Paddle change paddle size.",
-            "Speed Boost / Slow Paddle change paddle movement speed.",
+            "3. During Play:",
+            "Move your paddle, block shots, and aim the puck.",
+            "After each goal, the game pauses for 3 seconds.",
+            "The puck starts still; the first paddle touch sends it moving.",
             "",
-            "Buff Spawn Mode (Start Menu option):",
-            "Standard: buffs every 10s in regulation, 5s in overtime.",
-            "Frequent: buffs every 7s in regulation, 4s in overtime.",
-            "Chaos: buffs every 5s in regulation, 3s in overtime.",
+            "4. Buffs:",
+            "Only the puck can collect buffs. Paddles cannot collect them.",
+            "The last player to touch the puck gets the buff effect.",
+            "Green makes your paddle bigger. Orange makes it smaller.",
+            "Blue makes your paddle faster. Red makes it slower.",
             "",
-            "Map Mode:",
-            "Random / Normal / Center Block / Double Block.",
+            "5. Start Menu Settings:",
+            "Regulation Time changes how long the match lasts.",
+            "Map Mode chooses the arena layout.",
+            "Puck Speed changes how fast the puck moves.",
+            "Buff Spawn Mode changes how often buffs appear.",
             "",
-            "After each goal:",
-            "Map resets, game pauses 3 seconds, then serve resumes with a stationary puck.",
-            "First paddle touch sets serve direction.",
+            "Tip:",
+            "New players should start with Normal Map, 90 seconds, and Standard buffs.",
         ]
 
         y = 110
@@ -969,8 +944,6 @@ class Game:
                         self.menu_index = (self.menu_index + 1) % len(self.menu_actions)
                     elif event.key in (pygame.K_RETURN, pygame.K_KP_ENTER):
                         self.activate_start_menu_option()
-                    elif event.key == pygame.K_h:
-                        self.state = STATE_TUTORIAL
                 elif self.state == STATE_GAME_OVER and event.key in (pygame.K_r, pygame.K_RETURN, pygame.K_SPACE):
                     self.start_new_match()
                 elif self.state in (STATE_PLAYING, STATE_OVERTIME, STATE_GOAL_PAUSE) and event.key == pygame.K_r:
