@@ -1,4 +1,4 @@
-"""Chaos Air Hockey - local two-player Pygame game."""
+"""Chaos Air Hockey - local two-player Pygame Game."""
 
 import math
 import random
